@@ -8,3 +8,4 @@ Thumbs.db
 
 # Gerado por `npm run fotos` (roda sozinho no prebuild) a partir de fotos-originais/
 public/fotos/
+*.tmp.mjs

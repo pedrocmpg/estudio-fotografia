@@ -1,6 +1,6 @@
 .faixa {
   overflow: hidden;
-  padding-block: clamp(1.25rem, 3vw, 2rem);
+  padding-block: clamp(1.75rem, 4vw, 3rem);
   border-block: 1px solid var(--linha);
   background: var(--bg);
 }
@@ -25,17 +25,20 @@
 .item {
   display: inline-flex;
   align-items: center;
-  gap: clamp(1.25rem, 3vw, 2.25rem);
-  padding-right: clamp(1.25rem, 3vw, 2.25rem);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  padding-right: clamp(1.5rem, 4vw, 3.25rem);
   font-family: var(--font-display);
   font-weight: var(--peso-display);
-  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-size: var(--fs-faixa);
+  line-height: 1.1;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
 .icone {
   flex: none;
+  width: 0.7em;
+  height: 0.7em;
   color: var(--accent);
 }
 

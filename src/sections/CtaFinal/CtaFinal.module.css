@@ -1,14 +1,24 @@
+/* CTA em tela cheia (full-bleed): a foto cobre a seção, sem caixa nem margens */
 .cta {
   position: relative;
   isolation: isolate;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  min-height: 80vh;
-  min-height: 80svh;
-  overflow: hidden;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: clip;
   color: var(--sobre-foto);
   text-align: center;
+}
+
+.cta[data-texto='topo'] {
+  justify-content: flex-start;
+}
+
+.cta[data-texto='baixo'] {
+  justify-content: flex-end;
 }
 
 .foto {
@@ -17,21 +27,26 @@
   z-index: 0;
 }
 
+/* Scrim só onde há texto: o assunto da foto fica sem escurecer */
 .scrim {
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 0.5);
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.3) 32%, transparent 58%);
 }
 
-/* Cortina reversa: painéis de --bg entram pelos lados e param em 12% da largura */
+.cta[data-texto='baixo'] .scrim {
+  background: linear-gradient(to top, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.3) 32%, transparent 58%);
+}
+
+/* Cortina reversa: painéis de --bg entram pelos lados, emolduram a foto e ficam (uma vez só) */
 .cortina {
   position: absolute;
   top: 0;
   bottom: 0;
   z-index: 1;
-  width: 12%;
+  width: 7%;
   background: var(--bg);
-  transition: transform var(--t-lento) var(--ease-saida);
+  transition: transform 900ms var(--ease-saida);
 }
 
 .esquerda {
@@ -55,17 +70,27 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  padding: clamp(4rem, 10vw, 7rem) calc(12% + 1rem);
+  padding: clamp(5rem, 14svh, 8rem) calc(7% + 1rem) clamp(4rem, 10svh, 7rem);
 }
 
 .titulo {
-  max-width: 14ch;
-  font-size: var(--fs-h2);
-  text-shadow: 0 2px 30px rgb(0 0 0 / 0.3);
+  max-width: 11ch;
+  font-size: var(--fs-titulo-secao);
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.35);
 }
 
 .texto {
   color: var(--sobre-foto-2);
+  text-shadow: 0 1px 16px rgb(0 0 0 / 0.4);
+}
+
+@media (min-width: 900px) {
+  .cortina {
+    width: 12%;
+  }
+  .conteudo {
+    padding-inline: calc(12% + 1rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

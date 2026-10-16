@@ -18,7 +18,11 @@
   --medida: 65ch;
 
   /* Escalas de presença (blocos B e F) */
-  --fs-hero: clamp(5rem, 22vw, 14rem);
+  --fs-hero: clamp(
+    6rem,
+    38vw,
+    14rem
+  ); /* nome curto de 3 letras: 38vw enche a tela (a spec sugeria 22vw para nomes longos) */
   --fs-titulo-secao: clamp(3rem, 9vw, 6rem);
   --fs-faixa: clamp(2.5rem, 7vw, 5rem);
   --espaco-secao: clamp(5rem, 12vh, 9rem);

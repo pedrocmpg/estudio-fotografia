@@ -275,8 +275,16 @@ export const siteConfigAlt: SiteConfig = {
     titulo: 'Dúvidas de teste',
     abertura: 'Abertura fictícia do FAQ de teste.',
     itens: [
-      { pergunta: 'Pergunta confirmada?', resposta: 'Resposta fictícia confirmada.', confirmada: true },
-      { pergunta: 'Pergunta de exemplo?', resposta: 'Resposta fictícia de exemplo.', confirmada: false },
+      {
+        pergunta: 'Pergunta confirmada?',
+        resposta: 'Resposta fictícia confirmada.',
+        confirmada: true,
+      },
+      {
+        pergunta: 'Pergunta de exemplo?',
+        resposta: 'Resposta fictícia de exemplo.',
+        confirmada: false,
+      },
     ],
   },
 

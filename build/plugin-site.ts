@@ -106,7 +106,7 @@ function tagsDoHead(ctx: Contexto, bundle?: Record<string, unknown>): HtmlTagDes
   if (destaques.length) {
     const regras = destaques.map(([tema, cor]) => {
       const texto = garantirContraste(cor, tokens[tema]['--bg']!);
-      return `html[data-theme='${tema}']{--accent:${cor};--accent-texto:${texto};--on-accent:${corSobre(cor)}}`;
+      return `html:root[data-theme='${tema}']{--accent:${cor};--accent-texto:${texto};--on-accent:${corSobre(cor)}}`;
     });
     tags.push({ tag: 'style', children: regras.join(''), injectTo: 'head' });
   }

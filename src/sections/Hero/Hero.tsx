@@ -4,7 +4,7 @@ import { CtaBotao } from '../../components/CtaBotao.tsx';
 import { Foto } from '../../components/Foto.tsx';
 import { Selo } from '../../components/Selo.tsx';
 import type { SiteConfig } from '../../config/types.ts';
-import { useReducedMotion, useRodando } from '../../motion/hooks.ts';
+import { useInView, useReducedMotion, useRodando } from '../../motion/hooks.ts';
 import { useIntro } from '../../motion/intro.tsx';
 import css from './Hero.module.css';
 
@@ -127,6 +127,9 @@ export function Hero() {
   const config = useSiteConfig();
   const { estado } = useIntro();
   const { hero, negocio } = config;
+  const secao = useRef<HTMLElement>(null);
+  // O indicador de rolagem só vale enquanto o hero ocupa quase toda a tela.
+  const heroInteiro = useInView(secao, { limiar: 0.85 });
   const rodando = estado.fase === 'rodando';
   const emCena = estado.fase !== 'concluida';
   const destaque = textoDestaque(config);
@@ -141,6 +144,7 @@ export function Hero() {
 
   return (
     <section
+      ref={secao}
       id="topo"
       className={css.hero}
       data-fase={estado.fase}
@@ -185,6 +189,10 @@ export function Hero() {
       {emCena && <Cortinas />}
 
       {config.modoDemo && !rodando && <Selo className={css.selo} />}
+
+      {!rodando && (
+        <span className={css.rolar} data-visivel={heroInteiro || undefined} aria-hidden="true" />
+      )}
 
       {rodando && hero.intro.mostrarContador && (
         <p className={css.contador} aria-hidden="true">

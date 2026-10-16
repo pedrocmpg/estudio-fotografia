@@ -28,15 +28,17 @@
   z-index: 0;
 }
 
+/* Escurecimento leve no miolo e vinheta só nas bordas: a foto continua a estrela */
 .scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgb(0 0 0 / calc(var(--scrim) * 1.1)) 0%,
-    rgb(0 0 0 / var(--scrim)) 45%,
-    rgb(0 0 0 / calc(var(--scrim) * 1.35)) 100%
-  );
+  background:
+    radial-gradient(
+      ellipse 85% 75% at 50% 48%,
+      transparent 45%,
+      rgb(0 0 0 / calc(var(--scrim) * 1.6)) 100%
+    ),
+    rgb(0 0 0 / calc(var(--scrim) * 0.55));
 }
 
 .hero[data-fundo='cor'] .scrim {
@@ -54,19 +56,25 @@
   align-items: center;
   justify-content: center;
   gap: clamp(0.75rem, 2vh, 1.25rem);
-  padding: calc(var(--altura-header) + 1rem) var(--gutter) 5.5rem;
+  padding: calc(var(--altura-header) + 1rem) var(--gutter) 6.5rem;
   text-align: center;
 }
 
 .nome {
-  font-size: var(--fs-display);
+  font-size: var(--fs-hero);
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--hero-cor);
 }
 
 .hero:not([data-fundo='cor']) .nome {
-  text-shadow: 0 2px 40px rgb(0 0 0 / 0.28);
+  text-shadow: 0 2px 48px rgb(0 0 0 / 0.4);
+}
+
+@media (min-width: 900px) {
+  .nome {
+    font-size: clamp(9rem, 20vw, 16rem);
+  }
 }
 
 .palavra {
@@ -327,6 +335,44 @@
   color: var(--sobre-foto);
 }
 
+/* Indicador de rolagem: uma linha fina, um loop curto, some ao rolar */
+.rolar {
+  position: absolute;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+  z-index: 3;
+  width: 1px;
+  height: 3rem;
+  background: var(--hero-cor-2);
+  transform-origin: top;
+  opacity: 0;
+  transition: opacity var(--t-base) ease;
+  pointer-events: none;
+}
+
+.rolar[data-visivel] {
+  opacity: 0.85;
+  animation: rolar 1.8s var(--ease-entrada-saida) 1s 1 both;
+}
+
+@keyframes rolar {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
 /* Selo da prévia: um só, no canto do hero, junto à base; nunca fixo sobre o conteúdo */
 .selo {
   position: absolute;
@@ -346,7 +392,18 @@
   .fotoPainel {
     transition: none;
   }
-  .luz {
+  .luz,
+  .rolar[data-visivel] {
     animation: none;
   }
+}
+
+/* O descendente do "y" não pode encostar no destaque */
+.nome {
+  padding-bottom: 0.12em;
+}
+
+.destaque {
+  max-width: 34ch;
+  text-wrap: balance;
 }

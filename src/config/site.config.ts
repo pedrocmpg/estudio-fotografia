@@ -232,7 +232,8 @@ export const siteConfig: SiteConfig = {
         frase: 'Para abraçar a lembrança no sofá de casa.',
         foto: 'prod-almofada',
         valor: null,
-        mensagemWhatsapp: 'Oi! Quero uma almofada personalizada com foto. Pode me passar as opções?',
+        mensagemWhatsapp:
+          'Oi! Quero uma almofada personalizada com foto. Pode me passar as opções?',
       },
       {
         id: 'polaroids',

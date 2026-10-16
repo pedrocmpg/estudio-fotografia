@@ -62,7 +62,9 @@ function temConteudo(config: SiteConfig, id: SecaoId): boolean {
       return config.presentes.mostrar && config.presentes.itens.length > 0;
     case 'manifesto':
       // Texto de exemplo só aparece na prévia; em produção a seção some até ser confirmado.
-      return config.manifesto.palavras.length > 0 && (config.modoDemo || config.manifesto.confirmado);
+      return (
+        config.manifesto.palavras.length > 0 && (config.modoDemo || config.manifesto.confirmado)
+      );
     case 'faq':
       return faqVisivel(config).length > 0;
     default:

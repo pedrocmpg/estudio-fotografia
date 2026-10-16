@@ -6,7 +6,7 @@ import { useInView, useReducedMotion } from '../../motion/hooks.ts';
 import css from './CtaFinal.module.css';
 
 /**
- * CTA final (SPEC §7.13): foto em tela cheia com scrim e, com `cortinaReversa`, dois painéis que
+ * CTA final (SPEC §7.13): foto em tela cheia (full-bleed), scrim só sob o texto e, com `cortinaReversa`, dois painéis que
  * vêm dos lados e emolduram a foto (12% de cada lado). Fecha o ciclo com a abertura; roda uma vez.
  */
 export function CtaFinal() {
@@ -23,6 +23,7 @@ export function CtaFinal() {
       id="comece"
       className={css.cta}
       data-fechada={fechada || undefined}
+      data-texto={ctaFinal.posicaoTexto ?? 'topo'}
       aria-labelledby="cta-final-titulo"
     >
       <div className={css.foto}>
