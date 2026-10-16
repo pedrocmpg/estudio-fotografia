@@ -23,6 +23,27 @@ export const siteConfigAlt: SiteConfig = {
     mapsUrl: 'https://maps.exemplo.test/rua-ficticia',
     whatsapp: '5500900000000',
     instagram: 'estudioexemplo',
+    redes: [
+      { rotulo: 'Estúdio de teste', usuario: 'estudioexemplo' },
+      { rotulo: 'Loja de teste', usuario: 'lojaexemplo' },
+    ],
+    assinatura: 'Loja de Mentira',
+    locais: [
+      {
+        id: 'estudio',
+        tipo: 'estudio',
+        rotulo: 'Estúdio fictício',
+        endereco: 'Rua Fictícia, 100',
+        mapsUrl: 'https://maps.exemplo.test/rua-ficticia',
+      },
+      {
+        id: 'loja',
+        tipo: 'loja',
+        rotulo: 'Loja fictícia',
+        endereco: 'Avenida Inventada, 200',
+        mapsUrl: 'https://maps.exemplo.test/avenida-inventada',
+      },
+    ],
     email: 'contato@exemplo.com',
     horarios: [{ dias: 'Seg a sex', horas: '09h às 18h' }],
     atendimento: ['estudio', 'externo', 'domicilio'],
@@ -39,6 +60,7 @@ export const siteConfigAlt: SiteConfig = {
     'intro',
     'faixa',
     'sessoes',
+    'presentes',
     'manifesto',
     'trabalhos',
     'antesDepois',
@@ -78,8 +100,9 @@ export const siteConfigAlt: SiteConfig = {
       mostrarContador: true,
       linhaDeLuz: true,
     },
-    fundoFinal: { tipo: 'foto', foto: 'fundo-final', scrim: 0.45 },
+    fundoFinal: { tipo: 'foto', foto: 'fundo-final', scrim: 0.3 },
     nome: 'Exemplo',
+    nomeGigante: false,
     destaque: {
       modo: 'cidade',
       texto: 'Fotografia em {cidade}',
@@ -117,21 +140,67 @@ export const siteConfigAlt: SiteConfig = {
     ],
   },
 
+  presentes: {
+    mostrar: true,
+    titulo: 'Presentes de teste',
+    destaqueRevelacao: { titulo: 'Revelação fictícia', texto: 'Texto fictício da revelação.' },
+    categorias: ['Categoria X', 'Categoria Y'],
+    itens: [
+      {
+        id: 'item-um',
+        nome: 'Produto Um',
+        categoria: 'Categoria X',
+        frase: 'Frase fictícia do produto um.',
+        foto: 'prod-caneca-branca',
+        valor: null,
+        mensagemWhatsapp: 'Mensagem fictícia do produto um & mais.',
+      },
+      {
+        id: 'item-dois',
+        nome: 'Produto Dois',
+        categoria: 'Categoria Y',
+        frase: 'Frase fictícia do produto dois.',
+        foto: 'prod-album',
+        valor: 80,
+        mensagemWhatsapp: 'Mensagem fictícia do produto dois.',
+      },
+      {
+        id: 'item-tres',
+        nome: 'Produto Três',
+        categoria: 'Categoria X',
+        frase: 'Frase fictícia do produto três.',
+        foto: 'prod-quadro',
+        valor: null,
+        mensagemWhatsapp: 'Mensagem fictícia do produto três.',
+      },
+    ],
+  },
+
   manifesto: {
-    texto: 'Texto de manifesto inventado só para os testes automatizados.',
-    palavrasDestaque: ['inventado'],
+    confirmado: false,
+    palavras: ['Alfa.', 'Beta.', 'Gama com frase maior.'],
+    citacao: 'Citação inventada só para os testes automatizados.',
+    fotos: ['marca-1', 'marca-2', 'retrato-3'],
   },
 
   trabalhos: {
     titulo: 'Galeria de teste',
+    colagem: [
+      'cortina-1d',
+      'cortina-2e',
+      'cortina-3e',
+      'fundo-final',
+      'pb-cortina-2d',
+      'casamento-1',
+    ],
     roda: {
       fotos: [
-        'ensaio-1',
-        'gestante-1',
-        'familia-1',
-        'casamento-1',
+        'cortina-1e',
+        'cortina-2d',
+        'cortina-3d',
+        'pb-cortina-2e',
+        'familia-2',
         'formatura-1',
-        'marca-1',
         'retrato-1',
         'retrato-2',
       ],
@@ -202,7 +271,14 @@ export const siteConfigAlt: SiteConfig = {
       'Olá, {nomeCurto}! Me chamo {nome}.\nTenho interesse em: {tipo}.\nData que eu pensei: {data}.\nLocal: {local}.\n{mensagem}',
   },
 
-  faq: [{ pergunta: 'Pergunta fictícia?', resposta: 'Resposta fictícia.' }],
+  faq: {
+    titulo: 'Dúvidas de teste',
+    abertura: 'Abertura fictícia do FAQ de teste.',
+    itens: [
+      { pergunta: 'Pergunta confirmada?', resposta: 'Resposta fictícia confirmada.', confirmada: true },
+      { pergunta: 'Pergunta de exemplo?', resposta: 'Resposta fictícia de exemplo.', confirmada: false },
+    ],
+  },
 
   ctaFinal: {
     titulo: 'Título final fictício',

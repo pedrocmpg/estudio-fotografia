@@ -3,13 +3,12 @@ import { lazy, Suspense } from 'react';
 import { PreviaProvider, useSiteConfig } from './apresentacao/previa.tsx';
 import { TemaEfeito } from './apresentacao/TemaEfeito.tsx';
 import { PuloDeConteudo } from './components/PuloDeConteudo.tsx';
-import { Selo } from './components/Selo.tsx';
 import { ConfigProvider } from './config/contexto.tsx';
 import { secoesAtivas } from './config/secoes.ts';
 import { siteConfig } from './config/site.config.ts';
 import type { SecaoId, SiteConfig } from './config/types.ts';
 import { parametrosDaUrl } from './lib/ambiente.ts';
-import { IntroProvider, useIntro } from './motion/intro.tsx';
+import { IntroProvider } from './motion/intro.tsx';
 import { CtaFinal } from './sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from './sections/Faixa/Faixa.tsx';
 import { Header } from './sections/Header/Header.tsx';
@@ -42,11 +41,8 @@ function Secao({ id }: { id: SecaoId }) {
 
 function Pagina() {
   const config = useSiteConfig();
-  const { estado } = useIntro();
   const secoes = secoesAtivas(config);
   const apresentar = config.modoDemo && parametrosDaUrl().get('apresentar') === '1';
-  // O selo fixo só aparece depois da abertura, para não competir com ela.
-  const mostrarSelo = config.modoDemo && estado.fase !== 'rodando';
 
   return (
     <>
@@ -62,11 +58,6 @@ function Pagina() {
       <Rodape />
       <WhatsappFlutuante />
       {config.tema.granulado && <div className="grao" aria-hidden="true" />}
-      {mostrarSelo && (
-        <div role="note">
-          <Selo flutuante />
-        </div>
-      )}
       {apresentar && (
         <Suspense fallback={null}>
           <Painel />

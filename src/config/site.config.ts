@@ -9,25 +9,33 @@ export const siteConfig: SiteConfig = {
   modoDemo: true,
 
   meta: {
-    titulo: 'Estúdio Ivy · Fotografia', // [CONFIRMAR grafia]
-    descricao: 'Ensaios, famílias, casamentos e marcas. Escolha sua sessão e peça pelo WhatsApp.', // [CONFIRMAR]
+    titulo: 'Ivy · Foto e Presente — Bento Gonçalves', // [CONFIRMAR grafia]
+    descricao:
+      'Ensaios, famílias, newborn e presentes personalizados com a sua foto. Peça sua sessão pelo WhatsApp.', // [CONFIRMAR]
     urlCanonica: 'https://ivystudio-b3x.pages.dev', // [CONFIRMAR] trocar pelo endereço final do deploy
     indexar: false,
   },
 
   negocio: {
-    nome: 'Estúdio Ivy', // [CONFIRMAR grafia] e se existe logo
+    nome: 'Ivy · Foto e Presente', // [CONFIRMAR grafia] e se estúdio e loja usam o mesmo nome
     nomeCurto: 'Ivy',
-    cidade: '[CIDADE]', // [CONFIRMAR]
-    uf: '[UF]', // [CONFIRMAR]
-    whatsapp: '5500000000000', // [CONFIRMAR] só dígitos, com DDI e DDD
+    assinatura: 'Foto e Presente', // [CONFIRMAR]
+    cidade: 'Bento Gonçalves', // [CONFIRMAR] visto no perfil público do Instagram
+    uf: 'RS', // [CONFIRMAR]
+    whatsapp: '5500000000000', // [CONFIRMAR] só dígitos, com DDI e DDD (o número público do perfil entra aqui)
     atendimento: ['estudio', 'externo'], // [CONFIRMAR]
-    // endereco, mapsUrl, instagram, email, horarios: [CONFIRMAR] — só aparecem quando preenchidos
+    // [CONFIRMAR] as duas contas de Instagram (estúdio e loja); só aparecem quando preenchidas:
+    // redes: [{ rotulo: 'Estúdio', usuario: '...' }, { rotulo: 'Loja', usuario: '...' }],
+    // [CONFIRMAR] estúdio e loja (podem ser o mesmo endereço): endereço, mapa, horários, WhatsApp:
+    // locais: [{ id: 'estudio', tipo: 'estudio', rotulo: 'Estúdio' }, { id: 'loja', tipo: 'loja', rotulo: 'Loja no shopping' }],
+    // email e horarios: [CONFIRMAR] — só aparecem quando preenchidos
   },
 
   tema: {
-    ativo: 'camara-escura',
+    ativo: 'luz-natural', // o mundo visual deles é acolhedor (adendo I.2); camara-escura segue disponível
     permitirTroca: false,
+    // marrom da marca, contraste testado: ≥ 5:1 com texto branco e sobre o creme
+    coresDestaque: { 'luz-natural': '#8A5A3B' }, // [CONFIRMAR] com o estúdio
     presetsDestaque: ['#E0A458', '#C8553D', '#7FA38A', '#D9C7A3', '#8FA9C9'],
     granulado: true,
   },
@@ -36,6 +44,7 @@ export const siteConfig: SiteConfig = {
     'intro',
     'faixa',
     'sessoes',
+    'presentes',
     'manifesto',
     'trabalhos',
     'antesDepois',
@@ -75,104 +84,204 @@ export const siteConfig: SiteConfig = {
       mostrarContador: true,
       linhaDeLuz: true,
     },
-    fundoFinal: { tipo: 'foto', foto: 'fundo-final', scrim: 0.45 },
+    fundoFinal: { tipo: 'foto', foto: 'fundo-final', scrim: 0.3 },
     nome: 'Ivy',
+    nomeGigante: false, // true testável no modo apresentação
     destaque: {
       modo: 'cidade',
-      texto: 'Fotografia em {cidade}',
+      texto: 'Fotografia e presentes personalizados em {cidade}',
       tagline: 'Fotografia com a sua cara.', // [CONFIRMAR] frase deles
-      itens: ['Ensaios', 'Casamentos', 'Newborn', 'Marcas'], // [CONFIRMAR categorias]
+      itens: ['Newborn', 'Família', 'Formaturas', 'Presentes'], // [CONFIRMAR categorias]
     },
-    subtitulo: 'Retratos, famílias, casamentos e marcas.', // [CONFIRMAR]
+    subtitulo: 'Da sessão ao presente, com a sua foto.', // [CONFIRMAR]
     ctas: {
-      primario: { rotulo: 'Pedir minha sessão', acao: 'pedido' },
-      secundario: { rotulo: 'Ver trabalhos', acao: 'ancora', alvo: 'trabalhos' },
+      primario: { rotulo: 'Pedir sessão', acao: 'pedido' },
+      secundario: { rotulo: 'Ver presentes', acao: 'ancora', alvo: 'presentes' },
     },
   },
 
   faixa: {
-    // [CONFIRMAR] tipos de sessão que realmente fazem
+    // [CONFIRMAR] fotografia e produtos, alternados
     itens: [
-      'Ensaios',
-      'Gestantes',
-      'Família',
       'Newborn',
-      'Casamentos',
-      '15 anos',
+      'Gestante',
+      'Família',
       'Formaturas',
-      'Marcas',
+      'Canecas',
+      'Álbuns',
+      'Polaroids',
+      'Quadros',
     ],
-    segundosPorVolta: 40,
+    segundosPorVolta: 56,
   },
 
   sessoes: {
     titulo: 'O que a Ivy fotografa', // [CONFIRMAR]
-    // [CONFIRMAR] categorias — o estúdio "faz de tudo"; confirmar o que entra
+    // [CONFIRMAR] categorias. Fotos de exemplo: o banco não tem smash nem tema gaúcho.
     itens: [
       {
-        id: 'ensaios',
-        nome: 'Ensaios pessoais',
-        frase: 'Retratos com a sua cara, no seu ritmo.',
-        fotos: ['ensaio-1', 'ensaio-2'],
+        id: 'newborn',
+        nome: 'Newborn',
+        frase: 'Os primeiros dias, com todo o cuidado.',
+        fotos: ['familia-2', 'pb-familia-1'],
       },
       {
         id: 'gestante',
         nome: 'Gestante e casal',
         frase: 'A espera, registrada com calma.',
-        fotos: ['gestante-1', 'gestante-2'],
+        fotos: ['gestante-2', 'gestante-1'],
       },
       {
         id: 'familia',
-        nome: 'Família, newborn e infantil',
-        frase: 'Os primeiros dias e os dias de todo dia.',
-        fotos: ['familia-1', 'familia-2'],
+        nome: 'Família',
+        frase: 'Todo mundo junto, do jeito que é.',
+        fotos: ['familia-1', 'pb-gestante-1'],
       },
       {
-        id: 'casamentos',
-        nome: 'Casamentos e eventos',
-        frase: 'Do preparativo à última dança.',
-        fotos: ['casamento-1', 'casamento-2'],
+        id: 'aniversario',
+        nome: 'Aniversário e smash',
+        frase: 'Um aninho que merece registro (e bagunça).',
+        fotos: ['pb-familia-2', 'retrato-1'],
       },
       {
-        id: 'quinze-formatura',
-        nome: '15 anos e formaturas',
-        frase: 'Uma data que merece ser lembrada.',
+        id: 'formatura',
+        nome: 'Formatura',
+        frase: 'Uma conquista que vale ficar na parede.',
         fotos: ['formatura-1', 'formatura-2'],
       },
       {
-        id: 'marcas',
-        nome: 'Marcas, produtos e corporativo',
-        frase: 'Imagem profissional para o seu negócio.',
-        fotos: ['marca-1', 'marca-2'],
+        id: 'ensaio',
+        nome: 'Ensaio pessoal',
+        frase: 'Retratos com a sua cara, no seu ritmo.',
+        fotos: ['ensaio-1', 'pb-retrato-2'],
+      },
+      {
+        id: 'tematicos',
+        nome: 'Temáticos',
+        frase: 'Cenário e figurino para uma data especial.',
+        fotos: ['ensaio-2', 'retrato-2'],
+      },
+      {
+        id: 'eventos',
+        nome: 'Eventos',
+        frase: 'Do preparativo à última dança.',
+        fotos: ['casamento-1', 'casamento-2'],
+      },
+    ],
+  },
+
+  presentes: {
+    mostrar: true,
+    titulo: 'Presentes com a sua foto', // [CONFIRMAR]
+    destaqueRevelacao: {
+      titulo: 'Revelação na hora', // [CONFIRMAR] diferencial da loja física no shopping
+      texto: 'Traga a foto do celular e leve para casa na hora.',
+    },
+    categorias: ['Canecas', 'Álbuns e porta-retratos', 'Quadros', 'Para vestir', 'Lembranças'],
+    // [CONFIRMAR] itens, textos e valores (null = "[VALOR]" na prévia, "Consulte" no site final)
+    itens: [
+      {
+        id: 'caneca-branca',
+        nome: 'Caneca branca',
+        categoria: 'Canecas',
+        frase: 'Clássica, com a sua foto ou frase estampada.',
+        foto: 'prod-caneca-branca',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero uma caneca personalizada. Pode me passar as opções?',
+      },
+      {
+        id: 'caneca-personalizada',
+        nome: 'Caneca personalizada',
+        categoria: 'Canecas',
+        frase: 'Com nomes, desenhos e a foto que você escolher.',
+        foto: 'prod-caneca-personalizada',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero uma caneca com nomes e foto. Como funciona?',
+      },
+      {
+        id: 'album',
+        nome: 'Álbum de fotos',
+        categoria: 'Álbuns e porta-retratos',
+        frase: 'As melhores fotos reunidas para folhear.',
+        foto: 'prod-album',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero montar um álbum de fotos. Pode me ajudar?',
+      },
+      {
+        id: 'porta-retrato',
+        nome: 'Porta-retratos',
+        categoria: 'Álbuns e porta-retratos',
+        frase: 'A moldura certa para a foto que merece ficar à vista.',
+        foto: 'prod-porta-retrato',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero um porta-retratos com a minha foto. Quais modelos vocês têm?',
+      },
+      {
+        id: 'quadro',
+        nome: 'Quadro',
+        categoria: 'Quadros',
+        frase: 'Sua foto impressa e emoldurada, pronta para a parede.',
+        foto: 'prod-quadro',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero transformar uma foto em quadro. Como funciona?',
+      },
+      {
+        id: 'almofada',
+        nome: 'Almofada',
+        categoria: 'Para vestir',
+        frase: 'Para abraçar a lembrança no sofá de casa.',
+        foto: 'prod-almofada',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero uma almofada personalizada com foto. Pode me passar as opções?',
+      },
+      {
+        id: 'polaroids',
+        nome: 'Polaroids',
+        categoria: 'Lembranças',
+        frase: 'Pequenas, para guardar ou presentear.',
+        foto: 'prod-polaroids',
+        valor: null,
+        mensagemWhatsapp: 'Oi! Quero revelar fotos em formato polaroid. Como funciona?',
       },
     ],
   },
 
   manifesto: {
-    // [CONFIRMAR — escrever com o estúdio]
-    texto:
-      'A gente não pede pra você posar. A gente espera o momento em que você esquece que tem uma câmera ali.',
-    palavrasDestaque: ['esquece', 'câmera'],
+    // [CONFIRMAR — escrever com o estúdio]. Texto de exemplo, original.
+    confirmado: false,
+    palavras: ['Momentos.', 'Memórias.', 'Presentes que contam a sua história.'],
+    citacao: 'Foto boa merece sair da galeria do celular.',
+    fotos: ['marca-1', 'marca-2', 'retrato-3'],
   },
 
   trabalhos: {
     titulo: 'Trabalhos',
+    colagem: [
+      'cortina-1d',
+      'cortina-2e',
+      'cortina-3e',
+      'fundo-final',
+      'pb-cortina-2d',
+      'casamento-1',
+      'formatura-1',
+    ],
     roda: {
       fotos: [
-        'ensaio-1',
-        'gestante-1',
+        'cortina-1e',
+        'cortina-2d',
+        'cortina-3d',
+        'pb-cortina-2e',
         'familia-1',
-        'casamento-1',
-        'formatura-1',
-        'marca-1',
+        'gestante-1',
+        'ensaio-2',
         'retrato-1',
-        'retrato-2',
-        'retrato-3',
+        'casamento-2',
+        'formatura-2',
       ],
-      segundosPorVolta: 60,
+      segundosPorVolta: 70,
     },
     folha: {
-      categorias: ['Ensaios', 'Família', 'Eventos', 'Marcas'],
+      categorias: ['Ensaios', 'Família', 'Eventos'],
       fotos: [
         { id: 'ensaio-1', categoria: 'Ensaios', marcada: true },
         { id: 'ensaio-2', categoria: 'Ensaios' },
@@ -186,9 +295,6 @@ export const siteConfig: SiteConfig = {
         { id: 'casamento-2', categoria: 'Eventos', marcada: true },
         { id: 'formatura-1', categoria: 'Eventos' },
         { id: 'formatura-2', categoria: 'Eventos' },
-        { id: 'marca-1', categoria: 'Marcas' },
-        { id: 'marca-2', categoria: 'Marcas' },
-        { id: 'retrato-3', categoria: 'Marcas' },
       ],
     },
     mostrarDadosTecnicos: false,
@@ -219,7 +325,7 @@ export const siteConfig: SiteConfig = {
         inclui: ['[CONFIRMAR]'],
         entrega: '[CONFIRMAR]',
         valor: null,
-        sessaoId: 'ensaios',
+        sessaoId: 'ensaio',
       },
       {
         id: 'completo',
@@ -228,16 +334,16 @@ export const siteConfig: SiteConfig = {
         inclui: ['[CONFIRMAR]'],
         entrega: '[CONFIRMAR]',
         valor: null,
-        sessaoId: 'ensaios',
+        sessaoId: 'ensaio',
       },
       {
         id: 'evento',
         nome: 'Evento',
-        paraQuem: 'Para casamentos, 15 anos e formaturas.',
+        paraQuem: 'Para formaturas, aniversários e outras datas.',
         inclui: ['[CONFIRMAR]'],
         entrega: '[CONFIRMAR]',
         valor: null,
-        sessaoId: 'casamentos',
+        sessaoId: 'eventos',
       },
     ],
   },
@@ -251,21 +357,60 @@ export const siteConfig: SiteConfig = {
       'Olá, {nomeCurto}! Me chamo {nome}.\nTenho interesse em: {tipo}.\nData que eu pensei: {data}.\nLocal: {local}.\n{mensagem}',
   },
 
-  // [CONFIRMAR] todas as respostas
-  faq: [
-    { pergunta: 'Em quanto tempo recebo as fotos?', resposta: '[CONFIRMAR]' },
-    { pergunta: 'Quantas fotos vêm editadas?', resposta: '[CONFIRMAR]' },
-    { pergunta: 'Vocês fazem sessão externa / fora da cidade?', resposta: '[CONFIRMAR]' },
-    { pergunta: 'Precisa pagar sinal para reservar?', resposta: '[CONFIRMAR]' },
-    { pergunta: 'Como escolho roupa e local?', resposta: '[CONFIRMAR]' },
-    { pergunta: 'E se chover no dia?', resposta: '[CONFIRMAR]' },
-  ],
+  // [CONFIRMAR] todas as respostas (nada aqui é promessa de prazo ou preço)
+  faq: {
+    titulo: 'Dúvidas', // [CONFIRMAR]
+    abertura: 'Imaginei que você ia perguntar. Então respondi antes.', // [CONFIRMAR]
+    itens: [
+      {
+        pergunta: 'Quanto tempo leva para ficar pronto?',
+        resposta: '[CONFIRMAR] Depende do produto. Fala com a gente e combinamos o prazo certinho.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'Dá para levar a foto do celular?',
+        resposta: '[CONFIRMAR] A ideia é essa: você traz a foto e a gente cuida do resto.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'Vocês imprimem na hora?',
+        resposta: '[CONFIRMAR] Na loja, a revelação é na hora. Confirmamos como funciona.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'Quais formas de pagamento?',
+        resposta: '[CONFIRMAR] A gente te conta na conversa.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'Em quanto tempo recebo as fotos da sessão?',
+        resposta: '[CONFIRMAR] O prazo varia conforme o tipo de sessão. Combinamos antes.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'Vocês fazem sessão fora do estúdio?',
+        resposta: '[CONFIRMAR] Conta para a gente o que você imaginou e vemos juntos.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'Precisa pagar sinal para reservar?',
+        resposta: '[CONFIRMAR] Explicamos como funciona a reserva na conversa.',
+        confirmada: false,
+      },
+      {
+        pergunta: 'E se chover no dia?',
+        resposta: '[CONFIRMAR] A gente remarca com você. Fica tranquilo.',
+        confirmada: false,
+      },
+    ],
+  },
 
   ctaFinal: {
     titulo: 'Vamos marcar a sua sessão?', // [CONFIRMAR]
     foto: 'cta-final',
     cortinaReversa: true,
-    cta: { rotulo: 'Pedir minha sessão', acao: 'pedido' },
+    posicaoTexto: 'topo', // o céu da foto é a área calma
+    cta: { rotulo: 'Pedir sessão', acao: 'pedido' },
   },
 
   analytics: { provedor: 'nenhum' },

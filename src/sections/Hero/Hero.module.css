@@ -327,6 +327,17 @@
   color: var(--sobre-foto);
 }
 
+/* Selo da prévia: um só, no canto do hero, junto à base; nunca fixo sobre o conteúdo */
+.selo {
+  position: absolute;
+  left: var(--gutter);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1.25rem);
+  z-index: 3;
+  color: var(--hero-cor-2);
+  border-color: color-mix(in srgb, var(--hero-cor) 35%, transparent);
+  background: rgb(0 0 0 / 0.25);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .glifo,
   .revelavel,

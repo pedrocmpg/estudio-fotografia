@@ -9,16 +9,3 @@
   text-transform: uppercase;
   color: var(--text-2);
 }
-
-.flutuante {
-  position: fixed;
-  left: 50%;
-  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
-  transform: translateX(-50%);
-  z-index: 80;
-  pointer-events: none;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  white-space: nowrap;
-}

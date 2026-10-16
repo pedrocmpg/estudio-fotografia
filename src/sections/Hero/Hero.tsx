@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useSiteConfig } from '../../apresentacao/previa.tsx';
 import { CtaBotao } from '../../components/CtaBotao.tsx';
 import { Foto } from '../../components/Foto.tsx';
+import { Selo } from '../../components/Selo.tsx';
 import type { SiteConfig } from '../../config/types.ts';
 import { useReducedMotion, useRodando } from '../../motion/hooks.ts';
 import { useIntro } from '../../motion/intro.tsx';
@@ -182,6 +183,8 @@ export function Hero() {
       </div>
 
       {emCena && <Cortinas />}
+
+      {config.modoDemo && !rodando && <Selo className={css.selo} />}
 
       {rodando && hero.intro.mostrarContador && (
         <p className={css.contador} aria-hidden="true">

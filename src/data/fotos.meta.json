@@ -421,6 +421,20 @@
     "tratamento": "pb"
   },
   {
+    "id": "pb-retrato-2",
+    "arquivo": "XgMSx918Uh4.jpg",
+    "alt": "Homem de moletom olhando para o céu entre árvores, em preto e branco",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/XgMSx918Uh4)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true,
+    "tratamento": "pb"
+  },
+  {
     "id": "prod-caneca-branca",
     "arquivo": "prod-caneca-branca.jpg",
     "alt": "Xícara branca de café com grãos e um pote de café moído sobre uma mesa de madeira",

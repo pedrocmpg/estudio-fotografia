@@ -672,6 +672,27 @@
     "hash": "70bb1a81dd1f7b0e"
   },
   {
+    "id": "pb-retrato-2",
+    "largura": 2400,
+    "altura": 3000,
+    "proporcao": 0.8,
+    "src": "/fotos/pb-retrato-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/pb-retrato-2-480.avif 480w, /fotos/pb-retrato-2-960.avif 960w, /fotos/pb-retrato-2-1600.avif 1600w, /fotos/pb-retrato-2-2400.avif 2400w",
+      "webp": "/fotos/pb-retrato-2-480.webp 480w, /fotos/pb-retrato-2-960.webp 960w, /fotos/pb-retrato-2-1600.webp 1600w, /fotos/pb-retrato-2-2400.webp 2400w",
+      "jpg": "/fotos/pb-retrato-2-480.jpg 480w, /fotos/pb-retrato-2-960.jpg 960w, /fotos/pb-retrato-2-1600.jpg 1600w, /fotos/pb-retrato-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JaQAAUz34WZJi+dqki5HMAAD+8jVXiV9+9/34JLYc5Qbey7A1YSaoMlftfhSciqIxBF1drHbO9ii9E7uv41pzqDeR4bbEKGzobkQFlWDewuNt5KAAAA==",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Homem de moletom olhando para o céu entre árvores, em preto e branco",
+    "placeholderGerado": false,
+    "hash": "f0fb12e92ae3cda9"
+  },
+  {
     "id": "prod-caneca-branca",
     "largura": 2965,
     "altura": 2363,

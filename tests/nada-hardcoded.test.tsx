@@ -32,7 +32,7 @@ describe('nada hardcoded', () => {
       siteConfig.hero.destaque.tagline,
       siteConfig.sessoes.titulo,
       siteConfig.ctaFinal.titulo,
-      siteConfig.manifesto.texto,
+      siteConfig.manifesto.citacao,
       siteConfig.meta.titulo,
     ].filter((s): s is string => Boolean(s));
 

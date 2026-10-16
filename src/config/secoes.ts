@@ -22,6 +22,8 @@ interface InfoSecao {
 export const INFO_SECOES: Partial<Record<SecaoId, InfoSecao>> = {
   intro: { ancora: 'topo', rotulo: 'Início', navegacao: false },
   sessoes: { ancora: 'sessoes', rotulo: 'Sessões', navegacao: true },
+  presentes: { ancora: 'presentes', rotulo: 'Presentes', navegacao: true },
+  manifesto: { ancora: 'manifesto', rotulo: 'Manifesto', navegacao: false },
   trabalhos: { ancora: 'trabalhos', rotulo: 'Trabalhos', navegacao: true },
   processo: { ancora: 'como-funciona', rotulo: 'Como funciona', navegacao: true },
   pacotes: { ancora: 'pacotes', rotulo: 'Pacotes', navegacao: true },
@@ -34,6 +36,7 @@ export const INFO_SECOES: Partial<Record<SecaoId, InfoSecao>> = {
 /** Seções com título editorial numerado (01 — SESSÕES, 02 — TRABALHOS…). */
 const NUMERADAS: readonly SecaoId[] = [
   'sessoes',
+  'presentes',
   'trabalhos',
   'processo',
   'pacotes',
@@ -41,6 +44,11 @@ const NUMERADAS: readonly SecaoId[] = [
   'pedido',
   'faq',
 ];
+
+/** Perguntas que aparecem: respostas de exemplo só na prévia. */
+export function faqVisivel(config: SiteConfig) {
+  return config.faq.itens.filter((i) => config.modoDemo || i.confirmada);
+}
 
 function temConteudo(config: SiteConfig, id: SecaoId): boolean {
   switch (id) {
@@ -50,6 +58,13 @@ function temConteudo(config: SiteConfig, id: SecaoId): boolean {
       return config.sessoes.itens.length > 0;
     case 'trabalhos':
       return config.trabalhos.roda.fotos.length > 0;
+    case 'presentes':
+      return config.presentes.mostrar && config.presentes.itens.length > 0;
+    case 'manifesto':
+      // Texto de exemplo só aparece na prévia; em produção a seção some até ser confirmado.
+      return config.manifesto.palavras.length > 0 && (config.modoDemo || config.manifesto.confirmado);
+    case 'faq':
+      return faqVisivel(config).length > 0;
     default:
       return true;
   }

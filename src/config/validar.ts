@@ -16,6 +16,7 @@ const SECOES: SecaoId[] = [
   'intro',
   'faixa',
   'sessoes',
+  'presentes',
   'manifesto',
   'trabalhos',
   'antesDepois',
@@ -45,7 +46,10 @@ export function coletarFotos(c: SiteConfig): { id: string; onde: string }[] {
   c.sessoes.itens.forEach((s, i) =>
     s.fotos.forEach((f, j) => add(f, `sessoes.itens[${i}].fotos[${j}]`)),
   );
+  c.trabalhos.colagem.forEach((f, i) => add(f, `trabalhos.colagem[${i}]`));
   c.trabalhos.roda.fotos.forEach((f, i) => add(f, `trabalhos.roda.fotos[${i}]`));
+  c.presentes.itens.forEach((p, i) => add(p.foto, `presentes.itens[${i}].foto`));
+  c.manifesto.fotos.forEach((f, i) => add(f, `manifesto.fotos[${i}]`));
   c.trabalhos.folha.fotos.forEach((f, i) => add(f.id, `trabalhos.folha.fotos[${i}]`));
   c.antesDepois.forEach((p, i) => {
     add(p.antes, `antesDepois[${i}].antes`);
@@ -54,6 +58,30 @@ export function coletarFotos(c: SiteConfig): { id: string; onde: string }[] {
   c.depoimentos.forEach((d, i) => add(d.foto, `depoimentos[${i}].foto`));
   add(c.ctaFinal.foto, 'ctaFinal.foto');
   return lista;
+}
+
+/** Fotos de cada seção que mostra foto, na ordem em que aparecem na página. */
+export function fotosPorSecao(c: SiteConfig): { secao: SecaoId; ids: Set<string> }[] {
+  const por: Partial<Record<SecaoId, string[]>> = {
+    intro: [
+      ...[...c.hero.intro.camadas, ...(c.hero.intro.camadasOpcionais ?? [])].flatMap((cam) =>
+        [cam.esquerda, cam.direita, cam.esquerdaMobile, cam.direitaMobile].filter(
+          (id): id is string => Boolean(id),
+        ),
+      ),
+      ...(c.hero.fundoFinal.tipo === 'foto' && c.hero.fundoFinal.foto
+        ? [c.hero.fundoFinal.foto]
+        : []),
+    ],
+    sessoes: c.sessoes.itens.flatMap((s) => s.fotos.filter((f): f is string => Boolean(f))),
+    presentes: c.presentes.mostrar ? c.presentes.itens.map((p) => p.foto) : [],
+    manifesto: c.manifesto.fotos,
+    trabalhos: [...c.trabalhos.colagem, ...c.trabalhos.roda.fotos],
+    ctaFinal: [c.ctaFinal.foto],
+  };
+  return c.secoes
+    .filter((id) => por[id] && por[id]!.length > 0)
+    .map((id) => ({ secao: id, ids: new Set(por[id]) }));
 }
 
 export function validarConfig(c: SiteConfig, manifesto: FotoNoManifesto[]): ResultadoValidacao {
@@ -113,6 +141,44 @@ export function validarConfig(c: SiteConfig, manifesto: FotoNoManifesto[]): Resu
     if (!f) erro(`${onde}: foto "${id}" não existe no manifest (rode npm run fotos).`);
     else if (!f.alt.trim()) erro(`${onde}: foto "${id}" está sem texto alternativo (alt).`);
   }
+
+  // nenhuma foto repete em seções vizinhas
+  const blocos = fotosPorSecao(c);
+  for (let i = 1; i < blocos.length; i++) {
+    const repetidas = [...blocos[i]!.ids].filter((id) => blocos[i - 1]!.ids.has(id));
+    if (repetidas.length) {
+      erro(
+        `fotos repetidas em seções vizinhas (${blocos[i - 1]!.secao} e ${blocos[i]!.secao}): ${repetidas.join(', ')}.`,
+      );
+    }
+  }
+  for (const s of c.sessoes.itens) {
+    if (s.fotos[1] && s.fotos[0] === s.fotos[1]) erro(`sessoes.${s.id}: as duas fotos são iguais.`);
+  }
+  const colagem = c.trabalhos.colagem.length;
+  if (colagem < 6 || colagem > 8) aviso(`trabalhos.colagem: ${colagem} fotos (o ideal são 6 a 8).`);
+  const rodaSet = new Set(c.trabalhos.roda.fotos);
+  if (c.trabalhos.colagem.some((id) => rodaSet.has(id))) {
+    erro('trabalhos: a colagem e a roda não devem repetir fotos.');
+  }
+
+  // presentes
+  const idsItem = new Set<string>();
+  for (const p of c.presentes.itens) {
+    if (idsItem.has(p.id)) erro(`presentes: id "${p.id}" repetido.`);
+    idsItem.add(p.id);
+    if (!c.presentes.categorias.includes(p.categoria)) {
+      erro(`presentes.${p.id}: categoria "${p.categoria}" não está em presentes.categorias.`);
+    }
+    if (p.valor !== null && p.valor < 0) erro(`presentes.${p.id}: valor negativo.`);
+    if (!p.mensagemWhatsapp.trim()) erro(`presentes.${p.id}: mensagemWhatsapp obrigatória.`);
+  }
+  if (c.presentes.mostrar && (c.presentes.itens.length < 6 || c.presentes.itens.length > 10)) {
+    aviso(`presentes.itens: ${c.presentes.itens.length} itens (o ideal são 6 a 10).`);
+  }
+
+  // manifesto
+  if (c.manifesto.palavras.length < 2) aviso('manifesto.palavras: o ideal são 2 a 4 palavras.');
 
   // hero / intro
   const intro = c.hero.intro;

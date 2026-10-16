@@ -4,6 +4,7 @@ export type SecaoId =
   | 'intro'
   | 'faixa'
   | 'sessoes'
+  | 'presentes'
   | 'manifesto'
   | 'trabalhos'
   | 'antesDepois'
@@ -52,7 +53,21 @@ export interface SiteConfig {
     endereco?: string;
     mapsUrl?: string; // link "Abrir no mapa" (sem embed pesado)
     whatsapp: string; // só dígitos com DDI, ex. 5500900000000
-    instagram?: string; // sem @
+    instagram?: string; // sem @ (use `redes` quando houver mais de uma conta)
+    /** Contas de Instagram com rótulo ("Estúdio", "Loja"), mostradas no rodapé. */
+    redes?: { rotulo: string; usuario: string }[]; // usuario sem @
+    /** Complemento do nome de marca em letras pequenas ("Foto e Presente"). */
+    assinatura?: string;
+    /** Pontos de atendimento: estúdio e loja podem ser o mesmo endereço. */
+    locais?: {
+      id: string;
+      tipo: 'estudio' | 'loja';
+      rotulo: string; // "Estúdio", "Loja no shopping"
+      endereco?: string;
+      mapsUrl?: string; // "Abrir no mapa" (sem iframe)
+      horarios?: { dias: string; horas: string }[];
+      whatsapp?: string;
+    }[];
     email?: string;
     horarios?: { dias: string; horas: string }[];
     atendimento: ('estudio' | 'externo' | 'domicilio')[];
@@ -87,6 +102,8 @@ export interface SiteConfig {
     };
     fundoFinal: { tipo: 'foto' | 'cor'; foto?: FotoId; scrim: number }; // scrim 0–1
     nome: string;
+    /** Nome enorme na parte baixa do hero, cortado pela borda (o h1 continua texto real). */
+    nomeGigante: boolean;
     destaque: {
       modo: 'cidade' | 'tagline' | 'rotativo';
       texto?: string; // cidade: "Fotografia em {cidade}"; tagline: frase (se não houver `tagline`)
@@ -102,13 +119,46 @@ export interface SiteConfig {
 
   sessoes: {
     titulo: string;
-    itens: { id: string; nome: string; frase: string; fotos: [FotoId, FotoId?] }[];
+    itens: {
+      id: string;
+      nome: string;
+      frase: string;
+      fotos: [FotoId, FotoId?];
+      /** Onde o nome gigante fica sobre a foto no celular; "topo" quando o rosto está embaixo. */
+      posicaoTitulo?: 'baixo' | 'topo';
+    }[];
   };
 
-  manifesto: { texto: string; palavrasDestaque: string[] };
+  /** Loja: produtos personalizados com a foto do cliente (adendo I.3). */
+  presentes: {
+    mostrar: boolean;
+    titulo: string;
+    destaqueRevelacao?: { titulo: string; texto: string }; // "Revelação na hora"
+    categorias: string[];
+    itens: {
+      id: string;
+      nome: string;
+      categoria: string;
+      frase: string;
+      foto: FotoId;
+      valor: number | null; // null → "[VALOR]" na demo / "Consulte" em produção
+      mensagemWhatsapp: string;
+    }[];
+  };
+
+  /** Manifesto: frase que troca palavra por palavra ao rolar, citação e fotos soltas. */
+  manifesto: {
+    /** false = texto de exemplo; com modoDemo desligado a seção some. */
+    confirmado: boolean;
+    palavras: string[]; // "Momentos." / "Memórias." / "Presentes que contam a sua história."
+    citacao: string; // texto original, nunca de terceiros
+    fotos: FotoId[]; // 2 a 3
+  };
 
   trabalhos: {
     titulo: string;
+    /** Mesa de fotos soltas com parallax, antes da roda (6 a 8 fotos). */
+    colagem: FotoId[];
     roda: { fotos: FotoId[]; segundosPorVolta: number }; // 8–10 fotos
     folha: {
       categorias: string[]; // abas de filtro
@@ -153,9 +203,27 @@ export interface SiteConfig {
     modeloMensagem: string;
   };
 
-  faq: { pergunta: string; resposta: string }[];
+  faq: {
+    titulo: string;
+    /** Frase de abertura com personalidade. */
+    abertura: string;
+    itens: {
+      pergunta: string;
+      resposta: string;
+      /** false = resposta de exemplo: some em produção e fica fora do JSON-LD. */
+      confirmada: boolean;
+    }[];
+  };
 
-  ctaFinal: { titulo: string; texto?: string; foto: FotoId; cortinaReversa: boolean; cta: Cta };
+  ctaFinal: {
+    titulo: string;
+    texto?: string;
+    foto: FotoId;
+    cortinaReversa: boolean;
+    cta: Cta;
+    /** Onde o texto fica sobre a foto (a área calma). Padrão: topo. */
+    posicaoTexto?: 'topo' | 'baixo';
+  };
 
   analytics: { provedor: 'nenhum' | 'cloudflare'; token?: string };
 }

@@ -6,7 +6,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* clip (e não hidden): corta o excesso sem virar contêiner de rolagem, e o sticky continua valendo */
+  overflow-x: clip;
   min-height: 100vh;
 }
 
@@ -46,6 +47,14 @@ p {
   padding-inline: var(--gutter);
 }
 
+/* Título de seção editorial (rótulo mono numerado + H2 grande) */
+.titulo-secao {
+  font-size: var(--fs-titulo-secao);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
 /* Rótulo editorial: 02 — TRABALHOS */
 .rotulo {
   font-family: var(--font-mono);
@@ -57,5 +66,5 @@ p {
 
 html[data-intro='on'] {
   /* a intro cobre a tela inteira; nada de barra de rolagem horizontal durante ela */
-  overflow-x: hidden;
+  overflow-x: clip;
 }

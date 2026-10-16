@@ -34,7 +34,7 @@ function controlarTela(naTela: (el: Element) => boolean) {
 }
 
 describe('registro de seções', () => {
-  it('só renderiza as seções da Fase 1, na ordem do config', () => {
+  it('só renderiza as seções que já existem, na ordem do config', () => {
     expect(secoesAtivas(siteConfigAlt)).toEqual([
       'intro',
       'faixa',
