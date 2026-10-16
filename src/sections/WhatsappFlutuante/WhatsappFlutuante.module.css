@@ -27,10 +27,6 @@
   transition-delay: 0s;
 }
 
-.botao:hover {
-  background: color-mix(in srgb, var(--accent) 94%, var(--hover-alvo));
-}
-
 /* Um único pulso de atenção; nunca em loop */
 .botao::after {
   content: '';
@@ -60,5 +56,12 @@
   }
   .botao::after {
     animation: none;
+  }
+}
+
+/* Hover só com mouse/trackpad: no toque não existe "passar o mouse" */
+@media (hover: hover) and (pointer: fine) {
+  .botao:hover {
+    background: color-mix(in srgb, var(--accent) 94%, var(--hover-alvo));
   }
 }

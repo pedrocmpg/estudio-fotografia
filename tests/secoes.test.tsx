@@ -39,6 +39,7 @@ describe('registro de seções', () => {
       'intro',
       'faixa',
       'sessoes',
+      'presentes',
       'manifesto',
       'trabalhos',
       'faq',
@@ -53,9 +54,10 @@ describe('registro de seções', () => {
     expect(document.querySelector('#sessoes')).not.toBeNull();
   });
 
-  it('numera os títulos editoriais: 01 sessões, 02 trabalhos', () => {
+  it('numera os títulos editoriais: 01 sessões, 02 presentes, 03 trabalhos', () => {
     expect(numeroDaSecao(siteConfigAlt, 'sessoes')).toBe('01');
-    expect(numeroDaSecao(siteConfigAlt, 'trabalhos')).toBe('02');
+    expect(numeroDaSecao(siteConfigAlt, 'presentes')).toBe('02');
+    expect(numeroDaSecao(siteConfigAlt, 'trabalhos')).toBe('03');
   });
 });
 
@@ -91,6 +93,7 @@ describe('header', () => {
     const links = within(nav).getAllByRole('link');
     expect(links.map((l) => l.getAttribute('href'))).toEqual([
       '#sessoes',
+      '#presentes',
       '#trabalhos',
       '#duvidas',
     ]);

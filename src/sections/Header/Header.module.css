@@ -74,10 +74,6 @@
   transition: background-size var(--t-base) var(--ease-saida);
 }
 
-.link:hover {
-  background-size: 100% 1px;
-}
-
 .cta {
   min-height: var(--alvo-toque);
   padding: 0.6rem 1.1rem;
@@ -95,5 +91,12 @@
   .header,
   .link {
     transition: none;
+  }
+}
+
+/* Hover só com mouse/trackpad: no toque não existe "passar o mouse" */
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background-size: 100% 1px;
   }
 }

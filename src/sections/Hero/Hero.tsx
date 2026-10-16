@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useRef, useState, type CSSProperties } from 'rea
 import { useSiteConfig } from '../../apresentacao/previa.tsx';
 import { CtaBotao } from '../../components/CtaBotao.tsx';
 import { Foto } from '../../components/Foto.tsx';
+import { IconeRevelacao } from '../../components/icones.tsx';
 import { Selo } from '../../components/Selo.tsx';
 import type { SiteConfig } from '../../config/types.ts';
 import { useInView, useReducedMotion, useRodando } from '../../motion/hooks.ts';
@@ -193,6 +194,13 @@ export function Hero() {
             <CtaBotao cta={hero.ctas.secundario} variante="secundario" className={css.ctaSec} />
           )}
         </div>
+
+        {config.presentes.mostrar && config.presentes.destaqueRevelacao && (
+          <p className={`${css.revela} ${css.revelavel}`}>
+            <IconeRevelacao width={18} height={18} />
+            {config.presentes.destaqueRevelacao.titulo}
+          </p>
+        )}
       </div>
 
       {emCena && <Cortinas />}

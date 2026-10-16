@@ -409,6 +409,7 @@ export const siteConfig: SiteConfig = {
   ctaFinal: {
     titulo: 'Vamos marcar a sua sessão?', // [CONFIRMAR]
     foto: 'cta-final',
+    texto: 'Tire a foto e leve em um presente. Revelação na hora na loja.', // [CONFIRMAR]
     cortinaReversa: true,
     posicaoTexto: 'topo', // o céu da foto é a área calma
     cta: { rotulo: 'Pedir sessão', acao: 'pedido' },

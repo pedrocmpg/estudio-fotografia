@@ -11,7 +11,6 @@
   animation: correr var(--duracao, 40s) linear infinite;
 }
 
-.faixa:hover .trilho,
 .faixa[data-pausado] .trilho {
   animation-play-state: paused;
 }
@@ -70,5 +69,11 @@
 
   .item[aria-hidden='true'] {
     display: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faixa:hover .trilho {
+    animation-play-state: paused;
   }
 }

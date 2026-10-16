@@ -26,18 +26,9 @@
   transition: transform var(--t-base) var(--ease-saida);
 }
 
-.botao:hover .seta {
-  transform: translateX(4px);
-}
-
 .primario {
   background: var(--accent);
   color: var(--on-accent);
-}
-
-.primario:hover {
-  /* 6% mais claro no escuro, 6% mais escuro no claro */
-  background: color-mix(in srgb, var(--accent) 94%, var(--hover-alvo));
 }
 
 .secundario {
@@ -45,7 +36,6 @@
   border: 1px solid color-mix(in srgb, var(--cor-botao-sec, var(--text)) 45%, transparent);
 }
 
-.secundario:hover,
 .secundario:focus-visible {
   border-color: currentColor;
   background: color-mix(in srgb, currentColor 10%, transparent);
@@ -56,6 +46,26 @@
   .seta {
     transition: none;
   }
+}
+
+/* Hover só com mouse/trackpad: no toque não existe "passar o mouse" */
+@media (hover: hover) and (pointer: fine) {
+  .botao:hover .seta {
+    transform: translateX(4px);
+  }
+
+  .primario:hover {
+    /* 6% mais claro no escuro, 6% mais escuro no claro */
+    background: color-mix(in srgb, var(--accent) 94%, var(--hover-alvo));
+  }
+
+  .secundario:hover {
+    border-color: currentColor;
+    background: color-mix(in srgb, currentColor 10%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
   .botao:hover .seta {
     transform: none;
   }

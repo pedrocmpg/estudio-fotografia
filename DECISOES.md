@@ -53,3 +53,19 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 - FAQ em `<details>/<summary>`, com frase de abertura em itálico vinda do config (`faq.abertura`), título com máscara e coluna fixa (sticky) no desktop. O texto de todas as respostas é `[CONFIRMAR]`, em tom direto e sem prazo nem preço (adendo I.7: perguntas da loja "Quanto tempo leva?", "Dá para levar a foto do celular?", "Vocês imprimem na hora?", "Quais formas de pagamento?" + as do estúdio).
 - Cada item tem `confirmada`. Na prévia todos aparecem; com `modoDemo: false` só os confirmados (e a seção some se não sobrar nenhum). O `FAQPage` em JSON-LD só leva respostas confirmadas, e só é emitido em produção (`indexar` + `modoDemo: false`).
 - JSON-LD agora vive em `src/lib/dadosEstruturados.ts` (testável): `ProfessionalService` (estúdio), `Store` (só se houver um local do tipo `loja`) e `FAQPage`, só com campos que existem; telefone provisório (`…000000000`) nunca vai.
+
+## Adendo (bloco I)
+
+- **Padrão da prévia:** `luz-natural` com `coresDestaque['luz-natural'] = '#8A5A3B'` (marrom da marca; ≥ 5:1 com texto branco e sobre o creme). `camara-escura` continua em `?tema=camara-escura` e no painel. A cor de destaque do plugin agora usa `html:root[data-theme=…]` (maior especificidade) porque o CSS do bundle chegava depois e vencia.
+- **Nome de marca:** `negocio.nome = 'Ivy · Foto e Presente'` ([CONFIRMAR]), `nomeCurto = 'Ivy'` (hero e nome gigante do rodapé), `assinatura = 'Foto e Presente'`. Cidade de exemplo "Bento Gonçalves / RS" (perfil público).
+- **Presentes:** seção `presentes` entre sessões e manifesto, com chips por categoria, faixa "Revelação na hora", prateleira de cards grandes (scroll-snap, 85vw no celular, 30vw no desktop) e botão "Pedir no WhatsApp" por item com a mensagem pronta do config. Sem `valor` → `[VALOR]` na prévia e "Consulte" em produção (nenhum preço inventado). A mesma faixa aparece no hero (linha discreta sob os botões) e o texto do CTA final liga foto → presente.
+- **Fotos de produto:** 7 imagens do Wikimedia Commons (licença livre; autor e página no meta); nada do Instagram deles. O banco não tem canecas "mágicas", chaveiros, cubo de acrílico nem quebra-cabeça, então os itens de exemplo são: caneca branca, caneca personalizada, álbum, porta-retratos, quadro, almofada e polaroids. Selo "Fotos ilustrativas de produtos" na seção (só na prévia).
+- **Sessões (I.4):** Newborn, Gestante e casal, Família, Aniversário e smash, Formatura, Ensaio pessoal, Temáticos, Eventos, cada uma com 2 fotos próprias.
+- **Contato e localização (I.5):** `negocio.redes` (duas contas, rótulos "Estúdio" e "Loja") e `negocio.locais` (estúdio e loja) estão no rodapé, comentados no config real porque ainda não foram confirmados; JSON-LD `ProfessionalService` + `Store` + `FAQPage` só com campos existentes. A seção "contato" completa continua na Fase 2.
+
+## Bloco H
+
+- **Hover só com `(hover: hover) and (pointer: fine)`:** todos os `:hover` do CSS foram movidos para esse bloco e um teste varre `src/` para impedir regressão. O cursor "visor" não existe ainda (Fase 2).
+- **Títulos por máscara:** a cascata de 60 ms é por **palavra** (a quebra de linha real depende da largura da tela e exigiria medir o DOM a cada resize); com títulos curtos o efeito lê como linha a linha. Uma vez só, com `IntersectionObserver`.
+- **Fotos revelando (`Revelar`):** `clip-path: inset(8%) → inset(0)` + `scale(1,1 → 1)` em 900 ms, uma vez, nas fotos da colagem (alternadas), nos produtos e nas fotos do manifesto/colagem. Movimento reduzido: sem clip nem zoom.
+- **Pares da cortina:** revisados lado a lado. 1ª cortina: mulher em contraluz olhando para a direita + loira olhando para cima à esquerda; versão celular: perfil virado para a direita + mulher olhando por cima do ombro. 2ª: dois casais sob o véu. Pares mantidos, as temperaturas de cor combinam (luz de pôr do sol).

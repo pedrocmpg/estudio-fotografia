@@ -69,3 +69,26 @@ export function IconeDiafragma(props: Props) {
     </svg>
   );
 }
+
+/** Foto instantânea saindo: marca a "Revelação na hora". Decorativo. */
+export function IconeRevelacao(props: Props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="22"
+      height="22"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <rect x="4.5" y="3" width="15" height="18" rx="1.2" />
+      <rect x="7" y="5.5" width="10" height="9" rx="0.6" />
+      <path d="M7.5 18.2h5" />
+    </svg>
+  );
+}

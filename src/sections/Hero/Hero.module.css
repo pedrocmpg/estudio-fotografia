@@ -444,3 +444,15 @@
   bottom: auto;
   top: calc(var(--altura-header) + 0.5rem);
 }
+
+/* "Revelação na hora": selo discreto sob os botões */
+.revela {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--hero-cor-2);
+}

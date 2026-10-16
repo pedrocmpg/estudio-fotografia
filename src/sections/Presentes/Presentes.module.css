@@ -1,0 +1,200 @@
+.secao {
+  padding-block: var(--espaco-secao);
+  background: var(--bg);
+  overflow-x: clip;
+}
+
+.cabeca {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Faixa "Revelação na hora" */
+.revelacao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 34rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: var(--raio-botao);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.iconeRevelacao {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent-texto);
+}
+
+.revelacaoTitulo {
+  font-weight: 500;
+  font-size: 1.0625rem;
+}
+
+.revelacaoTexto {
+  color: var(--text-2);
+  font-size: 0.9375rem;
+}
+
+/* Chips de categoria */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  min-height: var(--alvo-toque);
+  padding: 0 1.1rem;
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  transition:
+    background-color var(--t-base) ease,
+    border-color var(--t-base) ease,
+    color var(--t-base) ease;
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Prateleira: rolagem lateral com scroll-snap, cards grandes */
+.prateleira {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-inline: 7.5vw;
+  padding-block: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.prateleira::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: none;
+  width: 85vw;
+  max-width: 28rem;
+  scroll-snap-align: center;
+  transform: scale(0.95);
+  transform-origin: center bottom;
+  opacity: 0.75;
+  transition:
+    transform var(--t-lento) var(--ease-saida),
+    opacity var(--t-lento) var(--ease-saida);
+}
+
+.card[data-central] {
+  transform: none;
+  opacity: 1;
+}
+
+.artigo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+}
+
+.foto {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--raio-botao);
+  background: var(--surface);
+}
+
+.categoria {
+  margin-top: 0.85rem;
+}
+
+.nome {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.frase {
+  color: var(--text-2);
+  max-width: 30ch;
+}
+
+.preco {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  letter-spacing: var(--ls-mono);
+}
+
+.pedir {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nota {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+/* Setas só para quem usa mouse; no toque, desliza */
+.setas {
+  display: none;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.seta {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .prateleira {
+    padding-inline: max(var(--gutter), calc((100vw - var(--largura-max)) / 2));
+    scroll-padding-inline: max(var(--gutter), calc((100vw - var(--largura-max)) / 2));
+  }
+
+  .card {
+    width: 30vw;
+    max-width: 30rem;
+    scroll-snap-align: start;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .setas {
+    display: flex;
+  }
+  .chip:not([aria-pressed='true']):hover {
+    border-color: var(--text-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .chip {
+    transition: none;
+  }
+}

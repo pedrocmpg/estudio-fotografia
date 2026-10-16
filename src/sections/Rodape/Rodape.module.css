@@ -52,10 +52,6 @@
   transition: text-decoration-color var(--t-base) ease;
 }
 
-.link:hover {
-  text-decoration-color: currentColor;
-}
-
 .base {
   display: flex;
   flex-wrap: wrap;
@@ -71,4 +67,11 @@
   font-size: var(--fs-mono);
   letter-spacing: var(--ls-mono);
   color: var(--text-2);
+}
+
+/* Hover só com mouse/trackpad: no toque não existe "passar o mouse" */
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
 }

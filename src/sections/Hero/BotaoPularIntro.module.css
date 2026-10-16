@@ -21,10 +21,13 @@
   text-transform: uppercase;
 }
 
-.pular:hover {
-  background: rgba(14, 12, 10, 0.75);
-}
-
 .pular:focus-visible {
   outline-color: var(--sobre-foto);
+}
+
+/* Hover só com mouse/trackpad: no toque não existe "passar o mouse" */
+@media (hover: hover) and (pointer: fine) {
+  .pular:hover {
+    background: rgba(14, 12, 10, 0.75);
+  }
 }
