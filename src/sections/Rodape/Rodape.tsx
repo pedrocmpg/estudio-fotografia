@@ -53,7 +53,7 @@ export function Rodape() {
           )}
 
           {locais.map((local) => (
-            <div key={local.id} className={css.coluna}>
+            <div key={local.id} className={`${css.coluna} ${css.local}`}>
               <p className={`rotulo ${css.titulo}`}>{local.rotulo}</p>
               {local.endereco && <p className={css.texto}>{local.endereco}</p>}
               {local.horarios?.map((h) => (
@@ -103,17 +103,21 @@ export function Rodape() {
         </div>
 
         <div className={css.base}>
-          <p className={css.copia}>
-            © {ano} {negocio.nome}
-          </p>
-          {modoDemo && <Selo />}
-          <a className={css.link} href="#topo">
+          <div className={css.meta}>
+            <p className={css.copia}>
+              © {ano} {negocio.nome}
+            </p>
+            {modoDemo && <Selo className={css.selo} />}
+          </div>
+          <a className={`${css.link} ${css.topo}`} href="#topo">
             Voltar ao topo
           </a>
         </div>
       </div>
 
-      <NomeGigante texto={negocio.nomeCurto} />
+      <div className={css.nome}>
+        <NomeGigante texto={negocio.nomeCurto} />
+      </div>
       {negocio.assinatura && <p className="sr-only">{negocio.assinatura}</p>}
     </footer>
   );

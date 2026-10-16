@@ -69,6 +69,68 @@
   color: var(--text-2);
 }
 
+.meta {
+  display: contents; /* desktop: © e selo seguem como itens da linha de base */
+}
+
+/* Celular (SPEC §10.17): hierarquia em vez de links soltos; o desktop não muda */
+@media (max-width: 767px) and (pointer: coarse) {
+  .rodape {
+    padding-top: var(--espaco-secao);
+  }
+
+  .interno {
+    gap: 1.75rem;
+    padding-bottom: var(--espaco-secao);
+  }
+
+  .colunas {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 1.25rem;
+  }
+
+  /* pontos de atendimento ocupam a largura toda; navegação e redes ficam lado a lado */
+  .local {
+    grid-column: 1 / -1;
+  }
+
+  .link {
+    overflow-wrap: anywhere;
+  }
+
+  .base {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  .selo {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.625rem;
+  }
+
+  .topo {
+    align-self: flex-end;
+  }
+
+  /* nome gigante: 2% de folga por lado e corte em ~88% do corpo, para o "y" aparecer inteiro */
+  .nome {
+    padding-inline: 2%;
+  }
+
+  .nome > div {
+    height: calc(var(--fs-gigante) * 0.88);
+  }
+}
+
 /* Hover só com mouse/trackpad: no toque não existe "passar o mouse" */
 @media (hover: hover) and (pointer: fine) {
   .link:hover {

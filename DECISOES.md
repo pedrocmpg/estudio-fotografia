@@ -150,3 +150,9 @@ Execução sem supervisão do §18 (aceite em §18.2). Um commit por bloco (J a 
 - **Lighthouse (celular, simulado):** desempenho 94, acessibilidade 100, boas práticas 100, SEO 69 (por causa do `noindex` da prévia, esperado). LCP 3,0 s, CLS 0,001, TBT 60 ms. JS inicial 92 KB gzip (meta ≤ 150). Relatório em `docs/prints/lighthouse-fase2.html`.
 - **Testes:** 277 verdes (eram 200).
 - **Pendente:** (1) **deploy da prévia não foi feito**: o `wrangler` não está autenticado nesta máquina e o login do Cloudflare é interativo (`npx wrangler login`, depois `npx wrangler pages deploy dist --project-name ivystudio --branch production`); (2) LCP abaixo de 2,5 s pede pré-renderizar a primeira cortina (Fase 3); (3) sem aparelho Android real; (4) "voo" da miniatura na lightbox e label que sobe no foco (polimento, Fase 3).
+
+## Rodapé no celular (SPEC §10.17)
+
+- Só em `(max-width: 767px) and (pointer: coarse)`; o desktop não muda. Nome gigante com 2% de folga por lado (padding do wrapper, medido pelo hook) e corte em 88% do corpo, para o "y" aparecer. O hook arredonda o corpo para baixo e remede após `document.fonts.ready` e a cada mudança de largura da caixa.
+- Navegação e redes em 2 colunas; pontos de atendimento em linha cheia; © + selo (menor) numa linha de metadados que quebra em telas estreitas (o © "Ivy · Foto e Presente" + selo não cabem juntos em 360/390 px); "Voltar ao topo" à direita.
+- Prints: `docs/prints/rodape-celular/` (`npx tsx scripts/prints-rodape.ts`), 360 e 390, dois temas, "Ivy" e nome longo; confere que o nome não passa da largura da tela.

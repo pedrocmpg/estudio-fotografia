@@ -21,7 +21,8 @@ export function useAjusteLargura(
       if (largura <= 0) return;
       c.style.setProperty('--fs-gigante', '100px');
       const natural = t.scrollWidth;
-      if (natural > 0) c.style.setProperty('--fs-gigante', `${(100 * largura) / natural}px`);
+      if (natural > 0)
+        c.style.setProperty('--fs-gigante', `${Math.floor((10000 * largura) / natural) / 100}px`);
     };
 
     ajustar();
