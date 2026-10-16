@@ -1,175 +1,20 @@
 .secao {
-  padding-block: clamp(4rem, 10vw, 8rem);
+  padding-top: var(--espaco-secao);
 }
 
-.titulo {
-  max-width: 18ch;
-  margin-bottom: clamp(2rem, 5vw, 4rem);
-  font-size: var(--fs-h2);
+.cabeca {
+  margin-bottom: 0;
 }
 
-/* ---------- celular: carrossel com scroll-snap ---------- */
-
-.trilho {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  /* Folga nas pontas para o primeiro e o último card poderem ficar centralizados */
-  padding-inline: max(var(--gutter), calc(50vw - min(39vw, 11rem)));
-  padding-block: 1rem 1.5rem;
-  scrollbar-width: none;
-  overscroll-behavior-x: contain;
+@media (max-width: 899px) {
+  /* a pilha de cartões termina colada na próxima seção, sem vazio */
+  .secao {
+    padding-bottom: 0;
+  }
 }
-
-.trilho::-webkit-scrollbar {
-  display: none;
-}
-
-.card {
-  flex: none;
-  width: 78vw;
-  max-width: 22rem;
-  scroll-snap-align: center;
-  transform: scale(0.94);
-  transform-origin: center bottom;
-  opacity: 0.7;
-  transition:
-    transform var(--t-lento) var(--ease-saida),
-    opacity var(--t-lento) var(--ease-saida);
-}
-
-.card[data-central] {
-  transform: none;
-  opacity: 1;
-}
-
-.midia {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border-radius: var(--raio);
-  background: var(--surface);
-}
-
-.foto {
-  position: absolute;
-  inset: 0;
-  transition: transform var(--t-lento) var(--ease-saida);
-}
-
-.fotoHover {
-  opacity: 0;
-  transition:
-    opacity var(--t-lento) var(--ease-saida),
-    transform var(--t-lento) var(--ease-saida);
-}
-
-.nome {
-  margin-top: 1rem;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-}
-
-.frase {
-  margin-top: 0.35rem;
-  color: var(--text-2);
-}
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--alvo-toque);
-  margin-top: 0.5rem;
-  color: var(--accent-texto);
-  text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) left calc(50% + 0.7em) / 0 1px no-repeat;
-  transition: background-size var(--t-base) var(--ease-saida);
-}
-
-.link:hover {
-  background-size: 100% 1px;
-}
-
-/* ---------- desktop: grade editorial assimétrica ---------- */
 
 @media (min-width: 900px) {
-  .trilho {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: clamp(1.25rem, 2.5vw, 2.5rem);
-    align-items: end;
-    overflow: visible;
-    scroll-snap-type: none;
-    max-width: calc(var(--largura-max) + 2 * var(--gutter));
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-    padding-block: 0;
-  }
-
-  .card {
-    width: auto;
-    max-width: none;
-    transform: none;
-    opacity: 1;
-  }
-
-  /* Larguras e proporções diferentes por posição; as linhas somam 12 colunas e alinham na base */
-  .card[data-i='0'] {
-    grid-column: span 5;
-  }
-  .card[data-i='1'] {
-    grid-column: span 4;
-  }
-  .card[data-i='2'] {
-    grid-column: span 3;
-  }
-  .card[data-i='3'] {
-    grid-column: span 3;
-  }
-  .card[data-i='4'] {
-    grid-column: span 4;
-  }
-  .card[data-i='5'] {
-    grid-column: span 5;
-  }
-
-  .card[data-i='0'] .midia {
-    aspect-ratio: 4 / 5;
-  }
-  .card[data-i='1'] .midia {
-    aspect-ratio: 1 / 1;
-  }
-  .card[data-i='2'] .midia {
-    aspect-ratio: 3 / 5;
-  }
-  .card[data-i='3'] .midia {
-    aspect-ratio: 3 / 5;
-  }
-  .card[data-i='4'] .midia {
-    aspect-ratio: 1 / 1;
-  }
-  .card[data-i='5'] .midia {
-    aspect-ratio: 4 / 5;
-  }
-
-  .card:hover .foto:not(.fotoHover) {
-    transform: scale(1.04);
-  }
-  .card:hover .fotoHover {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card,
-  .foto,
-  .fotoHover,
-  .link {
-    transition: none;
-  }
-  .card:hover .foto:not(.fotoHover),
-  .card:hover .fotoHover {
-    transform: none;
+  .secao {
+    padding-bottom: var(--espaco-secao);
   }
 }

@@ -3,6 +3,8 @@ export interface Midia {
   reduzido?: boolean;
   ponteiroGrosso?: boolean;
   estreito?: boolean;
+  /** (min-width: 900px): composição de desktop. */
+  largo?: boolean;
 }
 
 const original = typeof window !== 'undefined' ? window.matchMedia : undefined;
@@ -12,6 +14,7 @@ export function definirMidia(m: Midia): void {
     if (consulta.includes('prefers-reduced-motion: reduce')) return Boolean(m.reduzido);
     if (consulta.includes('pointer: coarse')) return Boolean(m.ponteiroGrosso);
     if (consulta.includes('max-width: 640px')) return Boolean(m.estreito);
+    if (consulta.includes('min-width: 900px')) return Boolean(m.largo);
     return false;
   };
   window.matchMedia = ((consulta: string) => ({

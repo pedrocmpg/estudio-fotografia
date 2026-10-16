@@ -1,0 +1,129 @@
+/* Cartões empilhados (celular). --p = progresso em cartões, escrito por useVariavelDeRolagem. */
+
+.pilha {
+  --p: 0;
+  position: relative;
+}
+
+.card {
+  /* quanto este cartão já foi coberto pelo próximo (0 a 1) */
+  --c: clamp(0, calc(var(--p) - var(--i)), 1);
+  position: sticky;
+  top: 0;
+  height: 90vh;
+  height: 90svh;
+  padding: 0.5rem 0.5rem 0;
+}
+
+.cartao {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
+  background: var(--surface);
+  box-shadow: 0 -18px 40px -22px rgb(0 0 0 / 0.45);
+  transform-origin: center top;
+  transform: scale(calc(1 - 0.06 * var(--c)));
+}
+
+.card[data-v='1'] .cartao {
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg));
+}
+
+.card[data-v='2'] .cartao {
+  background: color-mix(in srgb, var(--text) 7%, var(--bg));
+}
+
+.midia {
+  position: relative;
+  min-height: 0;
+  margin: 0.5rem 0.5rem 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+/* Escurece a parte onde o nome fica, para ele ler bem sem cobrir o rosto */
+.veu {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.62), rgb(0 0 0 / 0.2) 38%, transparent 58%);
+}
+
+.midia[data-titulo='topo'] .veu {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.62), rgb(0 0 0 / 0.2) 38%, transparent 58%);
+}
+
+.nome {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.9rem;
+  font-size: clamp(3rem, 15vw, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--sobre-foto);
+  text-shadow: 0 2px 24px rgb(0 0 0 / 0.35);
+  text-wrap: balance;
+}
+
+.midia[data-titulo='topo'] .nome {
+  top: 0.9rem;
+  bottom: auto;
+}
+
+.texto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem 1rem;
+}
+
+.frase {
+  color: var(--text-2);
+  font-size: 1rem;
+  max-width: 24ch;
+}
+
+.link {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-toque);
+  color: var(--accent-texto);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* O cartão coberto escurece: só opacity */
+.cobertura {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: calc(var(--c) * 0.55);
+  pointer-events: none;
+}
+
+/* Sem pin: lista vertical simples, o mesmo conteúdo */
+.pilha[data-estatico] .card {
+  position: static;
+  height: auto;
+  padding-bottom: 0.5rem;
+}
+
+.pilha[data-estatico] .cartao {
+  grid-template-rows: auto auto;
+  border-radius: 1rem;
+  transform: none;
+}
+
+.pilha[data-estatico] .midia {
+  aspect-ratio: 4 / 5;
+}
+
+.pilha[data-estatico] .cobertura {
+  display: none;
+}

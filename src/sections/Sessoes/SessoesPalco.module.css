@@ -1,0 +1,156 @@
+.palco {
+  position: relative;
+  color: var(--sobre-foto);
+  /* os nomes sobem sobre o fundo sticky */
+}
+
+.fundo {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 34rem;
+  overflow: clip;
+  background: var(--escuro);
+}
+
+.camada {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 700ms var(--ease-saida);
+}
+
+.camada[data-ativo] {
+  opacity: 1;
+}
+
+.veu {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgb(0 0 0 / 0.6), rgb(0 0 0 / 0.25) 60%, rgb(0 0 0 / 0.4)),
+    rgb(0 0 0 / 0.2);
+}
+
+/* Faixas de miniaturas passando atrás, em velocidades e sentidos diferentes */
+.faixas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.faixa {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22%;
+  overflow: clip;
+  opacity: 0.3;
+}
+
+.faixa[data-k='0'] {
+  top: 6%;
+}
+
+.faixa[data-k='1'] {
+  bottom: 6%;
+}
+
+.trilho {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  height: 100%;
+  animation: correr 90s linear infinite;
+}
+
+.faixa[data-k='1'] .trilho {
+  animation-duration: 140s;
+  animation-direction: reverse;
+}
+
+.palco[data-pausado] .trilho {
+  animation-play-state: paused;
+}
+
+.mini {
+  flex: none;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+@keyframes correr {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Os nomes cobrem o fundo: lista sobreposta ao sticky */
+.nomes {
+  position: relative;
+  z-index: 2;
+  margin-top: -100vh;
+  margin-top: -100svh;
+  padding: 18svh var(--gutter) 18svh;
+}
+
+.item {
+  padding-left: calc(var(--o) * 7vw);
+  padding-block: 0.4rem;
+}
+
+.nome {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity var(--t-lento) var(--ease-saida);
+}
+
+.nome h3 {
+  font-size: clamp(4rem, 10.5vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-shadow:
+    0 2px 40px rgb(0 0 0 / 0.55),
+    0 0 2px rgb(0 0 0 / 0.25);
+}
+
+.item[data-ativo] .nome,
+.nome:focus-visible {
+  opacity: 1;
+}
+
+.nome:focus-visible {
+  outline-color: var(--sobre-foto);
+}
+
+.frase {
+  max-width: 28ch;
+  margin-top: 0.15rem;
+  color: var(--sobre-foto-2);
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  transition:
+    opacity var(--t-lento) var(--ease-saida),
+    transform var(--t-lento) var(--ease-saida);
+}
+
+.item[data-ativo] .frase {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .camada,
+  .nome,
+  .frase {
+    transition: none;
+  }
+}
