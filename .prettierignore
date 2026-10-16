@@ -1,0 +1,6 @@
+dist
+node_modules
+public/fotos
+src/data/fotos.manifest.json
+package-lock.json
+SPEC.md
