@@ -1,0 +1,353 @@
+[
+  {
+    "id": "cortina-1e",
+    "arquivo": "0heMYir_u_E.jpg",
+    "alt": "Mulher em contraluz ao pôr do sol, de casaco escuro",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.55,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/0heMYir_u_E)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-1d",
+    "arquivo": "OCV0rpL6hGQ.jpg",
+    "alt": "Mulher loira de vestido de renda ao pôr do sol, com a mão nos cabelos",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.3
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/OCV0rpL6hGQ)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-1e-m",
+    "arquivo": "SGzbP-t1vlg.jpg",
+    "alt": "Mulher de perfil ao pôr do sol, com o vento nos cabelos",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.55,
+      "y": 0.45
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/SGzbP-t1vlg)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-1d-m",
+    "arquivo": "unvFd7Ccd08.jpg",
+    "alt": "Mulher loira olhando por cima do ombro, com luz dourada no rosto",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/unvFd7Ccd08)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-2e",
+    "arquivo": "mLIurLmSRAY.jpg",
+    "alt": "Casal sob o véu da noiva, quase se beijando, com a luz do pôr do sol",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/mLIurLmSRAY)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-2d",
+    "arquivo": "WJc87MVcDaA.jpg",
+    "alt": "Noivos abraçados sob o véu em um campo de trigo",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/WJc87MVcDaA)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-2e-m",
+    "arquivo": "MtwNya-3mac.jpg",
+    "alt": "Noivo carregando a noiva em um campo gramado",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/MtwNya-3mac)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-2d-m",
+    "arquivo": "SiniLJkXhMc.jpg",
+    "alt": "Casal de noivos caminhando sob palmeiras",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/SiniLJkXhMc)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-3e",
+    "arquivo": "WvVyudMd1Es.jpg",
+    "alt": "Pai e mãe sorrindo com o recém-nascido nos braços, ao lado de uma janela",
+    "categoria": "Família, newborn e infantil",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/WvVyudMd1Es)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cortina-3d",
+    "arquivo": "genZFP4itVc.jpg",
+    "alt": "Casal abraçado segurando o bebê recém-nascido",
+    "categoria": "Família, newborn e infantil",
+    "foco": {
+      "x": 0.5,
+      "y": 0.45
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/genZFP4itVc)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "fundo-final",
+    "arquivo": "4_ElYob8Ifo.jpg",
+    "alt": "Mulher de costas olhando o mar ao pôr do sol, com os cabelos ao vento",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/4_ElYob8Ifo)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "cta-final",
+    "arquivo": "IfjHaIoAoqE.jpg",
+    "alt": "Casal de noivos caminhando de mãos dadas por colinas ao entardecer",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/IfjHaIoAoqE)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "ensaio-1",
+    "arquivo": "FOzqQCzNbgk.jpg",
+    "alt": "Mulher sentada em um campo de capim alto iluminado pelo sol",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/FOzqQCzNbgk)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "ensaio-2",
+    "arquivo": "_3he2hVzSFQ.jpg",
+    "alt": "Mulher de cabelos longos ao entardecer, entre as árvores",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/_3he2hVzSFQ)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "gestante-1",
+    "arquivo": "deAAjXh8JOU.jpg",
+    "alt": "Casal se beijando ao pôr do sol enquanto a gestante segura a ultrassonografia",
+    "categoria": "Gestante e casal",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/deAAjXh8JOU)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "gestante-2",
+    "arquivo": "uqfwXLOJeQI.jpg",
+    "alt": "Gestante em pé na praia, com a mão na barriga, ao entardecer",
+    "categoria": "Gestante e casal",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/uqfwXLOJeQI)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "familia-1",
+    "arquivo": "SUPTFFfOZf0.jpg",
+    "alt": "Casal com o bebê no colo em retrato de estúdio",
+    "categoria": "Família, newborn e infantil",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/SUPTFFfOZf0)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "familia-2",
+    "arquivo": "h8YbQQ9N2nY.jpg",
+    "alt": "Recém-nascido dormindo embrulhado em tecido lilás, com gorro de tricô",
+    "categoria": "Família, newborn e infantil",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/h8YbQQ9N2nY)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "casamento-1",
+    "arquivo": "AbnCRgL2DNs.jpg",
+    "alt": "Noivos em um terraço de pedra diante de um castelo",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/AbnCRgL2DNs)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "casamento-2",
+    "arquivo": "qGgjalogCdE.jpg",
+    "alt": "Noiva e noivo de terno azul se beijando ao lado de uma árvore",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/qGgjalogCdE)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "formatura-1",
+    "arquivo": "jzcXsWmvKlw.jpg",
+    "alt": "Formanda de capelo sorrindo em meio ao capim alto",
+    "categoria": "15 anos e formaturas",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/jzcXsWmvKlw)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "formatura-2",
+    "arquivo": "04Rd4wrSI1M.jpg",
+    "alt": "Formanda sorridente de capelo, com tranças e fita laranja, olhando para trás",
+    "categoria": "15 anos e formaturas",
+    "foco": {
+      "x": 0.5,
+      "y": 0.3
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/04Rd4wrSI1M)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "marca-1",
+    "arquivo": "4mUk_DFImbI.jpg",
+    "alt": "Mulher de terno branco sentada e sorrindo, em retrato corporativo",
+    "categoria": "Marcas, produtos e corporativo",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/4mUk_DFImbI)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "marca-2",
+    "arquivo": "5o9jDiU4de4.jpg",
+    "alt": "Jarros de cerâmica em tons de mostarda e verde sobre uma prateleira",
+    "categoria": "Marcas, produtos e corporativo",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/5o9jDiU4de4)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "retrato-1",
+    "arquivo": "AzKvRnvmXW8.jpg",
+    "alt": "Retrato de um rapaz de cabelos ruivos, com luz quente no rosto",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/AzKvRnvmXW8)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "retrato-2",
+    "arquivo": "XgMSx918Uh4.jpg",
+    "alt": "Homem de moletom olhando para o céu ao pôr do sol, entre árvores",
+    "categoria": "Ensaios pessoais",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/XgMSx918Uh4)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "retrato-3",
+    "arquivo": "4y2GeMipDQ0.jpg",
+    "alt": "Formanda de costas, de capelo, ao pôr do sol",
+    "categoria": "15 anos e formaturas",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/4y2GeMipDQ0)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true
+  }
+]

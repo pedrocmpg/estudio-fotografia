@@ -1,0 +1,569 @@
+[
+  {
+    "id": "cortina-1e",
+    "largura": 2400,
+    "altura": 3000,
+    "proporcao": 0.8,
+    "src": "/fotos/cortina-1e-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-1e-480.avif 480w, /fotos/cortina-1e-960.avif 960w, /fotos/cortina-1e-1600.avif 1600w, /fotos/cortina-1e-2400.avif 2400w",
+      "webp": "/fotos/cortina-1e-480.webp 480w, /fotos/cortina-1e-960.webp 960w, /fotos/cortina-1e-1600.webp 1600w, /fotos/cortina-1e-2400.webp 2400w",
+      "jpg": "/fotos/cortina-1e-480.jpg 480w, /fotos/cortina-1e-960.jpg 960w, /fotos/cortina-1e-1600.jpg 1600w, /fotos/cortina-1e-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwBACdASoQABQAPu1iqU2ppaQiMAgBMB2JbACdMoLUABNtmlU918tZrrPXa0oAAP7uHfffMJIbZvakaF8xUG/EzxPEzPX1GznAiYTDGBaeGra6zw95K+l5+t5wS6kpN+8emmUjdWPdxw52PIbdWgg+yIQYaDE/NwsSaAAA",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.55,
+      "y": 0.4
+    },
+    "alt": "Mulher em contraluz ao pôr do sol, de casaco escuro",
+    "placeholderGerado": false,
+    "hash": "1fe5042801689347"
+  },
+  {
+    "id": "cortina-1d",
+    "largura": 2400,
+    "altura": 3200,
+    "proporcao": 0.75,
+    "src": "/fotos/cortina-1d-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-1d-480.avif 480w, /fotos/cortina-1d-960.avif 960w, /fotos/cortina-1d-1600.avif 1600w, /fotos/cortina-1d-2400.avif 2400w",
+      "webp": "/fotos/cortina-1d-480.webp 480w, /fotos/cortina-1d-960.webp 960w, /fotos/cortina-1d-1600.webp 1600w, /fotos/cortina-1d-2400.webp 2400w",
+      "jpg": "/fotos/cortina-1d-480.jpg 480w, /fotos/cortina-1d-960.jpg 960w, /fotos/cortina-1d-1600.jpg 1600w, /fotos/cortina-1d-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JQBOgBC1/N1qDdwp3s4AA/uqqETUC9IAyyk08Glcms0xBhFfgrGKXHh2yful//U72qSt0nIIrTwgJslSg75VoSa5tzWjDC7MoWD/GrYmdbs4nwhsQIFNDBeXUA4vSsr7ql6DtZGAAAA==",
+    "cor": "#e8e8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.3
+    },
+    "alt": "Mulher loira de vestido de renda ao pôr do sol, com a mão nos cabelos",
+    "placeholderGerado": false,
+    "hash": "bd7f66ae5df1a425"
+  },
+  {
+    "id": "cortina-1e-m",
+    "largura": 2400,
+    "altura": 3598,
+    "proporcao": 0.667,
+    "src": "/fotos/cortina-1e-m-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-1e-m-480.avif 480w, /fotos/cortina-1e-m-960.avif 960w, /fotos/cortina-1e-m-1600.avif 1600w, /fotos/cortina-1e-m-2400.avif 2400w",
+      "webp": "/fotos/cortina-1e-m-480.webp 480w, /fotos/cortina-1e-m-960.webp 960w, /fotos/cortina-1e-m-1600.webp 1600w, /fotos/cortina-1e-m-2400.webp 2400w",
+      "jpg": "/fotos/cortina-1e-m-480.jpg 480w, /fotos/cortina-1e-m-960.jpg 960w, /fotos/cortina-1e-m-1600.jpg 1600w, /fotos/cortina-1e-m-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAgCdASoQABgAA4BaJbAAD48QcAA4UqOzeNQMFgAA/viuLt9je4zFW9C+7JwnjXJJ3oJbut6A9jL51ezsSW+A1s1+VBXEnT/D/34GP8njTYMtRJX/1vofN86wc12ZKVtNghjpVaIiqDANl7pQYinjPe5Sseqfb116KkkXAAA=",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.55,
+      "y": 0.45
+    },
+    "alt": "Mulher de perfil ao pôr do sol, com o vento nos cabelos",
+    "placeholderGerado": false,
+    "hash": "786b0405871d9134"
+  },
+  {
+    "id": "cortina-1d-m",
+    "largura": 2400,
+    "altura": 3360,
+    "proporcao": 0.7143,
+    "src": "/fotos/cortina-1d-m-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-1d-m-480.avif 480w, /fotos/cortina-1d-m-960.avif 960w, /fotos/cortina-1d-m-1600.avif 1600w, /fotos/cortina-1d-m-2400.avif 2400w",
+      "webp": "/fotos/cortina-1d-m-480.webp 480w, /fotos/cortina-1d-m-960.webp 960w, /fotos/cortina-1d-m-1600.webp 1600w, /fotos/cortina-1d-m-2400.webp 2400w",
+      "jpg": "/fotos/cortina-1d-m-480.jpg 480w, /fotos/cortina-1d-m-960.jpg 960w, /fotos/cortina-1d-m-1600.jpg 1600w, /fotos/cortina-1d-m-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABYAPu1iqU2ppaQiMAgBMB2JZACw7B6H5he3g7/9Ks+gAP5m31JK1jZuIRRBR1kI0pph+cQgG9gajovQLA3tTH7T5fOcFC1PHofdUKHFNhUgaSRaS5lXvn0vzUhfgLH1RrvTPNEfbifZMJOv49a+Vs30FJoovh0SDlSl61+RZFb5aUTAfzQAAAA=",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Mulher loira olhando por cima do ombro, com luz dourada no rosto",
+    "placeholderGerado": false,
+    "hash": "a701f4a7cf7b9bec"
+  },
+  {
+    "id": "cortina-2e",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/cortina-2e-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-2e-480.avif 480w, /fotos/cortina-2e-960.avif 960w, /fotos/cortina-2e-1600.avif 1600w, /fotos/cortina-2e-2400.avif 2400w",
+      "webp": "/fotos/cortina-2e-480.webp 480w, /fotos/cortina-2e-960.webp 960w, /fotos/cortina-2e-1600.webp 1600w, /fotos/cortina-2e-2400.webp 2400w",
+      "jpg": "/fotos/cortina-2e-480.jpg 480w, /fotos/cortina-2e-960.jpg 960w, /fotos/cortina-2e-1600.jpg 1600w, /fotos/cortina-2e-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYgCdIExDL6AnOCOtd2HX6zOMAAD+79Qs4QvKMklFwKXxzVCXay0Wj/RLRzLTu//sIFJFURBLkZ4UEHyLbcW6WqRg0QJBvDmJQKFDheCz1gI3sVq3hwrb5bJW+YGMVat2z0xdOBE71ETQ+gsBMmDbuH4oZZ8oQcTBzPiO/op4lAAA",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Casal sob o véu da noiva, quase se beijando, com a luz do pôr do sol",
+    "placeholderGerado": false,
+    "hash": "76d4e9cf7d0cba20"
+  },
+  {
+    "id": "cortina-2d",
+    "largura": 2400,
+    "altura": 3381,
+    "proporcao": 0.7098,
+    "src": "/fotos/cortina-2d-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-2d-480.avif 480w, /fotos/cortina-2d-960.avif 960w, /fotos/cortina-2d-1600.avif 1600w, /fotos/cortina-2d-2400.avif 2400w",
+      "webp": "/fotos/cortina-2d-480.webp 480w, /fotos/cortina-2d-960.webp 960w, /fotos/cortina-2d-1600.webp 1600w, /fotos/cortina-2d-2400.webp 2400w",
+      "jpg": "/fotos/cortina-2d-480.jpg 480w, /fotos/cortina-2d-960.jpg 960w, /fotos/cortina-2d-1600.jpg 1600w, /fotos/cortina-2d-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQABcAPu1iqU2ppaOiMAgBMB2JYgCdACHgRCluHLzNYmUteg5qAP7IsxrCrkQIiDiqp0nk2QlUcFh2KDX5FROTVNcZ7CcsAanzYPW0cXfP9WwI4+DLICImLQIbsxk+HHLz7ubyHQGLlblAhY02EaNxe36EXemvpowC6DvFCGy+QAAA",
+    "cor": "#c8c8c8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Noivos abraçados sob o véu em um campo de trigo",
+    "placeholderGerado": false,
+    "hash": "5a1398780b6811b3"
+  },
+  {
+    "id": "cortina-2e-m",
+    "largura": 2400,
+    "altura": 3595,
+    "proporcao": 0.6676,
+    "src": "/fotos/cortina-2e-m-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-2e-m-480.avif 480w, /fotos/cortina-2e-m-960.avif 960w, /fotos/cortina-2e-m-1600.avif 1600w, /fotos/cortina-2e-m-2400.avif 2400w",
+      "webp": "/fotos/cortina-2e-m-480.webp 480w, /fotos/cortina-2e-m-960.webp 960w, /fotos/cortina-2e-m-1600.webp 1600w, /fotos/cortina-2e-m-2400.webp 2400w",
+      "jpg": "/fotos/cortina-2e-m-480.jpg 480w, /fotos/cortina-2e-m-960.jpg 960w, /fotos/cortina-2e-m-1600.jpg 1600w, /fotos/cortina-2e-m-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoQABgAPu1kqk2ppaQiMAgBMB2JYwAAXBr+nuOmc98o4t78gAD8f3WezOtfB3gwslXESCibrbi93PvQybuKNZlB+/eKOCXqP7JwQswaD19bNxz2560T0YZUk45b0yLxGCHfLEmi85RjJgv2jf17byQQn9tzwAAA",
+    "cor": "#a8b8b8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "alt": "Noivo carregando a noiva em um campo gramado",
+    "placeholderGerado": false,
+    "hash": "b687898c14b346a7"
+  },
+  {
+    "id": "cortina-2d-m",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/cortina-2d-m-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-2d-m-480.avif 480w, /fotos/cortina-2d-m-960.avif 960w, /fotos/cortina-2d-m-1600.avif 1600w, /fotos/cortina-2d-m-2400.avif 2400w",
+      "webp": "/fotos/cortina-2d-m-480.webp 480w, /fotos/cortina-2d-m-960.webp 960w, /fotos/cortina-2d-m-1600.webp 1600w, /fotos/cortina-2d-m-2400.webp 2400w",
+      "jpg": "/fotos/cortina-2d-m-480.jpg 480w, /fotos/cortina-2d-m-960.jpg 960w, /fotos/cortina-2d-m-1600.jpg 1600w, /fotos/cortina-2d-m-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZwAD5MncYYpPzcnEJpYpalfgAP7qCu26Xm2Tg6iy96iVcFGjT3wHxDuQTJbJEiIpWXvs0JIyPWvXww2pTXcID2Qss1avTsB/bYc887v+pm+ztf+QsyJTsidtaEGV5z0h+5P0RgAAAA==",
+    "cor": "#181818",
+    "foco": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "alt": "Casal de noivos caminhando sob palmeiras",
+    "placeholderGerado": false,
+    "hash": "64f0a6ec36d36125"
+  },
+  {
+    "id": "cortina-3e",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/cortina-3e-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-3e-480.avif 480w, /fotos/cortina-3e-960.avif 960w, /fotos/cortina-3e-1600.avif 1600w, /fotos/cortina-3e-2400.avif 2400w",
+      "webp": "/fotos/cortina-3e-480.webp 480w, /fotos/cortina-3e-960.webp 960w, /fotos/cortina-3e-1600.webp 1600w, /fotos/cortina-3e-2400.webp 2400w",
+      "jpg": "/fotos/cortina-3e-480.jpg 480w, /fotos/cortina-3e-960.jpg 960w, /fotos/cortina-3e-1600.jpg 1600w, /fotos/cortina-3e-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwC26HAgwBS9wU9oucdGVk3YAPyY6lgsrBgtSh0JCURt3ajJ6DY/HHjQLgLTovYvLdpx4n6CzMqJdfboSmo/PsCNHu68gAZa3xoQRS64+vhRfYAJJ/0Sre6EHYnoP8+c2cXASHk6VRwkFdw7saCNP6OTbN2wCBnJ/kc9j9K6WlFLFHiHgQmIo/eXtBipA6AAAA==",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Pai e mãe sorrindo com o recém-nascido nos braços, ao lado de uma janela",
+    "placeholderGerado": false,
+    "hash": "dc8e65095b3e6b37"
+  },
+  {
+    "id": "cortina-3d",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/cortina-3d-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cortina-3d-480.avif 480w, /fotos/cortina-3d-960.avif 960w, /fotos/cortina-3d-1600.avif 1600w, /fotos/cortina-3d-2400.avif 2400w",
+      "webp": "/fotos/cortina-3d-480.webp 480w, /fotos/cortina-3d-960.webp 960w, /fotos/cortina-3d-1600.webp 1600w, /fotos/cortina-3d-2400.webp 2400w",
+      "jpg": "/fotos/cortina-3d-480.jpg 480w, /fotos/cortina-3d-960.jpg 960w, /fotos/cortina-3d-1600.jpg 1600w, /fotos/cortina-3d-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwC2yYww7VvARm9nO74f+XByAAD8skvGxD7qv83lLl0yxp4i0FHl1FdJToLBIHzsK8bsqPCALm3u3LHHkSXzioUkQkqvMsTcHjWXjbEq1azh4u72yYhDzmeolAr6MWJRUHvj5QDnGu2e2hPe75ZN2+IpzJfKl71FyaAdsb760aueSZch+9Im5nDgtja2/ZcmN3OSsJ8i8D/xxQR9kCsV4AAAAA==",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.45
+    },
+    "alt": "Casal abraçado segurando o bebê recém-nascido",
+    "placeholderGerado": false,
+    "hash": "600cb76bad878095"
+  },
+  {
+    "id": "fundo-final",
+    "largura": 2400,
+    "altura": 1600,
+    "proporcao": 1.5,
+    "src": "/fotos/fundo-final-960.jpg",
+    "srcset": {
+      "avif": "/fotos/fundo-final-480.avif 480w, /fotos/fundo-final-960.avif 960w, /fotos/fundo-final-1600.avif 1600w, /fotos/fundo-final-2400.avif 2400w",
+      "webp": "/fotos/fundo-final-480.webp 480w, /fotos/fundo-final-960.webp 960w, /fotos/fundo-final-1600.webp 1600w, /fotos/fundo-final-2400.webp 2400w",
+      "jpg": "/fotos/fundo-final-480.jpg 480w, /fotos/fundo-final-960.jpg 960w, /fotos/fundo-final-1600.jpg 1600w, /fotos/fundo-final-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAsAA4BaJYwCdAEQVyccUIAA/uenpSgEynkt7xDIK/s2yh3/vdUdv3AtY29tVR8Cu99rr046KOn3tAA=",
+    "cor": "#283838",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "alt": "Mulher de costas olhando o mar ao pôr do sol, com os cabelos ao vento",
+    "placeholderGerado": false,
+    "hash": "fa15f4748e589087"
+  },
+  {
+    "id": "cta-final",
+    "largura": 2400,
+    "altura": 1600,
+    "proporcao": 1.5,
+    "src": "/fotos/cta-final-960.jpg",
+    "srcset": {
+      "avif": "/fotos/cta-final-480.avif 480w, /fotos/cta-final-960.avif 960w, /fotos/cta-final-1600.avif 1600w, /fotos/cta-final-2400.avif 2400w",
+      "webp": "/fotos/cta-final-480.webp 480w, /fotos/cta-final-960.webp 960w, /fotos/cta-final-1600.webp 1600w, /fotos/cta-final-2400.webp 2400w",
+      "jpg": "/fotos/cta-final-480.jpg 480w, /fotos/cta-final-960.jpg 960w, /fotos/cta-final-1600.jpg 1600w, /fotos/cta-final-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAAsAA4BaJQBdgCG1lcRxdsAA/uGn5nJebAv3Yq/S40MG2msYTDGOBk6KsgEx84hYAAAA",
+    "cor": "#e8e8d8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "alt": "Casal de noivos caminhando de mãos dadas por colinas ao entardecer",
+    "placeholderGerado": false,
+    "hash": "a598fd097636f9e7"
+  },
+  {
+    "id": "ensaio-1",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/ensaio-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/ensaio-1-480.avif 480w, /fotos/ensaio-1-960.avif 960w, /fotos/ensaio-1-1600.avif 1600w, /fotos/ensaio-1-2400.avif 2400w",
+      "webp": "/fotos/ensaio-1-480.webp 480w, /fotos/ensaio-1-960.webp 960w, /fotos/ensaio-1-1600.webp 1600w, /fotos/ensaio-1-2400.webp 2400w",
+      "jpg": "/fotos/ensaio-1-480.jpg 480w, /fotos/ensaio-1-960.jpg 960w, /fotos/ensaio-1-1600.jpg 1600w, /fotos/ensaio-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JbACdEf/gNYow4ekSizyMgAvscAD+6sGbauuikp7kcC4tJeWeWSSBV99ZL83UIjJ+EcLDOBxc47ba+GoAkSriw7NHSnwy7Th6LlWzcbdgap9coXjmgS9o+tKdwDYM4ceQ9NDiBXmzZeT/l9Y2aIV6/Q5GWjo6YfTyJeXm0O9xk8rDI+3gAKmSxoAAAA==",
+    "cor": "#e8e8e8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Mulher sentada em um campo de capim alto iluminado pelo sol",
+    "placeholderGerado": false,
+    "hash": "d509b97484e165ef"
+  },
+  {
+    "id": "ensaio-2",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/ensaio-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/ensaio-2-480.avif 480w, /fotos/ensaio-2-960.avif 960w, /fotos/ensaio-2-1600.avif 1600w, /fotos/ensaio-2-2400.avif 2400w",
+      "webp": "/fotos/ensaio-2-480.webp 480w, /fotos/ensaio-2-960.webp 960w, /fotos/ensaio-2-1600.webp 1600w, /fotos/ensaio-2-2400.webp 2400w",
+      "jpg": "/fotos/ensaio-2-480.jpg 480w, /fotos/ensaio-2-960.jpg 960w, /fotos/ensaio-2-1600.jpg 1600w, /fotos/ensaio-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwCdACB/GhbyZk1vJHMtegAAzjsuWamlWvUMcaDGy39s4CoPkYDIq/eo6ppnLpO2IS9OTYl79bDa9Oi2kZvgPheH5s51ah2u9gB/JbOb0jzUPXWCQ/1saqbFiF43XU0m6BcDYA/nJGYsd+LW6lH3kUlcQc8KRTAQ9V8G593oLpziAAA=",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Mulher de cabelos longos ao entardecer, entre as árvores",
+    "placeholderGerado": false,
+    "hash": "b3a2ec9b059e3f6d"
+  },
+  {
+    "id": "gestante-1",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/gestante-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/gestante-1-480.avif 480w, /fotos/gestante-1-960.avif 960w, /fotos/gestante-1-1600.avif 1600w, /fotos/gestante-1-2400.avif 2400w",
+      "webp": "/fotos/gestante-1-480.webp 480w, /fotos/gestante-1-960.webp 960w, /fotos/gestante-1-1600.webp 1600w, /fotos/gestante-1-2400.webp 2400w",
+      "jpg": "/fotos/gestante-1-480.jpg 480w, /fotos/gestante-1-960.jpg 960w, /fotos/gestante-1-1600.jpg 1600w, /fotos/gestante-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwAwCdASoQABgAA4BaJYwBTBmfw8j8HCl4j0v6pJsifvQgAP72C+NozM/Nw4aSFWZws56XaA6BfCuNq8sVdVdyx7v8u627UOIsVkiuor3wTJHAjn/tFKzQKX69WlMf5/n0Jt3lb7US7IX251fEJ1Um+Q0k7lxcBdpSsbhcqgBWl03h+TzTaLXW8qkjyghDCYfY3gnM0AA=",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Casal se beijando ao pôr do sol enquanto a gestante segura a ultrassonografia",
+    "placeholderGerado": false,
+    "hash": "1d0c74d0f939d4fd"
+  },
+  {
+    "id": "gestante-2",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/gestante-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/gestante-2-480.avif 480w, /fotos/gestante-2-960.avif 960w, /fotos/gestante-2-1600.avif 1600w, /fotos/gestante-2-2400.avif 2400w",
+      "webp": "/fotos/gestante-2-480.webp 480w, /fotos/gestante-2-960.webp 960w, /fotos/gestante-2-1600.webp 1600w, /fotos/gestante-2-2400.webp 2400w",
+      "jpg": "/fotos/gestante-2-480.jpg 480w, /fotos/gestante-2-960.jpg 960w, /fotos/gestante-2-1600.jpg 1600w, /fotos/gestante-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoQABgAPu1kqk2ppaQiMAgBMB2JZQCAABsOdvHhFP7LTYOgj8AA/v02K7+s2/NuD/RbwaQmMRtgchYcjdy2bV4G5JM5qvLtwWyPr1uvAPHb71yKMW/p0rMqnU7atwNZRLwKqiwDpzZyRe56vZxNAAu2k9Xw9zB+z5x0vFbAIC5slPNTOYl+wAAA",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Gestante em pé na praia, com a mão na barriga, ao entardecer",
+    "placeholderGerado": false,
+    "hash": "1dc0a0b8fb1b0c44"
+  },
+  {
+    "id": "familia-1",
+    "largura": 2400,
+    "altura": 3105,
+    "proporcao": 0.7729,
+    "src": "/fotos/familia-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/familia-1-480.avif 480w, /fotos/familia-1-960.avif 960w, /fotos/familia-1-1600.avif 1600w, /fotos/familia-1-2400.avif 2400w",
+      "webp": "/fotos/familia-1-480.webp 480w, /fotos/familia-1-960.webp 960w, /fotos/familia-1-1600.webp 1600w, /fotos/familia-1-2400.webp 2400w",
+      "jpg": "/fotos/familia-1-480.jpg 480w, /fotos/familia-1-960.jpg 960w, /fotos/familia-1-1600.jpg 1600w, /fotos/familia-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADwAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JZQC2yYv+gn+xuKfimPKcAPnD6wSnptIkjvnVFuwJXjC77Skeur+G79+68ZcjV9SOvyqol7RBsbTnXRz2kCw4cQa5x5CPJGk1ifoUK4FUw5ynLjNUtzQhw/GKjJcSqnYfJIUM+BEMXQLd5PR2ok4AAAA=",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Casal com o bebê no colo em retrato de estúdio",
+    "placeholderGerado": false,
+    "hash": "b86606c088506d38"
+  },
+  {
+    "id": "familia-2",
+    "largura": 2400,
+    "altura": 3000,
+    "proporcao": 0.8,
+    "src": "/fotos/familia-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/familia-2-480.avif 480w, /fotos/familia-2-960.avif 960w, /fotos/familia-2-1600.avif 1600w, /fotos/familia-2-2400.avif 2400w",
+      "webp": "/fotos/familia-2-480.webp 480w, /fotos/familia-2-960.webp 960w, /fotos/familia-2-1600.webp 1600w, /fotos/familia-2-2400.webp 2400w",
+      "jpg": "/fotos/familia-2-480.jpg 480w, /fotos/familia-2-960.jpg 960w, /fotos/familia-2-1600.jpg 1600w, /fotos/familia-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwBACdASoQABQAPu1iqU2ppaOiMAgBMB2JYwC/OBol+0j+ilf/eHCgYgAA/FRgjnepMbEheAkxJxDkROzsQ4DHHfL0XjpRigvHpaIzxEfGeStyH7Foq/WBw53mwgYun5GvXKAA",
+    "cor": "#988898",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Recém-nascido dormindo embrulhado em tecido lilás, com gorro de tricô",
+    "placeholderGerado": false,
+    "hash": "32ecba4b6ac6087f"
+  },
+  {
+    "id": "casamento-1",
+    "largura": 2400,
+    "altura": 3629,
+    "proporcao": 0.6613,
+    "src": "/fotos/casamento-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/casamento-1-480.avif 480w, /fotos/casamento-1-960.avif 960w, /fotos/casamento-1-1600.avif 1600w, /fotos/casamento-1-2400.avif 2400w",
+      "webp": "/fotos/casamento-1-480.webp 480w, /fotos/casamento-1-960.webp 960w, /fotos/casamento-1-1600.webp 1600w, /fotos/casamento-1-2400.webp 2400w",
+      "jpg": "/fotos/casamento-1-480.jpg 480w, /fotos/casamento-1-960.jpg 960w, /fotos/casamento-1-1600.jpg 1600w, /fotos/casamento-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBUesX6T3kWbdJ43T5OaJtgA/peQB5e04hYVafR9TfEVs4x1sXlFFRyhpnHGS1pUevGZQgC+yYFzM7C7KkY4FKl2Vhqega++LJ3Sr+FWT+Bn7S2VAzMyxqYW1q4r1uh7u0rWvNKFOfdtMYhFvv+bJgJuCBMqu7yjE2q/vzwAAA==",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.6
+    },
+    "alt": "Noivos em um terraço de pedra diante de um castelo",
+    "placeholderGerado": false,
+    "hash": "25a13771e332c970"
+  },
+  {
+    "id": "casamento-2",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/casamento-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/casamento-2-480.avif 480w, /fotos/casamento-2-960.avif 960w, /fotos/casamento-2-1600.avif 1600w, /fotos/casamento-2-2400.avif 2400w",
+      "webp": "/fotos/casamento-2-480.webp 480w, /fotos/casamento-2-960.webp 960w, /fotos/casamento-2-1600.webp 1600w, /fotos/casamento-2-2400.webp 2400w",
+      "jpg": "/fotos/casamento-2-480.jpg 480w, /fotos/casamento-2-960.jpg 960w, /fotos/casamento-2-1600.jpg 1600w, /fotos/casamento-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQBfnMY7atw6iz2vtPf+eJRCvGAD+bHuTFiNsYP90YkPbBX/FLml9Rgxl4uohiCpH8Yk0h1kTDRSsxsBw9v9jEMO8Q1iOWo30Tj2egYJqlrsL727GzVeDVku5oVpLu5P3f6I9DVpK4hz2iNnViivBl3ublDjUCLZLbSFfCXDq6i9VptHcoAAA",
+    "cor": "#d8d8d8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Noiva e noivo de terno azul se beijando ao lado de uma árvore",
+    "placeholderGerado": false,
+    "hash": "dfddd0384bb3ac7c"
+  },
+  {
+    "id": "formatura-1",
+    "largura": 2400,
+    "altura": 3114,
+    "proporcao": 0.7707,
+    "src": "/fotos/formatura-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/formatura-1-480.avif 480w, /fotos/formatura-1-960.avif 960w, /fotos/formatura-1-1600.avif 1600w, /fotos/formatura-1-2400.avif 2400w",
+      "webp": "/fotos/formatura-1-480.webp 480w, /fotos/formatura-1-960.webp 960w, /fotos/formatura-1-1600.webp 1600w, /fotos/formatura-1-2400.webp 2400w",
+      "jpg": "/fotos/formatura-1-480.jpg 480w, /fotos/formatura-1-960.jpg 960w, /fotos/formatura-1-1600.jpg 1600w, /fotos/formatura-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JQBWEJATQDlXHPzgWWT+xS31YAP0h8Q7h2ksZmlGtZ143B+UvcdVEs4Tew6xiYgcpGnqcILGo+6a0SyJIpNwJKR2+H8xH431W7Up7AFridkl3V0yvbJKYLfGTBCJZ+oqJYyW1swY9dxO0Hu22U65LBTw+jnZ7UWKMH1DvBG3MyoyoCASFUgAA",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Formanda de capelo sorrindo em meio ao capim alto",
+    "placeholderGerado": false,
+    "hash": "ea7291d6f0022e8d"
+  },
+  {
+    "id": "formatura-2",
+    "largura": 2400,
+    "altura": 2568,
+    "proporcao": 0.9346,
+    "src": "/fotos/formatura-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/formatura-2-480.avif 480w, /fotos/formatura-2-960.avif 960w, /fotos/formatura-2-1600.avif 1600w, /fotos/formatura-2-2400.avif 2400w",
+      "webp": "/fotos/formatura-2-480.webp 480w, /fotos/formatura-2-960.webp 960w, /fotos/formatura-2-1600.webp 1600w, /fotos/formatura-2-2400.webp 2400w",
+      "jpg": "/fotos/formatura-2-480.jpg 480w, /fotos/formatura-2-960.jpg 960w, /fotos/formatura-2-1600.jpg 1600w, /fotos/formatura-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABEAPu1iqU2ppaOiMAgBMB2JYgDCgB9E9zvCWlUCC+cArAD+6ab+SpKlyNmDF5Vm62cSRwPaS5bQ12pCgaWhFINqwLhvCGbU6M41ujUNY1s7RjKpmw14qpSAE6gnI6nX6b/dMRNmODh8og0G0AAA",
+    "cor": "#181818",
+    "foco": {
+      "x": 0.5,
+      "y": 0.3
+    },
+    "alt": "Formanda sorridente de capelo, com tranças e fita laranja, olhando para trás",
+    "placeholderGerado": false,
+    "hash": "d429dc7391216807"
+  },
+  {
+    "id": "marca-1",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/marca-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/marca-1-480.avif 480w, /fotos/marca-1-960.avif 960w, /fotos/marca-1-1600.avif 1600w, /fotos/marca-1-2400.avif 2400w",
+      "webp": "/fotos/marca-1-480.webp 480w, /fotos/marca-1-960.webp 960w, /fotos/marca-1-1600.webp 1600w, /fotos/marca-1-2400.webp 2400w",
+      "jpg": "/fotos/marca-1-480.jpg 480w, /fotos/marca-1-960.jpg 960w, /fotos/marca-1-1600.jpg 1600w, /fotos/marca-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAABwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JQAB8tzuvPcAgX0aSK6H7fxsSMAD+8N+yl5u71jjma/uRdHE4uzYqc2EYSyxp1o/gvpEGqsEkoTBNcnly5+GvQoK6Y2Vp3xzF+sN3pl/0mx7vZPF5lxdV2Bf+Yoi8/M7sKISPHznGrWX32/tu9iKnzBKMm0FzAPL3JkQoNdwJl33g3xXkSAIxsUWdhlGK2JG8UhamNGVXCFoen0gAAA==",
+    "cor": "#181818",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Mulher de terno branco sentada e sorrindo, em retrato corporativo",
+    "placeholderGerado": false,
+    "hash": "94c295ce83c5e0d1"
+  },
+  {
+    "id": "marca-2",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/marca-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/marca-2-480.avif 480w, /fotos/marca-2-960.avif 960w, /fotos/marca-2-1600.avif 1600w, /fotos/marca-2-2400.avif 2400w",
+      "webp": "/fotos/marca-2-480.webp 480w, /fotos/marca-2-960.webp 960w, /fotos/marca-2-1600.webp 1600w, /fotos/marca-2-2400.webp 2400w",
+      "jpg": "/fotos/marca-2-480.jpg 480w, /fotos/marca-2-960.jpg 960w, /fotos/marca-2-1600.jpg 1600w, /fotos/marca-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoQABgAPu1kqU2ppaQiMAgBMB2JbACdMoADTqgYnxSarBbZ82RigAD+7oN7zCsXU2LvRVL2oXM/37zrmXOoBBw5zMGEMWp+WFEx/XjMOQKq1cXCfEXCRXGURgYZ1Ub+AWk2u/AIg9TDviGMihxODfWx02JGD1jq4GKSAAAA",
+    "cor": "#180808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "alt": "Jarros de cerâmica em tons de mostarda e verde sobre uma prateleira",
+    "placeholderGerado": false,
+    "hash": "fd8325ad21c478ff"
+  },
+  {
+    "id": "retrato-1",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/retrato-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/retrato-1-480.avif 480w, /fotos/retrato-1-960.avif 960w, /fotos/retrato-1-1600.avif 1600w, /fotos/retrato-1-2400.avif 2400w",
+      "webp": "/fotos/retrato-1-480.webp 480w, /fotos/retrato-1-960.webp 960w, /fotos/retrato-1-1600.webp 1600w, /fotos/retrato-1-2400.webp 2400w",
+      "jpg": "/fotos/retrato-1-480.jpg 480w, /fotos/retrato-1-960.jpg 960w, /fotos/retrato-1-1600.jpg 1600w, /fotos/retrato-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JbACdMoADTt86TZOMdl65L/kxiEAA/vQqZ6e+skOU4hFQKfTIc17us16GBoCU5dFDB+Z0z0V1+CSeIMmKC+pL+8JLniBA4QJsluarWmXEw576mI0728+kD8r/FuK0GMbkgb7wtP6iFyYejscZyB9jbOVj9nwn52x5yVwpi5QAAA==",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Retrato de um rapaz de cabelos ruivos, com luz quente no rosto",
+    "placeholderGerado": false,
+    "hash": "e562770c16fbc018"
+  },
+  {
+    "id": "retrato-2",
+    "largura": 2400,
+    "altura": 3000,
+    "proporcao": 0.8,
+    "src": "/fotos/retrato-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/retrato-2-480.avif 480w, /fotos/retrato-2-960.avif 960w, /fotos/retrato-2-1600.avif 1600w, /fotos/retrato-2-2400.avif 2400w",
+      "webp": "/fotos/retrato-2-480.webp 480w, /fotos/retrato-2-960.webp 960w, /fotos/retrato-2-1600.webp 1600w, /fotos/retrato-2-2400.webp 2400w",
+      "jpg": "/fotos/retrato-2-480.jpg 480w, /fotos/retrato-2-960.jpg 960w, /fotos/retrato-2-1600.jpg 1600w, /fotos/retrato-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZQC7AB7HQhGKXdVDQfytsAD+8jVXiV9++Mpf4JKpdK07GxDoaYSaYsELDwpORtVpOMtEwdln/FKi9E7voSsBPt9/t3BViRG5N3f664+iEO5BZVg3sOwO9mNQqpp2jlupydAA",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Homem de moletom olhando para o céu ao pôr do sol, entre árvores",
+    "placeholderGerado": false,
+    "hash": "3fe95af4fa9bcd42"
+  },
+  {
+    "id": "retrato-3",
+    "largura": 2400,
+    "altura": 3912,
+    "proporcao": 0.6135,
+    "src": "/fotos/retrato-3-960.jpg",
+    "srcset": {
+      "avif": "/fotos/retrato-3-480.avif 480w, /fotos/retrato-3-960.avif 960w, /fotos/retrato-3-1600.avif 1600w, /fotos/retrato-3-2400.avif 2400w",
+      "webp": "/fotos/retrato-3-480.webp 480w, /fotos/retrato-3-960.webp 960w, /fotos/retrato-3-1600.webp 1600w, /fotos/retrato-3-2400.webp 2400w",
+      "jpg": "/fotos/retrato-3-480.jpg 480w, /fotos/retrato-3-960.jpg 960w, /fotos/retrato-3-1600.jpg 1600w, /fotos/retrato-3-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASoQABoAPu1iqU2ppaOiMAgBMB2JYwCdIP8CygWXHg/JTrx5Lc6xTwAA/rdRmU51o5lbNerQ2aelv86dbkhoSAHLBFgyFcdCmXn3+JRJcQxMQt2GcsijV0/PIbM2jFSZ371ygJIhty/cyJdomC8AOuW/6eQIUIFqfJT9QwAA",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Formanda de costas, de capelo, ao pôr do sol",
+    "placeholderGerado": false,
+    "hash": "aaf6c96b370565dd"
+  }
+]
