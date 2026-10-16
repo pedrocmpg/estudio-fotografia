@@ -35,7 +35,8 @@ export function Foto({
 }: Props) {
   const foto = obterFoto(id);
   const mobile = idMobile ? obterFoto(idMobile) : undefined;
-  const [pronta, setPronta] = useState(false);
+  // Foto da primeira dobra não espera o React confirmar o carregamento para aparecer (LCP).
+  const [pronta, setPronta] = useState(prioridade);
 
   const marcar = useCallback(() => {
     setPronta(true);
@@ -68,6 +69,7 @@ export function Foto({
       className={`${css.foto} ${className ?? ''}`}
       data-modo={modo}
       data-pronta={pronta || undefined}
+      data-prioridade={prioridade || undefined}
       style={{ ...estilo, ...(modo === 'natural' ? { aspectRatio: `${foto.proporcao}` } : null) }}
     >
       <picture>

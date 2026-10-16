@@ -37,6 +37,10 @@
   opacity: 1;
 }
 
+.foto[data-prioridade] img {
+  transition: none;
+}
+
 .foto[data-modo='natural'] {
   height: auto;
 }

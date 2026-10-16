@@ -87,14 +87,23 @@
   scroll-snap-align: center;
   transform: scale(0.95);
   transform-origin: center bottom;
-  opacity: 0.75;
+  transition: transform var(--t-lento) var(--ease-saida);
+}
+
+/* Só a foto escurece nos cards laterais: o texto e o botão mantêm o contraste */
+.card .foto {
+  opacity: 0.7;
+  /* o transform vem do Revelar (zoom da entrada): preserva os dois */
   transition:
-    transform var(--t-lento) var(--ease-saida),
-    opacity var(--t-lento) var(--ease-saida);
+    opacity var(--t-lento) var(--ease-saida),
+    transform 900ms var(--ease-saida);
 }
 
 .card[data-central] {
   transform: none;
+}
+
+.card[data-central] .foto {
   opacity: 1;
 }
 
@@ -179,6 +188,9 @@
     max-width: 30rem;
     scroll-snap-align: start;
     transform: none;
+  }
+
+  .card .foto {
     opacity: 1;
   }
 }

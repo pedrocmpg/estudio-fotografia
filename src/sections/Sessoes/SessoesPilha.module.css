@@ -29,11 +29,11 @@
 }
 
 .card[data-v='1'] .cartao {
-  background: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg));
 }
 
 .card[data-v='2'] .cartao {
-  background: color-mix(in srgb, var(--text) 7%, var(--bg));
+  background: color-mix(in srgb, var(--text) 5%, var(--bg));
 }
 
 .midia {

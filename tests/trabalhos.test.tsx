@@ -1,4 +1,5 @@
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
+import { axe } from 'vitest-axe';
 import { describe, expect, it } from 'vitest';
 import { siteConfigAlt } from '../src/config/site.config.alt.ts';
 import { definirMidia } from './helpers/midia.ts';
@@ -89,5 +90,15 @@ describe('bloco D — lightbox', () => {
     expect(document.documentElement.style.overflow).toBe('hidden');
     fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
     await waitFor(() => expect(document.documentElement.style.overflow).not.toBe('hidden'));
+  });
+
+  it('a lightbox aberta não tem violações de acessibilidade (axe)', async () => {
+    await abrirPrimeiraDaColagem();
+    const caixa = await screen.findByRole('dialog');
+    expect(
+      await axe(caixa, {
+        rules: { 'color-contrast': { enabled: false }, region: { enabled: false } },
+      }),
+    ).toHaveNoViolations();
   });
 });

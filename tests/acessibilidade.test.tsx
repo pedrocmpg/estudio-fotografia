@@ -10,6 +10,9 @@ import type { TemaId } from '../src/config/types.ts';
 import { IntroProvider } from '../src/motion/intro.tsx';
 import { CtaFinal } from '../src/sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from '../src/sections/Faixa/Faixa.tsx';
+import { Faq } from '../src/sections/Faq/Faq.tsx';
+import { Manifesto } from '../src/sections/Manifesto/Manifesto.tsx';
+import { Presentes } from '../src/sections/Presentes/Presentes.tsx';
 import { Header } from '../src/sections/Header/Header.tsx';
 import { BotaoPularIntro } from '../src/sections/Hero/BotaoPularIntro.tsx';
 import { Hero } from '../src/sections/Hero/Hero.tsx';
@@ -54,7 +57,10 @@ const SECOES: [string, () => ReactNode][] = [
   ],
   ['Faixa', () => <Faixa />],
   ['Sessões', () => <Sessoes />],
-  ['Trabalhos (roda 3D)', () => <Trabalhos />],
+  ['Presentes', () => <Presentes />],
+  ['Manifesto', () => <Manifesto />],
+  ['Trabalhos (colagem e roda)', () => <Trabalhos />],
+  ['FAQ', () => <Faq />],
   ['CTA final', () => <CtaFinal />],
   ['Rodapé', () => <Rodape />],
   ['WhatsApp flutuante', () => <WhatsappFlutuante />],
@@ -74,6 +80,34 @@ describe('acessibilidade (axe)', () => {
         expect(await axe(container, REGRAS_SECAO)).toHaveNoViolations();
       });
     }
+
+    it(`Sessões (desktop) — tema ${tema}`, async () => {
+      definirMidia({ largo: true });
+      document.documentElement.dataset.theme = tema;
+      const { container } = render(
+        <Envelope>
+          <Sessoes />
+        </Envelope>,
+      );
+      await act(async () => {
+        await Promise.resolve();
+      });
+      expect(await axe(container, REGRAS_SECAO)).toHaveNoViolations();
+    });
+
+    it(`Trabalhos (celular, pista) — tema ${tema}`, async () => {
+      definirMidia({ estreito: true });
+      document.documentElement.dataset.theme = tema;
+      const { container } = render(
+        <Envelope>
+          <Trabalhos />
+        </Envelope>,
+      );
+      await act(async () => {
+        await Promise.resolve();
+      });
+      expect(await axe(container, REGRAS_SECAO)).toHaveNoViolations();
+    });
 
     it(`página inteira, abertura rodando — tema ${tema}`, async () => {
       document.documentElement.dataset.theme = tema;

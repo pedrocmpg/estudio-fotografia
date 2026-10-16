@@ -1,4 +1,4 @@
-import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
+import { LazyMotion, MotionConfig } from 'motion/react';
 import { lazy, Suspense } from 'react';
 import { PreviaProvider, useSiteConfig } from './apresentacao/previa.tsx';
 import { TemaEfeito } from './apresentacao/TemaEfeito.tsx';
@@ -21,6 +21,9 @@ import { Rodape } from './sections/Rodape/Rodape.tsx';
 import { Sessoes } from './sections/Sessoes/Sessoes.tsx';
 import { Trabalhos } from './sections/Trabalhos/Trabalhos.tsx';
 import { WhatsappFlutuante } from './sections/WhatsappFlutuante/WhatsappFlutuante.tsx';
+
+// Recursos de animação do motion: chunk à parte, fora do caminho do LCP.
+const carregarRecursos = () => import('./motion/features.ts').then((m) => m.default);
 
 // O painel do modo apresentação é um chunk à parte (SPEC §11).
 const Painel = lazy(() => import('./apresentacao/Painel.tsx'));
@@ -80,7 +83,7 @@ export function App({ config = siteConfig }: { config?: SiteConfig }) {
   return (
     <ConfigProvider config={config}>
       <PreviaProvider>
-        <LazyMotion features={domAnimation} strict>
+        <LazyMotion features={carregarRecursos} strict>
           <MotionConfig reducedMotion="user">
             <IntroProvider>
               <Pagina />
