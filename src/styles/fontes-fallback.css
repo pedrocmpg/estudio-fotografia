@@ -1,0 +1,48 @@
+/*
+ * Fallbacks com métricas ajustadas (size-adjust etc.) para o texto não "pular" quando a fonte
+ * real chega (font-display: swap). Valores aproximados — ver README para refinar com capsize.
+ */
+@font-face {
+  font-family: 'Bodoni Fallback';
+  src: local('Georgia');
+  size-adjust: 94%;
+  ascent-override: 100%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Cormorant Fallback';
+  src: local('Georgia');
+  size-adjust: 86%;
+  ascent-override: 106%;
+  descent-override: 32%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Grotesk Fallback';
+  src: local('Arial');
+  size-adjust: 103%;
+  ascent-override: 96%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Sans Fallback';
+  src: local('Arial');
+  size-adjust: 101%;
+  ascent-override: 94%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Mono Fallback';
+  src: local('Consolas'), local('Courier New');
+  size-adjust: 100%;
+  ascent-override: 102%;
+  descent-override: 27%;
+  line-gap-override: 0%;
+}

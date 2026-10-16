@@ -1,0 +1,55 @@
+/*
+ * Tokens de tema (SPEC §5). Aplicados por data-theme no <html>.
+ * Componentes só usam estas variáveis, nunca cores soltas.
+ * tests/contraste.test.ts lê este arquivo para checar os pares de contraste.
+ */
+
+:root,
+html[data-theme='camara-escura'] {
+  color-scheme: dark;
+  --bg: #0e0c0a;
+  --surface: #171411;
+  --text: #f2ebdd;
+  --text-2: #a79d8d;
+  --accent: #e0a458;
+  --accent-texto: #e0a458;
+  --on-accent: #0e0c0a;
+  --linha: rgba(242, 235, 221, 0.12);
+  --escuro: #0e0c0a;
+  --hover-alvo: #ffffff;
+  --font-display: 'Bodoni Moda', 'Bodoni Fallback', Georgia, serif;
+  --font-texto: 'Schibsted Grotesk', 'Grotesk Fallback', system-ui, sans-serif;
+  --peso-display: 400;
+  --grao-opacidade: 0.05;
+}
+
+html[data-theme='luz-natural'] {
+  color-scheme: light;
+  --bg: #f6f1e9;
+  --surface: #fbf8f3;
+  --text: #26201b;
+  --text-2: #6b6157;
+  --accent: #b5532d;
+  --accent-texto: #9e4524;
+  --on-accent: #ffffff;
+  --linha: rgba(38, 32, 27, 0.12);
+  --escuro: #2a211b;
+  --hover-alvo: #000000;
+  --font-display: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  --font-texto: 'Albert Sans', 'Sans Fallback', system-ui, sans-serif;
+  --peso-display: 500;
+  --grao-opacidade: 0;
+}
+
+/* Troca de tema ao vivo (modo apresentação): cores suaves por 400 ms. */
+html.troca-tema,
+html.troca-tema *,
+html.troca-tema *::before,
+html.troca-tema *::after {
+  transition:
+    background-color 400ms ease,
+    color 400ms ease,
+    border-color 400ms ease,
+    fill 400ms ease,
+    stroke 400ms ease !important;
+}

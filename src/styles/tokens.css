@@ -1,0 +1,33 @@
+/* Tokens que não mudam com o tema: movimento, espaçamento, escala tipográfica (SPEC §5 e §8). */
+
+:root {
+  /* Movimento — manter em sincronia com src/motion/tokens.ts (tests/motion.test.ts confere). */
+  --t-rapido: 150ms;
+  --t-base: 300ms;
+  --t-lento: 600ms;
+  --t-etapa-cortina: 450ms;
+  --ease-saida: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-entrada-saida: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Tipografia fluida */
+  --fs-display: clamp(3.5rem, 12vw, 10rem);
+  --fs-h2: clamp(2.25rem, 5vw, 4rem);
+  --fs-texto: clamp(1rem, 1.1vw, 1.125rem);
+  --fs-mono: 0.75rem;
+  --ls-mono: 0.08em;
+  --medida: 65ch;
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --largura-max: 1280px;
+  --altura-header: 4.5rem;
+  --alvo-toque: 44px;
+  --raio: 2px;
+
+  /* Cores fixas sobre foto (a foto leva scrim, então o texto é sempre claro) */
+  --sobre-foto: #f6f1e9;
+  --sobre-foto-2: rgba(246, 241, 233, 0.82);
+
+  /* Fonte mono é a mesma nos dois temas */
+  --font-mono: 'IBM Plex Mono', 'Mono Fallback', ui-monospace, monospace;
+}
