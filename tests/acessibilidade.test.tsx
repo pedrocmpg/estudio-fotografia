@@ -12,10 +12,13 @@ import { CtaFinal } from '../src/sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from '../src/sections/Faixa/Faixa.tsx';
 import { Faq } from '../src/sections/Faq/Faq.tsx';
 import { Manifesto } from '../src/sections/Manifesto/Manifesto.tsx';
+import { Pacotes } from '../src/sections/Pacotes/Pacotes.tsx';
+import { Pedido } from '../src/sections/Pedido/Pedido.tsx';
 import { Presentes } from '../src/sections/Presentes/Presentes.tsx';
 import { Header } from '../src/sections/Header/Header.tsx';
 import { BotaoPularIntro } from '../src/sections/Hero/BotaoPularIntro.tsx';
 import { Hero } from '../src/sections/Hero/Hero.tsx';
+import { Processo } from '../src/sections/Processo/Processo.tsx';
 import { Rodape } from '../src/sections/Rodape/Rodape.tsx';
 import { Sessoes } from '../src/sections/Sessoes/Sessoes.tsx';
 import { Trabalhos } from '../src/sections/Trabalhos/Trabalhos.tsx';
@@ -60,6 +63,9 @@ const SECOES: [string, () => ReactNode][] = [
   ['Presentes', () => <Presentes />],
   ['Manifesto', () => <Manifesto />],
   ['Trabalhos (colagem e roda)', () => <Trabalhos />],
+  ['Como funciona', () => <Processo />],
+  ['Pacotes', () => <Pacotes />],
+  ['Pedido', () => <Pedido />],
   ['FAQ', () => <Faq />],
   ['CTA final', () => <CtaFinal />],
   ['Rodapé', () => <Rodape />],

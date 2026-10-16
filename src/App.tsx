@@ -16,8 +16,10 @@ import { Header } from './sections/Header/Header.tsx';
 import { Manifesto } from './sections/Manifesto/Manifesto.tsx';
 import { BotaoPularIntro } from './sections/Hero/BotaoPularIntro.tsx';
 import { Hero } from './sections/Hero/Hero.tsx';
+import { Pacotes } from './sections/Pacotes/Pacotes.tsx';
 import { Pedido } from './sections/Pedido/Pedido.tsx';
 import { Presentes } from './sections/Presentes/Presentes.tsx';
+import { Processo } from './sections/Processo/Processo.tsx';
 import { Rodape } from './sections/Rodape/Rodape.tsx';
 import { Sessoes } from './sections/Sessoes/Sessoes.tsx';
 import { Trabalhos } from './sections/Trabalhos/Trabalhos.tsx';
@@ -43,6 +45,10 @@ function Secao({ id }: { id: SecaoId }) {
       return <Manifesto />;
     case 'trabalhos':
       return <Trabalhos />;
+    case 'processo':
+      return <Processo />;
+    case 'pacotes':
+      return <Pacotes />;
     case 'pedido':
       return <Pedido />;
     case 'faq':
