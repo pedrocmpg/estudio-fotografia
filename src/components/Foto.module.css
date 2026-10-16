@@ -1,0 +1,48 @@
+.foto {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: var(--cor, var(--surface));
+}
+
+.foto[data-modo='preencher'] {
+  width: 100%;
+  height: 100%;
+}
+
+/* Miniatura borrada enquanto a foto de verdade não chega */
+.foto::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ph) center / cover no-repeat;
+  filter: blur(18px);
+  transform: scale(1.12);
+}
+
+.foto picture {
+  position: absolute;
+  inset: 0;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--t-base) ease;
+}
+
+.foto[data-pronta] img {
+  opacity: 1;
+}
+
+.foto[data-modo='natural'] {
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foto img {
+    transition: none;
+  }
+}
