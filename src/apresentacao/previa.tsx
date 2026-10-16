@@ -21,6 +21,8 @@ export interface EstadoPrevia {
   /** Quantidade de cortinas da abertura (1 a 3). */
   camadas: number;
   destaque: ModoDestaque;
+  /** Nome enorme na parte baixa do hero (opção hero.nomeGigante). */
+  nomeGigante: boolean;
   /** Cor de destaque escolhida no painel; null = a do tema/config. */
   acento: string | null;
   /** Sobe a cada "Rever abertura". */
@@ -51,6 +53,7 @@ export function criarPrevia(config: SiteConfig): Previa {
     tema: temaInicial(config),
     camadas: config.hero.intro.camadas.length,
     destaque: config.hero.destaque.modo,
+    nomeGigante: config.hero.nomeGigante,
     acento: null,
     introRev: 0,
   };
@@ -104,9 +107,10 @@ export function useSiteConfig(): SiteConfig {
       ...base,
       hero: {
         ...base.hero,
+        nomeGigante: previa.nomeGigante,
         destaque: { ...base.hero.destaque, modo: previa.destaque },
         intro: { ...base.hero.intro, camadas: todas.slice(0, qtd) },
       },
     };
-  }, [base, previa.camadas, previa.destaque]);
+  }, [base, previa.camadas, previa.destaque, previa.nomeGigante]);
 }

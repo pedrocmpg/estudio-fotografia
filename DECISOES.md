@@ -40,3 +40,10 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 - A frase completa existe como texto único no `<h2 class="sr-only">`; o palco animado é `aria-hidden`.
 - Citação: `Reveal` (fade + subida), em itálico; fotos em tamanhos bem diferentes reutilizam a mecânica de parallax da colagem (`layout="trio"`), sem interação (figuras com alt).
 - Texto de exemplo `[CONFIRMAR]` em `manifesto.confirmado: false`: com `modoDemo: false` a seção some até alguém marcar `confirmado: true`. Palavras (adendo I.7): "Momentos. / Memórias. / Presentes que contam a sua história."; citação original: "Foto boa merece sair da galeria do celular."
+
+## Bloco F
+
+- **Rodapé:** nome da marca gigante com a largura da tela, cortado pela borda de baixo (altura da caixa = 74% do corpo da fonte). Um hook mede o texto e escreve `--fs-gigante`, então funciona com qualquer nome (curto ou longo) e refaz a conta quando as fontes carregam ou a tela muda. Usa `negocio.nomeCurto` ("Ivy"); a assinatura "Foto e Presente" fica em `negocio.assinatura` (texto para leitor de tela). O nome gigante é `aria-hidden`: o nome real está no © do rodapé.
+- A faixa de links vem **logo acima** do nome (não sobreposta às letras): links pequenos sobre letras de 300 px ficam ilegíveis e reprovariam no contraste. Registrado como desvio consciente da frase "com a faixa de links por cima".
+- Rodapé novo (adendo I.5): navegar, pontos de atendimento (estúdio e loja, cada um com endereço, horários e "Abrir no mapa" sem iframe), as duas contas de Instagram com rótulo (`negocio.redes`), e-mail, selo único e "Voltar ao topo" no fluxo da página. Cada item só aparece se existir no config.
+- **Hero `nomeGigante`:** padrão `false` (prévia). Quando `true`, o `<h1>` (texto real) vai para a parte baixa do hero, cortado pela borda, e os textos e botões sobem para o topo, longe do rosto. Dá para testar no painel de apresentação ("Nome do hero → Gigante"). Na foto de exemplo (mulher de costas, cabelo à direita) o nome na parte baixa não cobre o rosto, mas o hero perde o ar de "foto limpa"; fica `false` na prévia, como o prompt manda.

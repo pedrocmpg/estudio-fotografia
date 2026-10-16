@@ -123,6 +123,28 @@ export default function Painel() {
       </fieldset>
 
       <fieldset className={css.grupo}>
+        <legend>Nome do hero</legend>
+        <div className={css.opcoes}>
+          <button
+            type="button"
+            className={css.opcao}
+            aria-pressed={!previa.nomeGigante}
+            onClick={() => store.definir({ nomeGigante: false })}
+          >
+            Centralizado
+          </button>
+          <button
+            type="button"
+            className={css.opcao}
+            aria-pressed={previa.nomeGigante}
+            onClick={() => store.definir({ nomeGigante: true })}
+          >
+            Gigante
+          </button>
+        </div>
+      </fieldset>
+
+      <fieldset className={css.grupo}>
         <legend>Destaque do hero</legend>
         <div className={css.opcoes}>
           {DESTAQUES.map((d) => (

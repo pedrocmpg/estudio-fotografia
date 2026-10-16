@@ -407,3 +407,40 @@
   max-width: 34ch;
   text-wrap: balance;
 }
+
+/* ---------- nome gigante (hero.nomeGigante): parte baixa do hero, cortado pela borda ---------- */
+
+.hero[data-gigante] .conteudo {
+  justify-content: flex-start;
+  padding-top: calc(var(--altura-header) + clamp(2rem, 8svh, 5rem));
+}
+
+.hero[data-gigante] .nome {
+  --fs-gigante: 40vw;
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 0;
+  /* mostra só a parte de cima das letras */
+  height: calc(var(--fs-gigante) * 0.74);
+  overflow: clip;
+  padding-bottom: 0;
+  font-size: var(--fs-gigante);
+  line-height: 1;
+  text-align: left;
+}
+
+.hero[data-gigante] .letras {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 0.07em;
+}
+
+.hero[data-gigante] .rolar {
+  display: none;
+}
+
+.hero[data-gigante] .selo {
+  bottom: auto;
+  top: calc(var(--altura-header) + 0.5rem);
+}

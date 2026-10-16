@@ -43,8 +43,7 @@ export function SessoesPilha({ config, reduzido }: Props) {
                   href={href}
                   {...(ehExterno(href) ? { target: '_blank', rel: 'noopener noreferrer' } : null)}
                 >
-                  Pedir essa sessão
-                  <span className="sr-only"> — {item.nome}</span>
+                  Pedir essa sessão <span className="sr-only">— {item.nome}</span>
                 </a>
               </div>
               <span className={css.cobertura} aria-hidden="true" />

@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { forwardRef, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useSiteConfig } from '../../apresentacao/previa.tsx';
 import { CtaBotao } from '../../components/CtaBotao.tsx';
 import { Foto } from '../../components/Foto.tsx';
 import { Selo } from '../../components/Selo.tsx';
 import type { SiteConfig } from '../../config/types.ts';
 import { useInView, useReducedMotion, useRodando } from '../../motion/hooks.ts';
+import { useAjusteLargura } from '../../motion/useAjusteLargura.ts';
 import { useIntro } from '../../motion/intro.tsx';
 import css from './Hero.module.css';
 
@@ -20,11 +21,14 @@ function textoDestaque(config: SiteConfig): string | null {
 }
 
 /** Nome do estúdio, letra a letra. Leitor de tela lê o sr-only (o h1 existe desde o início). */
-function NomeEmLetras({ nome }: { nome: string }) {
+const NomeEmLetras = forwardRef<HTMLSpanElement, { nome: string }>(function NomeEmLetras(
+  { nome },
+  ref,
+) {
   const palavras = nome.split(' ');
   let indice = 0;
   return (
-    <span aria-hidden="true">
+    <span ref={ref} className={css.letras} aria-hidden="true">
       {palavras.map((palavra, w) => (
         <span key={w} className={css.palavra}>
           {[...palavra].map((letra) => {
@@ -40,7 +44,7 @@ function NomeEmLetras({ nome }: { nome: string }) {
       ))}
     </span>
   );
-}
+});
 
 /** Tipos de sessão trocando a cada 2 s com máscara (modo "rotativo"). */
 function Rotativo({ itens, ativo }: { itens: string[]; ativo: boolean }) {
@@ -128,6 +132,10 @@ export function Hero() {
   const { estado } = useIntro();
   const { hero, negocio } = config;
   const secao = useRef<HTMLElement>(null);
+  const titulo = useRef<HTMLHeadingElement>(null);
+  const letras = useRef<HTMLSpanElement>(null);
+  // Nome gigante: ocupa a largura do hero (mede o texto e ajusta o tamanho da fonte).
+  useAjusteLargura(letras, titulo, hero.nome, hero.nomeGigante);
   // O indicador de rolagem só vale enquanto o hero ocupa quase toda a tela.
   const heroInteiro = useInView(secao, { limiar: 0.85 });
   const rodando = estado.fase === 'rodando';
@@ -150,6 +158,7 @@ export function Hero() {
       data-fase={estado.fase}
       data-final={estado.modoFinal}
       data-fundo={hero.fundoFinal.tipo}
+      data-gigante={hero.nomeGigante || undefined}
       style={estilo}
     >
       <div className={css.fundo}>
@@ -160,9 +169,9 @@ export function Hero() {
       </div>
 
       <div className={css.conteudo}>
-        <h1 className={css.nome}>
+        <h1 ref={titulo} className={css.nome}>
           <span className="sr-only">{negocio.nome}</span>
-          <NomeEmLetras nome={hero.nome} />
+          <NomeEmLetras ref={letras} nome={hero.nome} />
         </h1>
 
         {hero.destaque.modo === 'rotativo' && hero.destaque.itens ? (

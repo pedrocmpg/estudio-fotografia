@@ -49,7 +49,7 @@ describe('bloco D — lightbox', () => {
     const caixa = await screen.findByRole('dialog');
     expect(caixa).toHaveAttribute('aria-modal', 'true');
     expect(within(caixa).getByText(/01 \/ 0\d/)).toBeInTheDocument();
-    expect(caixa.contains(document.activeElement)).toBe(true);
+    await waitFor(() => expect(caixa.contains(document.activeElement)).toBe(true));
   });
 
   it('Esc fecha e devolve o foco à foto de origem', async () => {

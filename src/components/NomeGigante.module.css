@@ -1,0 +1,21 @@
+.caixa {
+  --fs-gigante: 38vw; /* valor inicial até o ajuste medir o texto */
+  width: 100%;
+  /* mostra só a parte de cima das letras: o nome é cortado levemente pela borda de baixo */
+  height: calc(var(--fs-gigante) * 0.74);
+  overflow: clip;
+  user-select: none;
+}
+
+.nome {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: var(--peso-display);
+  font-size: var(--fs-gigante);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  /* a última letra passa um pouco do fim da caixa de texto (espaçamento negativo) */
+  padding-right: 0.07em;
+  color: var(--text);
+}
