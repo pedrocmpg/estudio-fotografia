@@ -1,16 +1,22 @@
 .secao {
-  padding-block: clamp(4rem, 10vw, 8rem);
+  padding-top: var(--espaco-secao);
+  padding-bottom: var(--espaco-secao);
   background: var(--surface);
-  overflow: hidden;
+  /* clip (e não hidden): corta o excesso sem quebrar o sticky da pista */
+  overflow-x: clip;
 }
 
-.titulo {
-  max-width: 18ch;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  font-size: var(--fs-h2);
+.cabeca {
+  margin-bottom: 0;
 }
 
 /* Mesma altura da roda, para a página não pular quando o chunk chega */
 .reserva {
-  height: clamp(22rem, 34vw, 31rem);
+  height: calc(100svh + 10 * 18svh);
+}
+
+@media (min-width: 900px) {
+  .reserva {
+    height: clamp(30rem, 44vw, 42rem);
+  }
 }

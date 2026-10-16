@@ -6,7 +6,7 @@
 
 .palco {
   /* --k vem do componente: raio = largura × k, para as fotos formarem um anel sem vãos */
-  --w: clamp(190px, 21vw, 310px);
+  --w: clamp(190px, 28vw, 440px);
   --h: calc(var(--w) * 1.28);
   --r: calc(var(--w) * var(--k));
   display: flex;
@@ -84,31 +84,31 @@
   margin-inline: auto;
 }
 
-.lista[data-modo='carrossel'] .itens {
+.lista[data-modo='snap'] .itens {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-inline: max(var(--gutter), calc(50vw - min(31vw, 10rem)));
+  padding-inline: 7.5vw;
   padding-block: 1rem;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
 }
 
-.lista[data-modo='carrossel'] .itens::-webkit-scrollbar {
+.lista[data-modo='snap'] .itens::-webkit-scrollbar {
   display: none;
 }
 
-.lista[data-modo='carrossel'] .celula {
+.lista[data-modo='snap'] .celula {
   flex: none;
-  width: 62vw;
-  max-width: 20rem;
+  width: 85vw;
+  max-width: 30rem;
   scroll-snap-align: center;
-  transform: scale(0.9);
+  transform: scale(0.94);
   transition: transform var(--t-lento) var(--ease-saida);
 }
 
-.lista[data-modo='carrossel'] .celula[data-central] {
+.lista[data-modo='snap'] .celula[data-central] {
   transform: none;
 }
 
@@ -125,7 +125,67 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lista[data-modo='carrossel'] .celula {
+  .lista[data-modo='snap'] .celula {
     transition: none;
   }
+}
+
+/* ---------- pista (celular): rolagem vertical ligada à horizontal ---------- */
+
+.pista {
+  /* ~280svh para 10 fotos: rolar a página desloca as fotos para o lado */
+  --p: 0;
+  --w: 85vw;
+  --gap: 1rem;
+  height: calc(100svh + var(--n) * 18svh);
+}
+
+.palcoPista {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
+}
+
+.trilho {
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  /* a primeira e a última foto ficam centralizadas */
+  padding-inline: calc((100vw - var(--w)) / 2);
+  transform: translate3d(calc(var(--p) * (var(--n) - 1) * (var(--w) + var(--gap)) * -1), 0, 0);
+}
+
+.celulaPista {
+  /* distância (em fotos) até o centro; escala e opacidade só nas vizinhas */
+  --d: calc(var(--p) * (var(--n) - 1) - var(--i));
+  --ad: max(var(--d), calc(var(--d) * -1));
+  flex: none;
+  width: var(--w);
+  transform: scale(calc(1 - 0.16 * min(var(--ad), 1)));
+  opacity: calc(1 - 0.5 * min(var(--ad), 1));
+}
+
+.fotoPista {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 72svh;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--raio);
+  background: var(--surface);
+}
+
+.contador {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  color: var(--text-2);
 }

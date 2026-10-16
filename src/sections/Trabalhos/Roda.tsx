@@ -9,20 +9,21 @@ import {
 } from 'react';
 import { Foto } from '../../components/Foto.tsx';
 import { obterFoto } from '../../data/fotos.ts';
-import { suportaPreserve3d } from '../../lib/ambiente.ts';
+import { suportaPreserve3d, suportaSticky } from '../../lib/ambiente.ts';
 import { useMediaQuery, useReducedMotion, useRodando } from '../../motion/hooks.ts';
 import { useIndiceCentral } from '../../motion/useCentro.ts';
+import { progressoDaPista, useVariavelDeRolagem } from '../../motion/useVariavelDeRolagem.ts';
 import css from './Roda.module.css';
 
 interface Props {
   fotos: string[];
   segundosPorVolta: number;
   titulo: string;
-  /** Chamado ao ativar a foto da frente (Enter/clique). A lightbox entra na Fase 2. */
+  /** Chamado ao ativar a foto da frente (Enter/clique): abre a lightbox. */
   aoAbrir?: (indice: number) => void;
 }
 
-type Modo = 'roda' | 'carrossel' | 'grade';
+type Modo = 'roda' | 'pista' | 'snap' | 'grade';
 
 const GRAUS_POR_PIXEL = 0.3;
 const LIMITE_ARRASTO_PX = 6;
@@ -37,17 +38,26 @@ function rotulo(id: string): string {
 }
 
 /**
- * Roda 3D da galeria (SPEC §7.6a). Três apresentações com o mesmo conteúdo:
- *  - roda: anel 3D que gira sozinho, arrasta com inércia e responde às setas;
- *  - carrossel: celular / ponteiro grosso, rolagem horizontal com scroll-snap;
+ * Roda 3D da galeria (SPEC §7.6a). Quatro apresentações com o mesmo conteúdo:
+ *  - roda: desktop; anel 3D que gira sozinho, arrasta com inércia e responde às setas;
+ *  - pista: celular; seção `sticky` em que rolar a página desloca as fotos para o lado, a central
+ *    em destaque e as vizinhas menores, com contador "03 / 10";
+ *  - snap: celular sem `position: sticky`; rolagem horizontal com scroll-snap (fotos a 85%);
  *  - grade: movimento reduzido ou sem suporte a preserve-3d.
  */
 export default function Roda({ fotos, segundosPorVolta, titulo, aoAbrir }: Props) {
   const reduzido = useReducedMotion();
   const ponteiroGrosso = useMediaQuery('(pointer: coarse)');
   const estreito = useMediaQuery('(max-width: 640px)');
+  const celular = ponteiroGrosso || estreito;
   const modo: Modo =
-    reduzido || !suportaPreserve3d() ? 'grade' : ponteiroGrosso || estreito ? 'carrossel' : 'roda';
+    reduzido || !suportaPreserve3d()
+      ? 'grade'
+      : !celular
+        ? 'roda'
+        : suportaSticky()
+          ? 'pista'
+          : 'snap';
 
   if (modo === 'roda') {
     return (
@@ -59,17 +69,78 @@ export default function Roda({ fotos, segundosPorVolta, titulo, aoAbrir }: Props
       />
     );
   }
+  if (modo === 'pista') return <Pista fotos={fotos} titulo={titulo} aoAbrir={aoAbrir} />;
   return <Lista fotos={fotos} titulo={titulo} modo={modo} aoAbrir={aoAbrir} />;
 }
 
-// ---------- grade e carrossel ----------
+// ---------- pista (celular): rolagem vertical ligada à horizontal ----------
+
+function Pista({ fotos, titulo, aoAbrir }: Pick<Props, 'fotos' | 'titulo' | 'aoAbrir'>) {
+  const n = fotos.length;
+  const pista = useRef<HTMLDivElement>(null);
+  const [atual, setAtual] = useState(0);
+
+  useVariavelDeRolagem(pista, progressoDaPista, {
+    aoMudar: (p) => setAtual(Math.round(p * (n - 1))),
+  });
+
+  // Teclado: focar uma foto fora da tela leva a rolagem até ela (o conteúdo segue na ordem do DOM).
+  const irPara = (i: number) => {
+    const el = pista.current;
+    const palco = el?.querySelector<HTMLElement>('[data-palco]');
+    if (!el || !palco) return;
+    const topo = el.getBoundingClientRect().top + window.scrollY;
+    const total = el.offsetHeight - palco.offsetHeight;
+    window.scrollTo({ top: topo + (i / Math.max(n - 1, 1)) * total, behavior: 'instant' });
+  };
+
+  const contador = `${String(atual + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
+
+  return (
+    <div ref={pista} className={css.pista} data-modo="pista" style={{ '--n': n } as CSSProperties}>
+      <div className={css.palcoPista} data-palco>
+        <ul className={css.trilho} role="list" aria-label={titulo}>
+          {fotos.map((id, i) => (
+            <li
+              key={`${id}-${i}`}
+              className={css.celulaPista}
+              style={{ '--i': i } as CSSProperties}
+              data-atual={i === atual || undefined}
+            >
+              {aoAbrir ? (
+                <button
+                  type="button"
+                  className={css.fotoPista}
+                  aria-label={rotulo(id)}
+                  onClick={() => aoAbrir(i)}
+                  onFocus={() => i !== atual && irPara(i)}
+                >
+                  <Foto id={id} sizes="85vw" alt="" />
+                </button>
+              ) : (
+                <figure className={css.fotoPista}>
+                  <Foto id={id} sizes="85vw" />
+                </figure>
+              )}
+            </li>
+          ))}
+        </ul>
+        <p className={css.contador} aria-hidden="true">
+          {contador}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ---------- snap (fallback) e grade ----------
 
 function Lista({
   fotos,
   titulo,
   modo,
   aoAbrir,
-}: Pick<Props, 'fotos' | 'titulo' | 'aoAbrir'> & { modo: 'carrossel' | 'grade' }) {
+}: Pick<Props, 'fotos' | 'titulo' | 'aoAbrir'> & { modo: 'snap' | 'grade' }) {
   const ref = useRef<HTMLUListElement>(null);
   const central = useIndiceCentral(ref);
   return (
@@ -79,7 +150,7 @@ function Lista({
           <li
             key={`${id}-${i}`}
             className={css.celula}
-            data-central={modo === 'carrossel' && i === central ? true : undefined}
+            data-central={modo === 'snap' && i === central ? true : undefined}
           >
             {aoAbrir ? (
               <button
@@ -88,17 +159,17 @@ function Lista({
                 aria-label={rotulo(id)}
                 onClick={() => aoAbrir(i)}
               >
-                <Foto id={id} sizes="(min-width: 900px) 25vw, 70vw" alt="" />
+                <Foto id={id} sizes="(min-width: 900px) 25vw, 85vw" alt="" />
               </button>
             ) : (
               <figure className={css.foto}>
-                <Foto id={id} sizes="(min-width: 900px) 25vw, 70vw" />
+                <Foto id={id} sizes="(min-width: 900px) 25vw, 85vw" />
               </figure>
             )}
           </li>
         ))}
       </ul>
-      {modo === 'carrossel' && <p className={css.dica}>Deslize para ver mais</p>}
+      {modo === 'snap' && <p className={css.dica}>Deslize para ver mais</p>}
     </div>
   );
 }
@@ -325,7 +396,7 @@ function RodaTresD({ fotos, segundosPorVolta, titulo, aoAbrir }: Props) {
               data-frente={i === frente || undefined}
               onClick={() => aoClicar(i)}
             >
-              <Foto id={id} sizes="(min-width: 900px) 20vw, 60vw" alt="" />
+              <Foto id={id} sizes="(min-width: 900px) 30vw, 60vw" alt="" />
             </button>
           ))}
         </div>

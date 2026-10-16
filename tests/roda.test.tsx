@@ -89,19 +89,44 @@ describe('roda 3D', () => {
     expect(container.querySelector('[data-modo="grade"]')).not.toBeNull();
   });
 
-  it('celular / ponteiro grosso: carrossel com scroll-snap', () => {
+  it('celular / ponteiro grosso: pista (rolagem vertical ligada à horizontal) com contador', () => {
     vi.stubGlobal('CSS', { supports: () => true });
     definirMidia({ ponteiroGrosso: true });
     const { container } = montar();
-    expect(container.querySelector('[data-modo="carrossel"]')).not.toBeNull();
-    expect(screen.getByText('Deslize para ver mais')).toBeInTheDocument();
+    expect(container.querySelector('[data-modo="pista"]')).not.toBeNull();
+    expect(container.querySelector('[data-palco]')).not.toBeNull();
+    expect(screen.getByText(`01 / ${String(fotos.length).padStart(2, '0')}`)).toBeInTheDocument();
+    expect(screen.getAllByRole('figure')).toHaveLength(fotos.length);
   });
 
-  it('tela estreita também vira carrossel', () => {
+  it('tela estreita também vira pista, e a pista escreve --p', () => {
     vi.stubGlobal('CSS', { supports: () => true });
     definirMidia({ estreito: true });
     const { container } = montar();
-    expect(container.querySelector('[data-modo="carrossel"]')).not.toBeNull();
+    const pista = container.querySelector('[data-modo="pista"]') as HTMLElement;
+    expect(pista).not.toBeNull();
+    expect(pista.style.getPropertyValue('--p')).not.toBe('');
+  });
+
+  it('com ação de abrir, as fotos da pista são botões e focar leva a rolagem até elas', () => {
+    vi.stubGlobal('CSS', { supports: () => true });
+    definirMidia({ estreito: true });
+    const abrir = vi.fn();
+    const rolar = vi.fn();
+    window.scrollTo = rolar as unknown as typeof window.scrollTo;
+    montar(abrir);
+    fireEvent.focus(botoes()[3]!);
+    expect(rolar).toHaveBeenCalled();
+    fireEvent.click(botoes()[3]!);
+    expect(abrir).toHaveBeenCalledWith(3);
+  });
+
+  it('sem position: sticky cai no carrossel de scroll-snap com fotos a 85%', () => {
+    vi.stubGlobal('CSS', { supports: (p: string) => p !== 'position' });
+    definirMidia({ estreito: true });
+    const { container } = montar();
+    expect(container.querySelector('[data-modo="snap"]')).not.toBeNull();
+    expect(screen.getByText('Deslize para ver mais')).toBeInTheDocument();
   });
 
   it('na grade, com ação de abrir, cada foto vira botão', () => {

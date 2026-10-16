@@ -24,3 +24,12 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 - Nome da sessão sempre na parte baixa da foto, com véu; campo opcional `posicaoTitulo: 'topo'` fica disponível para quando o rosto estiver embaixo.
 - Desktop: o fundo é `sticky` e a lista de nomes sobe por cima (margem negativa de 100svh); o nome no meio da tela vira o ativo (IntersectionObserver), o mouse/foco de teclado têm prioridade. Miniaturas em duas faixas (90 s e 140 s, sentidos opostos), pausadas fora da tela.
 - Movimento reduzido: lista vertical simples (mobile) e sem faixas (desktop); a troca de foto vira instantânea.
+
+## Bloco D
+
+- **Colagem:** parallax em CSS puro (`animation-timeline: view()`, atrás de `@supports` e de `prefers-reduced-motion: no-preference`), só `transform`, meia-amplitude de 2% a 7% por foto (deslocamento total de 4% a 14%). Navegadores sem suporte (Firefox, Safari antigo) mostram a foto no lugar. Entradas com `clip-path` (`Revelar`) em fotos alternadas.
+- **Fotos da colagem no celular** ocupam 70 a 92% da largura (a colagem tem, por definição, tamanhos diferentes); o resto do site mantém ≥ 85%.
+- **Lightbox simples** (o prompt autoriza): tela cheia, Esc, setas, arrastar, contador, foco preso e devolvido, rolagem da página travada, pré-carrega a próxima. Carregada sob demanda (chunk). Sem View Transitions (fica para a Fase 2/3).
+- **Pista no celular:** seção de `100svh + n × 18svh` (≈ 280svh com 10 fotos) com palco `sticky`; fotos a 85% da largura, vizinhas em `scale(0,84)` e `opacity` 0,5, contador `03 / 10`. O progresso vem da mesma variável `--p` do bloco C. Teclado: focar uma foto fora da tela leva a rolagem até ela. Só as fotos vizinhas ao centro mudam de escala, e só `transform`/`opacity` → bem abaixo do limite de 8 fotos animadas.
+- Fallbacks mantidos: `snap` (rolagem horizontal com scroll-snap a 85%) se não houver `position: sticky`; grade com movimento reduzido ou sem preserve-3d.
+- Roda 3D no desktop com fotos de `28vw` (máx. 440 px). Anotação: não foi possível medir jank em Android intermediário real (sem aparelho); a técnica evita layout/paint na rolagem.

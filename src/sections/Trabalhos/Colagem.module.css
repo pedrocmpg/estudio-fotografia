@@ -1,0 +1,117 @@
+/* Mesa de fotos soltas: grade de 12 colunas, cada foto com largura, posição e velocidade próprias */
+
+.mesa {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: start;
+  row-gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: calc(var(--largura-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  margin-bottom: var(--espaco-secao);
+}
+
+.item {
+  grid-column: 1 / span 12;
+}
+
+/* Celular: fotos grandes (70 a 92% da largura), alternando esquerda e direita */
+.item[data-i='0'] {
+  grid-column: 1 / span 10;
+}
+.item[data-i='1'] {
+  grid-column: 4 / span 9;
+}
+.item[data-i='2'] {
+  grid-column: 1 / span 9;
+}
+.item[data-i='3'] {
+  grid-column: 2 / span 11;
+}
+.item[data-i='4'] {
+  grid-column: 4 / span 9;
+}
+.item[data-i='5'] {
+  grid-column: 1 / span 10;
+}
+.item[data-i='6'] {
+  grid-column: 3 / span 10;
+}
+.item[data-i='7'] {
+  grid-column: 1 / span 9;
+}
+
+.par {
+  will-change: auto;
+}
+
+.botao {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--raio);
+  background: var(--surface);
+}
+
+/* O clip-path da entrada cortaria o contorno de foco: desenha por dentro */
+.botao:focus-visible {
+  outline-offset: -4px;
+}
+
+/* Parallax só com suporte e sem pedido de menos movimento */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .par {
+      animation: paralaxe linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes paralaxe {
+  from {
+    transform: translate3d(0, var(--vel), 0);
+  }
+  to {
+    transform: translate3d(0, calc(var(--vel) * -1), 0);
+  }
+}
+
+@media (min-width: 900px) {
+  .mesa {
+    row-gap: clamp(2rem, 6vw, 5rem);
+  }
+
+  /* Desktop: composição assimétrica; larguras de 25 a 45% do container, alturas pela foto */
+  .item[data-i='0'] {
+    grid-column: 1 / span 5;
+  }
+  .item[data-i='1'] {
+    grid-column: 7 / span 3;
+    margin-top: 6rem;
+  }
+  .item[data-i='2'] {
+    grid-column: 10 / span 3;
+  }
+  .item[data-i='3'] {
+    grid-column: 2 / span 4;
+    margin-top: -3rem;
+  }
+  .item[data-i='4'] {
+    grid-column: 7 / span 5;
+    margin-top: 2rem;
+  }
+  .item[data-i='5'] {
+    grid-column: 1 / span 3;
+    margin-top: 4rem;
+  }
+  .item[data-i='6'] {
+    grid-column: 5 / span 4;
+    margin-top: -2rem;
+  }
+  .item[data-i='7'] {
+    grid-column: 10 / span 3;
+    margin-top: 5rem;
+  }
+}

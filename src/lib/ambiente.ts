@@ -45,3 +45,15 @@ export function suportaPreserve3d(): boolean {
     return false;
   }
 }
+
+export function suportaSticky(): boolean {
+  try {
+    return (
+      typeof CSS !== 'undefined' &&
+      typeof CSS.supports === 'function' &&
+      CSS.supports('position', 'sticky')
+    );
+  } catch {
+    return false;
+  }
+}
