@@ -1,0 +1,153 @@
+.folha {
+  --lapis: #d6382c;
+  margin-top: var(--espaco-secao);
+}
+
+.cabeca {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.titulo {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.aba {
+  min-height: var(--alvo-toque);
+  padding: 0.4rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
+  border-radius: 999px;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.aba[aria-selected='true'] {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+/* tira de negativo: fundo escuro com furos nas bordas */
+.tira {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1.5rem 0.75rem;
+  list-style: none;
+  border-radius: var(--raio);
+  background:
+    radial-gradient(circle at 50% 50%, var(--bg) 0.3rem, transparent 0.32rem) 0 0 / 1.1rem 1.1rem
+      repeat-x,
+    radial-gradient(circle at 50% 50%, var(--bg) 0.3rem, transparent 0.32rem) 0 100% / 1.1rem 1.1rem
+      repeat-x,
+    #1b1612;
+  color: #e9dfcb;
+}
+
+.quadro {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.numero {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  color: #e0a458;
+}
+
+.foto {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 0;
+  background: #000;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.foto > :global(span:first-child) {
+  position: absolute;
+  inset: 0;
+}
+
+.dados {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  color: #cfc4ae;
+}
+
+.foto:focus-visible {
+  outline-offset: 3px;
+}
+
+/* lápis vermelho: o traço se desenha quando a folha entra na tela */
+.lapis {
+  position: absolute;
+  inset: -6% -6% -6% -6%;
+  width: 112%;
+  height: 112%;
+  fill: none;
+  stroke: var(--lapis);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.lapis path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.folha[data-entrou] .lapis path {
+  animation: desenhar 900ms var(--ease-entrada-saida) calc(300ms + var(--i, 0) * 250ms) forwards;
+}
+
+.folha[data-entrou] .lapis .visto {
+  animation-delay: calc(1000ms + var(--i, 0) * 250ms);
+  animation-duration: 400ms;
+}
+
+@keyframes desenhar {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (min-width: 700px) {
+  .tira {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .tira {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-inline: 1.25rem;
+    gap: 1rem;
+  }
+}
+
+/* sem movimento: círculos já desenhados */
+@media (prefers-reduced-motion: reduce) {
+  .lapis path {
+    stroke-dashoffset: 0;
+    animation: none !important;
+  }
+}

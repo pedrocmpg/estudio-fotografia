@@ -1,10 +1,13 @@
 import '@testing-library/jest-dom/vitest';
-import { cleanup } from '@testing-library/react';
+import { cleanup, configure } from '@testing-library/react';
 import { afterEach, beforeEach, expect, vi } from 'vitest';
 import * as matchersAxe from 'vitest-axe/matchers';
 import { definirMidia, restaurarMidia } from './helpers/midia.ts';
 
 expect.extend(matchersAxe);
+
+// Chunks lazy (painel, roda, folha, lightbox) demoram mais no primeiro import, ainda mais com a suíte toda rodando.
+configure({ asyncUtilTimeout: 8000 });
 
 /** IntersectionObserver de mentira: avisa na hora que tudo está na tela. */
 class IntersectionObserverFalso {

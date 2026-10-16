@@ -15,6 +15,12 @@
   height: 118svh;
 }
 
+/* Altura aproximada da folha, para a página não pular quando o chunk chega */
+.reservaFolha {
+  height: 60svh;
+  margin-top: var(--espaco-secao);
+}
+
 @media (min-width: 768px) and (pointer: fine) {
   .reserva {
     height: clamp(30rem, 44vw, 42rem);
