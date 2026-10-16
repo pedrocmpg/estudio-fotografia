@@ -1,0 +1,50 @@
+/* Cartão 1200×630 que o scripts/og.ts fotografa para virar public/og.jpg. */
+
+.cartao {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--sobre-foto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.foto {
+  position: absolute;
+  inset: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.62));
+}
+
+.nome {
+  position: relative;
+  font-size: 190px;
+  line-height: 1;
+  text-shadow: 0 2px 40px rgb(0 0 0 / 0.3);
+}
+
+.destaque {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sobre-foto-2);
+}
+
+.linha {
+  position: relative;
+  width: 72px;
+  height: 3px;
+  background: var(--accent);
+}

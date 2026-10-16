@@ -1,0 +1,113 @@
+.painel {
+  position: fixed;
+  left: max(0.75rem, env(safe-area-inset-left, 0px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+  z-index: 150;
+  width: min(19rem, calc(100vw - 1.5rem));
+  max-height: calc(100svh - 1.5rem);
+  overflow-y: auto;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid var(--linha);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--text);
+  box-shadow: 0 20px 50px -20px rgb(0 0 0 / 0.6);
+  font-size: 0.875rem;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.titulo {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--accent-texto);
+}
+
+.minimizar {
+  min-height: var(--alvo-toque);
+  padding: 0 0.5rem;
+  color: var(--text-2);
+  font-size: 0.8125rem;
+}
+
+.grupo {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.grupo + .grupo {
+  margin-top: 0.6rem;
+}
+
+.grupo legend {
+  padding: 0;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.opcao {
+  min-height: var(--alvo-toque);
+  min-width: var(--alvo-toque);
+  padding: 0 0.85rem;
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  color: var(--text);
+}
+
+.opcao:hover {
+  border-color: var(--text-2);
+}
+
+.opcao[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.bolinhaCor {
+  width: var(--alvo-toque);
+  height: var(--alvo-toque);
+  border: 3px solid var(--surface);
+  border-radius: 50%;
+  outline: 1px solid var(--linha);
+}
+
+.bolinhaCor[aria-pressed='true'] {
+  outline: 2px solid var(--text);
+}
+
+.bolinha {
+  position: fixed;
+  left: max(0.75rem, env(safe-area-inset-left, 0px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  width: var(--alvo-toque);
+  height: var(--alvo-toque);
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent-texto);
+  font-size: 1.25rem;
+}
