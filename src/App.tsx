@@ -11,6 +11,7 @@ import { parametrosDaUrl } from './lib/ambiente.ts';
 import { IntroProvider } from './motion/intro.tsx';
 import { CtaFinal } from './sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from './sections/Faixa/Faixa.tsx';
+import { Faq } from './sections/Faq/Faq.tsx';
 import { Header } from './sections/Header/Header.tsx';
 import { Manifesto } from './sections/Manifesto/Manifesto.tsx';
 import { BotaoPularIntro } from './sections/Hero/BotaoPularIntro.tsx';
@@ -35,6 +36,8 @@ function Secao({ id }: { id: SecaoId }) {
       return <Manifesto />;
     case 'trabalhos':
       return <Trabalhos />;
+    case 'faq':
+      return <Faq />;
     case 'ctaFinal':
       return <CtaFinal />;
     default:

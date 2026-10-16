@@ -47,3 +47,9 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 - A faixa de links vem **logo acima** do nome (não sobreposta às letras): links pequenos sobre letras de 300 px ficam ilegíveis e reprovariam no contraste. Registrado como desvio consciente da frase "com a faixa de links por cima".
 - Rodapé novo (adendo I.5): navegar, pontos de atendimento (estúdio e loja, cada um com endereço, horários e "Abrir no mapa" sem iframe), as duas contas de Instagram com rótulo (`negocio.redes`), e-mail, selo único e "Voltar ao topo" no fluxo da página. Cada item só aparece se existir no config.
 - **Hero `nomeGigante`:** padrão `false` (prévia). Quando `true`, o `<h1>` (texto real) vai para a parte baixa do hero, cortado pela borda, e os textos e botões sobem para o topo, longe do rosto. Dá para testar no painel de apresentação ("Nome do hero → Gigante"). Na foto de exemplo (mulher de costas, cabelo à direita) o nome na parte baixa não cobre o rosto, mas o hero perde o ar de "foto limpa"; fica `false` na prévia, como o prompt manda.
+
+## Bloco G
+
+- FAQ em `<details>/<summary>`, com frase de abertura em itálico vinda do config (`faq.abertura`), título com máscara e coluna fixa (sticky) no desktop. O texto de todas as respostas é `[CONFIRMAR]`, em tom direto e sem prazo nem preço (adendo I.7: perguntas da loja "Quanto tempo leva?", "Dá para levar a foto do celular?", "Vocês imprimem na hora?", "Quais formas de pagamento?" + as do estúdio).
+- Cada item tem `confirmada`. Na prévia todos aparecem; com `modoDemo: false` só os confirmados (e a seção some se não sobrar nenhum). O `FAQPage` em JSON-LD só leva respostas confirmadas, e só é emitido em produção (`indexar` + `modoDemo: false`).
+- JSON-LD agora vive em `src/lib/dadosEstruturados.ts` (testável): `ProfessionalService` (estúdio), `Store` (só se houver um local do tipo `loja`) e `FAQPage`, só com campos que existem; telefone provisório (`…000000000`) nunca vai.

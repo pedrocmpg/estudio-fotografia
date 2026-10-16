@@ -41,6 +41,7 @@ describe('registro de seções', () => {
       'sessoes',
       'manifesto',
       'trabalhos',
+      'faq',
       'ctaFinal',
     ]);
   });
@@ -88,7 +89,11 @@ describe('header', () => {
     await renderApp();
     const nav = screen.getByRole('navigation', { name: 'Principal' });
     const links = within(nav).getAllByRole('link');
-    expect(links.map((l) => l.getAttribute('href'))).toEqual(['#sessoes', '#trabalhos']);
+    expect(links.map((l) => l.getAttribute('href'))).toEqual([
+      '#sessoes',
+      '#trabalhos',
+      '#duvidas',
+    ]);
   });
 });
 

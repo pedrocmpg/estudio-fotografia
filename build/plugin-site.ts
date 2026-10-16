@@ -14,6 +14,7 @@ import type { SiteConfig, TemaId } from '../src/config/types.ts';
 import { validarConfig } from '../src/config/validar.ts';
 import type { FotoManifesto } from '../src/data/fotos.types.ts';
 import { contraste, corSobre, garantirContraste } from '../src/lib/cor.ts';
+import { dadosEstruturados } from '../src/lib/dadosEstruturados.ts';
 import { CHAVE_INTRO_VISTA, MEDIA_MOBILE, TEMAS } from '../src/lib/constantes.ts';
 import { gerarScriptInicial } from './script-inicial.ts';
 import { checarContraste, lerTokensDosTemas, type Tokens } from './tokens.ts';
@@ -37,28 +38,6 @@ interface Contexto {
   manifesto: FotoManifesto[];
   tokens: Record<TemaId, Tokens>;
   baseUrl: string;
-}
-
-function jsonLd(c: SiteConfig, base: string): object {
-  const n = c.negocio;
-  const dados: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: n.nome,
-    url: base,
-    image: `${base}/og.jpg`,
-    telephone: `+${n.whatsapp}`,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: n.cidade,
-      addressRegion: n.uf,
-      ...(n.endereco ? { streetAddress: n.endereco } : null),
-      addressCountry: 'BR',
-    },
-  };
-  if (n.instagram) dados.sameAs = [`https://instagram.com/${n.instagram}`];
-  if (n.horarios?.length) dados.openingHours = n.horarios.map((h) => `${h.dias} ${h.horas}`);
-  return dados;
 }
 
 function tagsDoHead(ctx: Contexto, bundle?: Record<string, unknown>): HtmlTagDescriptor[] {
@@ -134,12 +113,14 @@ function tagsDoHead(ctx: Contexto, bundle?: Record<string, unknown>): HtmlTagDes
 
   // Dados estruturados só em produção: na prévia os dados ainda não estão confirmados.
   if (c.meta.indexar && !c.modoDemo) {
-    tags.push({
-      tag: 'script',
-      attrs: { type: 'application/ld+json' },
-      children: JSON.stringify(jsonLd(c, baseUrl)),
-      injectTo: 'head',
-    });
+    for (const dados of dadosEstruturados(c, baseUrl)) {
+      tags.push({
+        tag: 'script',
+        attrs: { type: 'application/ld+json' },
+        children: JSON.stringify(dados),
+        injectTo: 'head',
+      });
+    }
   }
 
   // 5) Favicons

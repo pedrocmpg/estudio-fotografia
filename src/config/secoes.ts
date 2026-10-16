@@ -7,6 +7,7 @@ export const SECOES_IMPLEMENTADAS: readonly SecaoId[] = [
   'sessoes',
   'manifesto',
   'trabalhos',
+  'faq',
   'ctaFinal',
 ];
 
