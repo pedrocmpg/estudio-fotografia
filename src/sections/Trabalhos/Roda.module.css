@@ -133,23 +133,23 @@
 /* ---------- pista (celular): rolagem vertical ligada à horizontal ---------- */
 
 .pista {
-  /* palco de 80svh + até 50svh de rolagem = 130svh (limite de SPEC §11: 150svh) */
+  /* palco de 68svh + até 50svh de rolagem = 118svh (limite de SPEC §11: 150svh) */
   --p: 0;
   --w: 85vw;
   --gap: 1rem;
-  height: calc(80svh + min(var(--n) * 18svh, 50svh));
+  height: calc(68svh + min(var(--n) * 18svh, 50svh));
 }
 
 .palcoPista {
   position: sticky;
-  top: 10vh;
-  top: 10svh;
+  top: 16vh;
+  top: 16svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1.25rem;
-  height: 80vh;
-  height: 80svh;
+  height: 68vh;
+  height: 68svh;
   overflow: clip;
 }
 
@@ -175,8 +175,8 @@
 .fotoPista {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  max-height: 72svh;
+  aspect-ratio: 3 / 4;
+  max-height: 58svh;
   padding: 0;
   overflow: hidden;
   border-radius: var(--raio);

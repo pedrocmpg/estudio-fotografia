@@ -64,8 +64,8 @@ describe('ajuste do celular', () => {
 
   it('nenhuma pista com pin passa de 150svh no celular (roda)', () => {
     const roda = lerArquivo('src/sections/Trabalhos/Roda.module.css');
-    expect(roda).toContain('height: calc(80svh + min(var(--n) * 18svh, 50svh));');
-    expect(lerArquivo('src/sections/Trabalhos/Trabalhos.module.css')).toContain('height: 130svh');
+    expect(roda).toContain('height: calc(68svh + min(var(--n) * 18svh, 50svh));');
+    expect(lerArquivo('src/sections/Trabalhos/Trabalhos.module.css')).toContain('height: 118svh');
   });
 
   it('espaço entre seções no celular: clamp(3.5rem, 10vh, 5rem)', () => {

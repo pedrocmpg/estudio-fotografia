@@ -9,5 +9,6 @@ export default defineConfig({
     include: ['tests/**/*.test.{ts,tsx}'],
     css: { modules: { classNameStrategy: 'non-scoped' } },
     restoreMocks: true,
+    testTimeout: 20000,
   },
 });

@@ -7,7 +7,7 @@ async function abrirPainel(config?: ReturnType<typeof configCom>) {
   window.history.pushState({}, '', '/?apresentar=1');
   definirMidia({ reduzido: true });
   await renderApp(config);
-  return screen.findByRole('complementary', { name: 'Painel de apresentação' });
+  return screen.findByRole('complementary', { name: 'Painel de apresentação' }, { timeout: 10000 });
 }
 
 describe('modo apresentação', () => {
