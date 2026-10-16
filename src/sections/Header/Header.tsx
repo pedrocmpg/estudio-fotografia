@@ -3,10 +3,12 @@ import { useSiteConfig } from '../../apresentacao/previa.tsx';
 import { CtaBotao } from '../../components/CtaBotao.tsx';
 import { INFO_SECOES, secoesAtivas } from '../../config/secoes.ts';
 import { useIntro } from '../../motion/intro.tsx';
+import { MenuCelular } from './MenuCelular.tsx';
 import css from './Header.module.css';
 
 /**
- * Header (SPEC §7.1, versão desktop + celular sem menu; o menu em tela cheia entra na Fase 2).
+ * Header (SPEC §10.1): no desktop, links na barra; no celular, nome + "Pedir" + botão de menu (tela
+ * cheia, `MenuCelular`).
  * Transparente sobre o hero, sólido depois dele; some ao rolar para baixo e volta ao rolar para cima.
  */
 export function Header() {
@@ -15,6 +17,8 @@ export function Header() {
   const ref = useRef<HTMLElement>(null);
   const [solido, setSolido] = useState(false);
   const [oculto, setOculto] = useState(false);
+  const [menuAberto, setMenuAberto] = useState(false);
+  const botaoMenu = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let ultimo = window.scrollY;
@@ -51,6 +55,8 @@ export function Header() {
     .map((id) => INFO_SECOES[id])
     .filter((info) => info?.navegacao);
 
+  const pedirSessao = { rotulo: 'Pedir sessão', acao: 'pedido' } as const;
+
   // Escondido durante a intro; aparece em fade junto com o conteúdo final.
   const visivel = estado.fase !== 'rodando';
 
@@ -81,8 +87,32 @@ export function Header() {
           </nav>
         )}
 
-        <CtaBotao cta={{ rotulo: 'Pedir sessão', acao: 'pedido' }} className={css.cta} />
+        <div className={css.acoes}>
+          <CtaBotao cta={pedirSessao} className={css.cta} />
+          {links.length > 0 && (
+            <button
+              ref={botaoMenu}
+              type="button"
+              className={css.menuBotao}
+              aria-expanded={menuAberto}
+              aria-controls="menu-celular"
+              aria-haspopup="dialog"
+              onClick={() => setMenuAberto(true)}
+            >
+              <span className={css.hamburguer} aria-hidden="true" />
+              <span className="sr-only">Abrir menu</span>
+            </button>
+          )}
+        </div>
       </div>
+      {menuAberto && (
+        <MenuCelular
+          nome={config.negocio.nome}
+          links={links.map((info) => ({ ancora: info!.ancora, rotulo: info!.rotulo }))}
+          cta={pedirSessao}
+          aoFechar={() => setMenuAberto(false)}
+        />
+      )}
     </header>
   );
 }

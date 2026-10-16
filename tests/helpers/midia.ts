@@ -5,6 +5,8 @@ export interface Midia {
   estreito?: boolean;
   /** (min-width: 900px): composição de desktop. */
   largo?: boolean;
+  /** (hover: hover) and (pointer: fine): mouse de verdade. */
+  mouse?: boolean;
 }
 
 const original = typeof window !== 'undefined' ? window.matchMedia : undefined;
@@ -12,6 +14,7 @@ const original = typeof window !== 'undefined' ? window.matchMedia : undefined;
 export function definirMidia(m: Midia): void {
   const ligadas = (consulta: string): boolean => {
     if (consulta.includes('prefers-reduced-motion: reduce')) return Boolean(m.reduzido);
+    if (consulta.includes('hover: hover')) return Boolean(m.mouse);
     if (consulta.includes('max-width: 767px') && consulta.includes('pointer: coarse'))
       return Boolean(m.ponteiroGrosso || m.estreito);
     if (consulta.includes('pointer: coarse')) return Boolean(m.ponteiroGrosso);

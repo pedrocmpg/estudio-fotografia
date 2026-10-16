@@ -154,6 +154,7 @@ function Lista({
             {aoAbrir ? (
               <button
                 type="button"
+                data-visor
                 className={css.foto}
                 aria-label={rotulo(id)}
                 onClick={() => aoAbrir(i)}
@@ -387,6 +388,7 @@ function RodaTresD({ fotos, segundosPorVolta, titulo, aoAbrir }: Props) {
                 botoes.current[i] = el;
               }}
               type="button"
+              data-visor
               className={css.item}
               style={{ '--a': `${i * passo}deg` } as CSSProperties}
               aria-label={rotulo(id)}

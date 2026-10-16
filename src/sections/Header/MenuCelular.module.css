@@ -1,0 +1,96 @@
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 1.5rem);
+  background: var(--bg);
+  color: var(--text);
+  overflow-y: auto;
+  animation: abrir var(--t-base) var(--ease-saida) both;
+}
+
+@keyframes abrir {
+  from {
+    opacity: 0;
+  }
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--altura-header);
+}
+
+.marca {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: var(--peso-display);
+  font-size: 1.25rem;
+}
+
+.fechar {
+  flex: none;
+  min-width: var(--alvo-toque);
+  min-height: var(--alvo-toque);
+  padding: 0 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--text) 45%, transparent);
+  border-radius: 999px;
+  background: none;
+  color: inherit;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lista {
+  display: grid;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+/* cascata de 40 ms entre os links */
+.item,
+.rodape {
+  animation: entra var(--t-lento) var(--ease-saida) both;
+  animation-delay: calc(var(--i) * 40ms + 80ms);
+}
+
+.link {
+  display: block;
+  padding: 0.35rem 0;
+  font-family: var(--font-display);
+  font-weight: var(--peso-display);
+  font-size: clamp(2.75rem, 13vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.rodape {
+  margin-top: auto;
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu,
+  .item,
+  .rodape {
+    animation: none;
+  }
+}

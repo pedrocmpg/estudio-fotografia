@@ -30,6 +30,7 @@ export function Colagem({ fotos, rotulo, aoAbrir, layout = 'mesa' }: Props) {
         const botao = aoAbrir ? (
           <button
             type="button"
+            data-visor
             className={css.botao}
             aria-label={foto?.alt}
             onClick={() => aoAbrir(i)}

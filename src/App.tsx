@@ -7,7 +7,7 @@ import { ConfigProvider } from './config/contexto.tsx';
 import { secoesAtivas } from './config/secoes.ts';
 import { siteConfig } from './config/site.config.ts';
 import type { SecaoId, SiteConfig } from './config/types.ts';
-import { parametrosDaUrl } from './lib/ambiente.ts';
+import { consulta, parametrosDaUrl } from './lib/ambiente.ts';
 import { IntroProvider } from './motion/intro.tsx';
 import { AntesDepois } from './sections/AntesDepois/AntesDepois.tsx';
 import { Contato } from './sections/Contato/Contato.tsx';
@@ -30,6 +30,9 @@ import { WhatsappFlutuante } from './sections/WhatsappFlutuante/WhatsappFlutuant
 
 // Recursos de animação do motion: chunk à parte, fora do caminho do LCP.
 const carregarRecursos = () => import('./motion/features.ts').then((m) => m.default);
+
+// O cursor visor só existe com mouse e sem movimento reduzido: chunk à parte.
+const CursorVisor = lazy(() => import('./components/CursorVisor.tsx'));
 
 // O painel do modo apresentação é um chunk à parte (SPEC §11).
 const Painel = lazy(() => import('./apresentacao/Painel.tsx'));
@@ -72,6 +75,8 @@ function Secao({ id }: { id: SecaoId }) {
 function Pagina() {
   const config = useSiteConfig();
   const secoes = secoesAtivas(config);
+  const comMouse =
+    consulta('(hover: hover) and (pointer: fine)') && !consulta('(prefers-reduced-motion: reduce)');
   const apresentar = config.modoDemo && parametrosDaUrl().get('apresentar') === '1';
 
   return (
@@ -87,6 +92,11 @@ function Pagina() {
       </main>
       <Rodape />
       <WhatsappFlutuante />
+      {comMouse && (
+        <Suspense fallback={null}>
+          <CursorVisor />
+        </Suspense>
+      )}
       {config.tema.granulado && <div className="grao" aria-hidden="true" />}
       {apresentar && (
         <Suspense fallback={null}>

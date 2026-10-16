@@ -78,6 +78,55 @@
   transition: background-size var(--t-base) var(--ease-saida);
 }
 
+.acoes {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* botão de menu (44×44): só no celular */
+.menuBotao {
+  display: inline-grid;
+  place-items: center;
+  width: var(--alvo-toque);
+  height: var(--alvo-toque);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.hamburguer,
+.hamburguer::before,
+.hamburguer::after {
+  display: block;
+  width: 1.375rem;
+  height: 2px;
+  background: currentColor;
+  transition: transform var(--t-base) var(--ease-saida);
+}
+
+.hamburguer {
+  position: relative;
+}
+
+.hamburguer::before,
+.hamburguer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburguer::before {
+  top: -6px;
+}
+
+.hamburguer::after {
+  top: 6px;
+}
+
 .cta {
   flex: none;
   white-space: nowrap;
@@ -91,11 +140,18 @@
   .nav {
     display: block;
   }
+
+  .menuBotao {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .header,
-  .link {
+  .link,
+  .hamburguer,
+  .hamburguer::before,
+  .hamburguer::after {
     transition: none;
   }
 }

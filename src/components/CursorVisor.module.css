@@ -1,0 +1,62 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-base) ease;
+}
+
+.cursor[data-visivel] {
+  opacity: 1;
+}
+
+/* Círculo de 28 px (o visor de 64 px encolhido por scale), em "difference" para aparecer sobre foto
+   clara e escura. Só transform e opacity animam. */
+.forma {
+  position: absolute;
+  top: -32px;
+  left: -32px;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transform: scale(0.4375);
+  transition: transform var(--t-base) var(--ease-saida);
+}
+
+/* sobre foto clicável: o círculo vira o visor [ ] com VER (cantos no lugar da borda) */
+.cursor[data-visor] .forma {
+  transform: scale(1);
+  border-color: transparent;
+  border-radius: 0;
+  background:
+    linear-gradient(#fff, #fff) top left / 14px 2px no-repeat,
+    linear-gradient(#fff, #fff) top left / 2px 14px no-repeat,
+    linear-gradient(#fff, #fff) top right / 14px 2px no-repeat,
+    linear-gradient(#fff, #fff) top right / 2px 14px no-repeat,
+    linear-gradient(#fff, #fff) bottom left / 14px 2px no-repeat,
+    linear-gradient(#fff, #fff) bottom left / 2px 14px no-repeat,
+    linear-gradient(#fff, #fff) bottom right / 14px 2px no-repeat,
+    linear-gradient(#fff, #fff) bottom right / 2px 14px no-repeat;
+}
+
+.rotulo {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transition: opacity var(--t-base) ease;
+}
+
+.cursor[data-visor] .rotulo {
+  opacity: 1;
+}
