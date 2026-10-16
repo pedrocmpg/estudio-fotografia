@@ -5,14 +5,14 @@ import { definirMidia } from './helpers/midia.ts';
 import { configCom, renderApp } from './helpers/render.tsx';
 
 describe('bloco F — rodapé com nome gigante', () => {
-  it('o nome gigante é decorativo e usa o nome curto da marca', async () => {
+  it('o rodapé não tem mais o nome gigante', async () => {
     definirMidia({ reduzido: true });
     await renderApp();
     const rodape = screen.getByRole('contentinfo');
     const gigante = Array.from(rodape.querySelectorAll('[aria-hidden="true"]')).find(
       (el) => el.textContent === siteConfigAlt.negocio.nomeCurto,
     );
-    expect(gigante).toBeDefined();
+    expect(gigante).toBeUndefined();
   });
 
   it('mostra as duas contas de Instagram com rótulo e os dois pontos com "Abrir no mapa"', async () => {

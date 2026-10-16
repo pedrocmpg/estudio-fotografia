@@ -1,5 +1,4 @@
 import { useSiteConfig } from '../../apresentacao/previa.tsx';
-import { NomeGigante } from '../../components/NomeGigante.tsx';
 import { Selo } from '../../components/Selo.tsx';
 import { INFO_SECOES, secoesAtivas } from '../../config/secoes.ts';
 import type { SiteConfig } from '../../config/types.ts';
@@ -15,9 +14,8 @@ export function redesDoNegocio(
 }
 
 /**
- * Rodapé (bloco F e adendo I.5): faixa de links, redes, pontos de atendimento (estúdio e loja) e,
- * fechando a página como o hero abriu, o nome da marca gigante, cortado pela borda de baixo.
- * Cada item só aparece se existir no config.
+ * Rodapé (bloco F e adendo I.5): faixa de links, redes, pontos de atendimento (estúdio e loja).
+ * O nome gigante foi retirado do rodapé a pedido do Pedro. Cada item só aparece se existir no config.
  */
 export function Rodape() {
   const config = useSiteConfig();
@@ -115,9 +113,6 @@ export function Rodape() {
         </div>
       </div>
 
-      <div className={css.nome}>
-        <NomeGigante texto={negocio.nomeCurto} />
-      </div>
       {negocio.assinatura && <p className="sr-only">{negocio.assinatura}</p>}
     </footer>
   );

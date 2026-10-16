@@ -156,3 +156,7 @@ Execução sem supervisão do §18 (aceite em §18.2). Um commit por bloco (J a 
 - Só em `(max-width: 767px) and (pointer: coarse)`; o desktop não muda. Nome gigante com 2% de folga por lado (padding do wrapper, medido pelo hook) e corte em 88% do corpo, para o "y" aparecer. O hook arredonda o corpo para baixo e remede após `document.fonts.ready` e a cada mudança de largura da caixa.
 - Navegação e redes em 2 colunas; pontos de atendimento em linha cheia; © + selo (menor) numa linha de metadados que quebra em telas estreitas (o © "Ivy · Foto e Presente" + selo não cabem juntos em 360/390 px); "Voltar ao topo" à direita.
 - Prints: `docs/prints/rodape-celular/` (`npx tsx scripts/prints-rodape.ts`), 360 e 390, dois temas, "Ivy" e nome longo; confere que o nome não passa da largura da tela.
+
+## Rodapé sem o nome gigante
+
+- A pedido do Pedro, o "Ivy" gigante do rodapé foi removido (desktop e celular). O componente `NomeGigante` foi apagado; `useAjusteLargura` continua no hero (opção `nomeGigante`). O texto do §10.17 e do bloco F sobre o nome gigante no rodapé está superado por esta decisão.
