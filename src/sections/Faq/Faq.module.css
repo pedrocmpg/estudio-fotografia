@@ -28,6 +28,15 @@
   text-wrap: balance;
 }
 
+.grupos {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.grupoTitulo {
+  margin-bottom: 0.75rem;
+}
+
 .lista {
   border-top: 1px solid var(--linha);
 }

@@ -8,6 +8,7 @@ import { ConfigProvider } from '../src/config/contexto.tsx';
 import { siteConfigAlt } from '../src/config/site.config.alt.ts';
 import type { TemaId } from '../src/config/types.ts';
 import { IntroProvider } from '../src/motion/intro.tsx';
+import { Contato } from '../src/sections/Contato/Contato.tsx';
 import { CtaFinal } from '../src/sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from '../src/sections/Faixa/Faixa.tsx';
 import { Faq } from '../src/sections/Faq/Faq.tsx';
@@ -70,6 +71,7 @@ const SECOES: [string, () => ReactNode][] = [
   ['Pedido', () => <Pedido />],
   ['FAQ', () => <Faq />],
   ['CTA final', () => <CtaFinal />],
+  ['Contato', () => <Contato />],
   ['Rodapé', () => <Rodape />],
   ['WhatsApp flutuante', () => <WhatsappFlutuante />],
 ];

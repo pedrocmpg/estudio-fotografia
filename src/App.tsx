@@ -10,6 +10,7 @@ import type { SecaoId, SiteConfig } from './config/types.ts';
 import { parametrosDaUrl } from './lib/ambiente.ts';
 import { IntroProvider } from './motion/intro.tsx';
 import { AntesDepois } from './sections/AntesDepois/AntesDepois.tsx';
+import { Contato } from './sections/Contato/Contato.tsx';
 import { CtaFinal } from './sections/CtaFinal/CtaFinal.tsx';
 import { Depoimentos } from './sections/Depoimentos/Depoimentos.tsx';
 import { Faixa } from './sections/Faixa/Faixa.tsx';
@@ -61,6 +62,8 @@ function Secao({ id }: { id: SecaoId }) {
       return <Faq />;
     case 'ctaFinal':
       return <CtaFinal />;
+    case 'contato':
+      return <Contato />;
     default:
       return null;
   }
