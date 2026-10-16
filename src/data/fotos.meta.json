@@ -214,7 +214,7 @@
     "categoria": "Família, newborn e infantil",
     "foco": {
       "x": 0.5,
-      "y": 0.4
+      "y": 0.35
     },
     "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/SUPTFFfOZf0)",
     "licenca": "Unsplash License",
@@ -278,8 +278,8 @@
     "alt": "Formanda sorridente de capelo, com tranças e fita laranja, olhando para trás",
     "categoria": "15 anos e formaturas",
     "foco": {
-      "x": 0.5,
-      "y": 0.3
+      "x": 0.45,
+      "y": 0.42
     },
     "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/04Rd4wrSI1M)",
     "licenca": "Unsplash License",
@@ -292,7 +292,7 @@
     "categoria": "Marcas, produtos e corporativo",
     "foco": {
       "x": 0.5,
-      "y": 0.35
+      "y": 0.3
     },
     "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/4mUk_DFImbI)",
     "licenca": "Unsplash License",
@@ -318,7 +318,7 @@
     "categoria": "Ensaios pessoais",
     "foco": {
       "x": 0.5,
-      "y": 0.35
+      "y": 0.42
     },
     "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/AzKvRnvmXW8)",
     "licenca": "Unsplash License",
@@ -348,6 +348,167 @@
     },
     "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/4y2GeMipDQ0)",
     "licenca": "Unsplash License",
+    "ilustrativa": true
+  },
+  {
+    "id": "pb-familia-1",
+    "arquivo": "SUPTFFfOZf0.jpg",
+    "alt": "Casal com o bebê no colo em retrato de estúdio, em preto e branco",
+    "categoria": "Família, newborn e infantil",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/SUPTFFfOZf0)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true,
+    "tratamento": "pb"
+  },
+  {
+    "id": "pb-familia-2",
+    "arquivo": "h8YbQQ9N2nY.jpg",
+    "alt": "Recém-nascido dormindo embrulhado em tecido, com gorro de tricô, em preto e branco",
+    "categoria": "Família, newborn e infantil",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/h8YbQQ9N2nY)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true,
+    "tratamento": "pb"
+  },
+  {
+    "id": "pb-gestante-1",
+    "arquivo": "deAAjXh8JOU.jpg",
+    "alt": "Casal se beijando enquanto a gestante segura a ultrassonografia, em preto e branco",
+    "categoria": "Gestante e casal",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/deAAjXh8JOU)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true,
+    "tratamento": "pb"
+  },
+  {
+    "id": "pb-cortina-2d",
+    "arquivo": "WJc87MVcDaA.jpg",
+    "alt": "Noivos abraçados sob o véu em um campo, em preto e branco",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/WJc87MVcDaA)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true,
+    "tratamento": "pb"
+  },
+  {
+    "id": "pb-cortina-2e",
+    "arquivo": "mLIurLmSRAY.jpg",
+    "alt": "Casal sob o véu da noiva, quase se beijando, em preto e branco",
+    "categoria": "Casamentos e eventos",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Unsplash (unsplash.com/photos/mLIurLmSRAY)",
+    "licenca": "Unsplash License",
+    "ilustrativa": true,
+    "tratamento": "pb"
+  },
+  {
+    "id": "prod-caneca-branca",
+    "arquivo": "prod-caneca-branca.jpg",
+    "alt": "Xícara branca de café com grãos e um pote de café moído sobre uma mesa de madeira",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.3,
+      "y": 0.6
+    },
+    "credito": "Foto de exemplo — Janko Ferlic, Wikimedia Commons (commons.wikimedia.org/wiki/File:White_Ceramic_Mug_Filled_With_Coffee_Beside_Coffee_Beans_(43087322071).jpg)",
+    "licenca": "CC0",
+    "ilustrativa": true
+  },
+  {
+    "id": "prod-caneca-personalizada",
+    "arquivo": "prod-caneca-personalizada.jpg",
+    "alt": "Duas canecas brancas personalizadas com nomes e desenhos de família, ao lado de biscoitos",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.45,
+      "y": 0.35
+    },
+    "credito": "Foto de exemplo — Personal Creations, Wikimedia Commons (commons.wikimedia.org/wiki/File:Personalized_nana_mugs_and_cookies_on_a_kitchen_counter_and_table_(16741382649).jpg)",
+    "licenca": "CC BY 2.0",
+    "ilustrativa": true
+  },
+  {
+    "id": "prod-album",
+    "arquivo": "prod-album.jpg",
+    "alt": "Álbum de fotos aberto com retratos em preto e branco",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.4,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Vyacheslav Argenberg, Wikimedia Commons (commons.wikimedia.org/wiki/File:Photo_album,_Photos,_Rostov-on-Don,_Russia.jpg)",
+    "licenca": "CC BY 4.0",
+    "ilustrativa": true
+  },
+  {
+    "id": "prod-polaroids",
+    "arquivo": "prod-polaroids.jpg",
+    "alt": "Câmera instantânea sobre uma mesa com várias fotos reveladas, sob luz quente",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Moki8, Wikimedia Commons (commons.wikimedia.org/wiki/File:Polaroid_Time_Zero_SX-70_AutoFocus_Special_Edition_With_Photos.jpg)",
+    "licenca": "CC BY 4.0",
+    "ilustrativa": true
+  },
+  {
+    "id": "prod-porta-retrato",
+    "arquivo": "prod-porta-retrato.jpg",
+    "alt": "Porta-retratos preto com passe-partout cinza pendurado na parede",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Dejan Krsmanovic, Wikimedia Commons (commons.wikimedia.org/wiki/File:Empty_Picture_Frame_on_the_Wall_(51920214882).jpg)",
+    "licenca": "CC BY 2.0",
+    "ilustrativa": true
+  },
+  {
+    "id": "prod-almofada",
+    "arquivo": "prod-almofada.jpg",
+    "alt": "Almofada em formato de rolo, de tecido vermelho e dourado, sobre um sofá de couro",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Scrumshus, Wikimedia Commons (commons.wikimedia.org/wiki/File:Throw_Pillow.JPG)",
+    "licenca": "Domínio público",
+    "ilustrativa": true
+  },
+  {
+    "id": "prod-quadro",
+    "arquivo": "prod-quadro.jpg",
+    "alt": "Dois quadros com moldura preta em uma parede clara, um deles com foto de rua em preto e branco",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "credito": "Foto de exemplo — Crew crew, Wikimedia Commons (commons.wikimedia.org/wiki/File:Framed_wall_art_(Unsplash).jpg)",
+    "licenca": "CC0",
     "ilustrativa": true
   }
 ]

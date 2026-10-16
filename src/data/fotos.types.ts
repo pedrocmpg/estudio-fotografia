@@ -10,6 +10,8 @@ export interface FotoMeta {
   credito?: string;
   licenca?: string;
   ilustrativa?: boolean;
+  /** "pb": o pipeline gera a versão em preto e branco da foto de origem. */
+  tratamento?: 'pb';
   /** Só para placeholders: formato do retângulo gerado. */
   orientacao?: 'horizontal' | 'vertical' | 'quadrada';
 }

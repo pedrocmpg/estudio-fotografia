@@ -18,7 +18,7 @@
     },
     "alt": "Mulher em contraluz ao pôr do sol, de casaco escuro",
     "placeholderGerado": false,
-    "hash": "1fe5042801689347"
+    "hash": "b293780d5929fda0"
   },
   {
     "id": "cortina-1d",
@@ -39,7 +39,7 @@
     },
     "alt": "Mulher loira de vestido de renda ao pôr do sol, com a mão nos cabelos",
     "placeholderGerado": false,
-    "hash": "bd7f66ae5df1a425"
+    "hash": "f3426b32f5cc539c"
   },
   {
     "id": "cortina-1e-m",
@@ -60,7 +60,7 @@
     },
     "alt": "Mulher de perfil ao pôr do sol, com o vento nos cabelos",
     "placeholderGerado": false,
-    "hash": "786b0405871d9134"
+    "hash": "5d23693612e6abd6"
   },
   {
     "id": "cortina-1d-m",
@@ -81,7 +81,7 @@
     },
     "alt": "Mulher loira olhando por cima do ombro, com luz dourada no rosto",
     "placeholderGerado": false,
-    "hash": "a701f4a7cf7b9bec"
+    "hash": "35d3b4a4fbda25db"
   },
   {
     "id": "cortina-2e",
@@ -102,7 +102,7 @@
     },
     "alt": "Casal sob o véu da noiva, quase se beijando, com a luz do pôr do sol",
     "placeholderGerado": false,
-    "hash": "76d4e9cf7d0cba20"
+    "hash": "b49e30c90b4c812c"
   },
   {
     "id": "cortina-2d",
@@ -123,7 +123,7 @@
     },
     "alt": "Noivos abraçados sob o véu em um campo de trigo",
     "placeholderGerado": false,
-    "hash": "5a1398780b6811b3"
+    "hash": "b68ed6caf85e4fec"
   },
   {
     "id": "cortina-2e-m",
@@ -144,7 +144,7 @@
     },
     "alt": "Noivo carregando a noiva em um campo gramado",
     "placeholderGerado": false,
-    "hash": "b687898c14b346a7"
+    "hash": "d931229c8edc4f54"
   },
   {
     "id": "cortina-2d-m",
@@ -165,7 +165,7 @@
     },
     "alt": "Casal de noivos caminhando sob palmeiras",
     "placeholderGerado": false,
-    "hash": "64f0a6ec36d36125"
+    "hash": "cca2d55ed05a92d6"
   },
   {
     "id": "cortina-3e",
@@ -186,7 +186,7 @@
     },
     "alt": "Pai e mãe sorrindo com o recém-nascido nos braços, ao lado de uma janela",
     "placeholderGerado": false,
-    "hash": "dc8e65095b3e6b37"
+    "hash": "1e7d763f6e0774eb"
   },
   {
     "id": "cortina-3d",
@@ -207,7 +207,7 @@
     },
     "alt": "Casal abraçado segurando o bebê recém-nascido",
     "placeholderGerado": false,
-    "hash": "600cb76bad878095"
+    "hash": "5c75273b070d5306"
   },
   {
     "id": "fundo-final",
@@ -228,7 +228,7 @@
     },
     "alt": "Mulher de costas olhando o mar ao pôr do sol, com os cabelos ao vento",
     "placeholderGerado": false,
-    "hash": "fa15f4748e589087"
+    "hash": "680c714c1da1fe3e"
   },
   {
     "id": "cta-final",
@@ -249,7 +249,7 @@
     },
     "alt": "Casal de noivos caminhando de mãos dadas por colinas ao entardecer",
     "placeholderGerado": false,
-    "hash": "a598fd097636f9e7"
+    "hash": "6c58902d6e5d3d78"
   },
   {
     "id": "ensaio-1",
@@ -270,7 +270,7 @@
     },
     "alt": "Mulher sentada em um campo de capim alto iluminado pelo sol",
     "placeholderGerado": false,
-    "hash": "d509b97484e165ef"
+    "hash": "2c29285f50794c45"
   },
   {
     "id": "ensaio-2",
@@ -291,7 +291,7 @@
     },
     "alt": "Mulher de cabelos longos ao entardecer, entre as árvores",
     "placeholderGerado": false,
-    "hash": "b3a2ec9b059e3f6d"
+    "hash": "bc466a78ac05aff5"
   },
   {
     "id": "gestante-1",
@@ -312,7 +312,7 @@
     },
     "alt": "Casal se beijando ao pôr do sol enquanto a gestante segura a ultrassonografia",
     "placeholderGerado": false,
-    "hash": "1d0c74d0f939d4fd"
+    "hash": "38fc384f28d1b0ae"
   },
   {
     "id": "gestante-2",
@@ -333,7 +333,7 @@
     },
     "alt": "Gestante em pé na praia, com a mão na barriga, ao entardecer",
     "placeholderGerado": false,
-    "hash": "1dc0a0b8fb1b0c44"
+    "hash": "8a2a51732ad071c9"
   },
   {
     "id": "familia-1",
@@ -350,11 +350,11 @@
     "cor": "#080808",
     "foco": {
       "x": 0.5,
-      "y": 0.4
+      "y": 0.35
     },
     "alt": "Casal com o bebê no colo em retrato de estúdio",
     "placeholderGerado": false,
-    "hash": "b86606c088506d38"
+    "hash": "1a0ff433e6b02dab"
   },
   {
     "id": "familia-2",
@@ -375,7 +375,7 @@
     },
     "alt": "Recém-nascido dormindo embrulhado em tecido lilás, com gorro de tricô",
     "placeholderGerado": false,
-    "hash": "32ecba4b6ac6087f"
+    "hash": "266a82b0685b8a49"
   },
   {
     "id": "casamento-1",
@@ -396,7 +396,7 @@
     },
     "alt": "Noivos em um terraço de pedra diante de um castelo",
     "placeholderGerado": false,
-    "hash": "25a13771e332c970"
+    "hash": "93912e4bd28420c5"
   },
   {
     "id": "casamento-2",
@@ -417,7 +417,7 @@
     },
     "alt": "Noiva e noivo de terno azul se beijando ao lado de uma árvore",
     "placeholderGerado": false,
-    "hash": "dfddd0384bb3ac7c"
+    "hash": "b033ff951c8bca1d"
   },
   {
     "id": "formatura-1",
@@ -438,7 +438,7 @@
     },
     "alt": "Formanda de capelo sorrindo em meio ao capim alto",
     "placeholderGerado": false,
-    "hash": "ea7291d6f0022e8d"
+    "hash": "62cbc324dedd2818"
   },
   {
     "id": "formatura-2",
@@ -454,12 +454,12 @@
     "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABEAPu1iqU2ppaOiMAgBMB2JYgDCgB9E9zvCWlUCC+cArAD+6ab+SpKlyNmDF5Vm62cSRwPaS5bQ12pCgaWhFINqwLhvCGbU6M41ujUNY1s7RjKpmw14qpSAE6gnI6nX6b/dMRNmODh8og0G0AAA",
     "cor": "#181818",
     "foco": {
-      "x": 0.5,
-      "y": 0.3
+      "x": 0.45,
+      "y": 0.42
     },
     "alt": "Formanda sorridente de capelo, com tranças e fita laranja, olhando para trás",
     "placeholderGerado": false,
-    "hash": "d429dc7391216807"
+    "hash": "3fd0f04359c3a92d"
   },
   {
     "id": "marca-1",
@@ -476,11 +476,11 @@
     "cor": "#181818",
     "foco": {
       "x": 0.5,
-      "y": 0.35
+      "y": 0.3
     },
     "alt": "Mulher de terno branco sentada e sorrindo, em retrato corporativo",
     "placeholderGerado": false,
-    "hash": "94c295ce83c5e0d1"
+    "hash": "302dad71909c9de5"
   },
   {
     "id": "marca-2",
@@ -501,7 +501,7 @@
     },
     "alt": "Jarros de cerâmica em tons de mostarda e verde sobre uma prateleira",
     "placeholderGerado": false,
-    "hash": "fd8325ad21c478ff"
+    "hash": "595842aa597ca588"
   },
   {
     "id": "retrato-1",
@@ -518,11 +518,11 @@
     "cor": "#080808",
     "foco": {
       "x": 0.5,
-      "y": 0.35
+      "y": 0.42
     },
     "alt": "Retrato de um rapaz de cabelos ruivos, com luz quente no rosto",
     "placeholderGerado": false,
-    "hash": "e562770c16fbc018"
+    "hash": "59aba800ceec7218"
   },
   {
     "id": "retrato-2",
@@ -543,7 +543,7 @@
     },
     "alt": "Homem de moletom olhando para o céu ao pôr do sol, entre árvores",
     "placeholderGerado": false,
-    "hash": "3fe95af4fa9bcd42"
+    "hash": "a50fa55ed3132c9e"
   },
   {
     "id": "retrato-3",
@@ -564,6 +564,269 @@
     },
     "alt": "Formanda de costas, de capelo, ao pôr do sol",
     "placeholderGerado": false,
-    "hash": "aaf6c96b370565dd"
+    "hash": "d8b378e54689a3cc"
+  },
+  {
+    "id": "pb-familia-1",
+    "largura": 2400,
+    "altura": 3105,
+    "proporcao": 0.7729,
+    "src": "/fotos/pb-familia-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/pb-familia-1-480.avif 480w, /fotos/pb-familia-1-960.avif 960w, /fotos/pb-familia-1-1600.avif 1600w, /fotos/pb-familia-1-2400.avif 2400w",
+      "webp": "/fotos/pb-familia-1-480.webp 480w, /fotos/pb-familia-1-960.webp 960w, /fotos/pb-familia-1-1600.webp 1600w, /fotos/pb-familia-1-2400.webp 2400w",
+      "jpg": "/fotos/pb-familia-1-480.jpg 480w, /fotos/pb-familia-1-960.jpg 960w, /fotos/pb-familia-1-1600.jpg 1600w, /fotos/pb-familia-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoQABUAPu1kqU2ppaOiMAgBMB2JaQAD5LEzWcSq0gGWFX8AAPnD6wSnoujK367LwKlH8ah1gvJhDCtH/qeIEHJPU7IaX6iiiOWPsD3CjjGCtPe1lK64ReSiYs7sArb/cjPqGVfvDVUqMVGS4lVKmdx1ktJiRWAA",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Casal com o bebê no colo em retrato de estúdio, em preto e branco",
+    "placeholderGerado": false,
+    "hash": "b2cfd7604dcaea9a"
+  },
+  {
+    "id": "pb-familia-2",
+    "largura": 2400,
+    "altura": 3000,
+    "proporcao": 0.8,
+    "src": "/fotos/pb-familia-2-960.jpg",
+    "srcset": {
+      "avif": "/fotos/pb-familia-2-480.avif 480w, /fotos/pb-familia-2-960.avif 960w, /fotos/pb-familia-2-1600.avif 1600w, /fotos/pb-familia-2-2400.avif 2400w",
+      "webp": "/fotos/pb-familia-2-480.webp 480w, /fotos/pb-familia-2-960.webp 960w, /fotos/pb-familia-2-1600.webp 1600w, /fotos/pb-familia-2-2400.webp 2400w",
+      "jpg": "/fotos/pb-familia-2-480.jpg 480w, /fotos/pb-familia-2-960.jpg 960w, /fotos/pb-familia-2-1600.jpg 1600w, /fotos/pb-familia-2-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JaQAARo0G4/xYXNLRoAAA/FRgjneoc0SUVbc4Q2dp5u7TpKGPD+cqtpXbtGXLTnk6HdmenQ9JKalpmxN1F5BxcAAAAA==",
+    "cor": "#989898",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Recém-nascido dormindo embrulhado em tecido, com gorro de tricô, em preto e branco",
+    "placeholderGerado": false,
+    "hash": "4bd5398ca0e42023"
+  },
+  {
+    "id": "pb-gestante-1",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/pb-gestante-1-960.jpg",
+    "srcset": {
+      "avif": "/fotos/pb-gestante-1-480.avif 480w, /fotos/pb-gestante-1-960.avif 960w, /fotos/pb-gestante-1-1600.avif 1600w, /fotos/pb-gestante-1-2400.avif 2400w",
+      "webp": "/fotos/pb-gestante-1-480.webp 480w, /fotos/pb-gestante-1-960.webp 960w, /fotos/pb-gestante-1-1600.webp 1600w, /fotos/pb-gestante-1-2400.webp 2400w",
+      "jpg": "/fotos/pb-gestante-1-480.jpg 480w, /fotos/pb-gestante-1-960.jpg 960w, /fotos/pb-gestante-1-1600.jpg 1600w, /fotos/pb-gestante-1-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBACdASoQABgAPu1kqk2ppaQiMAgBMB2JaQAAW+vqvyAkGXmHfG8HQAD+78A+79vnsOMF5IzpuPLn9MCai72c+Hezgj40j+JVHpBONY5kQyaGgonT7dpzi/sDg4Wa26uoAvhM3Z02AoBZZJtldA9k22/kCJ50Xce9rAq1tQaWuYOeXju/whBbq5N5apczu+h58ciz3gAAAA==",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "alt": "Casal se beijando enquanto a gestante segura a ultrassonografia, em preto e branco",
+    "placeholderGerado": false,
+    "hash": "d90c7ad9a97789c9"
+  },
+  {
+    "id": "pb-cortina-2d",
+    "largura": 2400,
+    "altura": 3381,
+    "proporcao": 0.7098,
+    "src": "/fotos/pb-cortina-2d-960.jpg",
+    "srcset": {
+      "avif": "/fotos/pb-cortina-2d-480.avif 480w, /fotos/pb-cortina-2d-960.avif 960w, /fotos/pb-cortina-2d-1600.avif 1600w, /fotos/pb-cortina-2d-2400.avif 2400w",
+      "webp": "/fotos/pb-cortina-2d-480.webp 480w, /fotos/pb-cortina-2d-960.webp 960w, /fotos/pb-cortina-2d-1600.webp 1600w, /fotos/pb-cortina-2d-2400.webp 2400w",
+      "jpg": "/fotos/pb-cortina-2d-480.jpg 480w, /fotos/pb-cortina-2d-960.jpg 960w, /fotos/pb-cortina-2d-1600.jpg 1600w, /fotos/pb-cortina-2d-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoQABcAPu1iqU2ppaOiMAgBMB2JaQAAW+yaBsez+GvP4RqWcQAA/sizNULUCIS0KMB1jzaCW3fEJS+Cb61e8mCw1a0MxG0QrmcF64r0F68sgIiVFDletJfb7cvOk4aIIyO9JbTM6sOJqYMjmj5tBwrhpZAAAA==",
+    "cor": "#c8c8c8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Noivos abraçados sob o véu em um campo, em preto e branco",
+    "placeholderGerado": false,
+    "hash": "d44b2c0d36e13d1c"
+  },
+  {
+    "id": "pb-cortina-2e",
+    "largura": 2400,
+    "altura": 3600,
+    "proporcao": 0.6667,
+    "src": "/fotos/pb-cortina-2e-960.jpg",
+    "srcset": {
+      "avif": "/fotos/pb-cortina-2e-480.avif 480w, /fotos/pb-cortina-2e-960.avif 960w, /fotos/pb-cortina-2e-1600.avif 1600w, /fotos/pb-cortina-2e-2400.avif 2400w",
+      "webp": "/fotos/pb-cortina-2e-480.webp 480w, /fotos/pb-cortina-2e-960.webp 960w, /fotos/pb-cortina-2e-1600.webp 1600w, /fotos/pb-cortina-2e-2400.webp 2400w",
+      "jpg": "/fotos/pb-cortina-2e-480.jpg 480w, /fotos/pb-cortina-2e-960.jpg 960w, /fotos/pb-cortina-2e-1600.jpg 1600w, /fotos/pb-cortina-2e-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoQABgAPu1iqU2ppaOiMAgBMB2JaQAAYXQE5y6d+aitTu5ENOAA/u/ULOELyjJJRcCl6gbykcUsqlPpv8Sj1TJmbDd6rj/Hvgg5LeCjsBow4hwLqk7BfasPlRFVeCYXx1vncOyA0dUYmkSfeCxzail+nK0FCyzTx+5vVWDAAAA=",
+    "cor": "#f8f8f8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.35
+    },
+    "alt": "Casal sob o véu da noiva, quase se beijando, em preto e branco",
+    "placeholderGerado": false,
+    "hash": "70bb1a81dd1f7b0e"
+  },
+  {
+    "id": "prod-caneca-branca",
+    "largura": 2965,
+    "altura": 2363,
+    "proporcao": 1.2548,
+    "src": "/fotos/prod-caneca-branca-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-caneca-branca-480.avif 480w, /fotos/prod-caneca-branca-960.avif 960w, /fotos/prod-caneca-branca-1600.avif 1600w, /fotos/prod-caneca-branca-2400.avif 2400w",
+      "webp": "/fotos/prod-caneca-branca-480.webp 480w, /fotos/prod-caneca-branca-960.webp 960w, /fotos/prod-caneca-branca-1600.webp 1600w, /fotos/prod-caneca-branca-2400.webp 2400w",
+      "jpg": "/fotos/prod-caneca-branca-480.jpg 480w, /fotos/prod-caneca-branca-960.jpg 960w, /fotos/prod-caneca-branca-1600.jpg 1600w, /fotos/prod-caneca-branca-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAA0AA4BaJZgCdADp9NROdBKAAP71zx27kW8bR92N0+i3cwdRIavMMMkxHEYnvaYUBEkf6ChjKXtKtusOqt2sQKQAAA==",
+    "cor": "#180808",
+    "foco": {
+      "x": 0.3,
+      "y": 0.6
+    },
+    "alt": "Xícara branca de café com grãos e um pote de café moído sobre uma mesa de madeira",
+    "placeholderGerado": false,
+    "hash": "4d7417d1effda2aa"
+  },
+  {
+    "id": "prod-caneca-personalizada",
+    "largura": 3840,
+    "altura": 5760,
+    "proporcao": 0.6667,
+    "src": "/fotos/prod-caneca-personalizada-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-caneca-personalizada-480.avif 480w, /fotos/prod-caneca-personalizada-960.avif 960w, /fotos/prod-caneca-personalizada-1600.avif 1600w, /fotos/prod-caneca-personalizada-2400.avif 2400w",
+      "webp": "/fotos/prod-caneca-personalizada-480.webp 480w, /fotos/prod-caneca-personalizada-960.webp 960w, /fotos/prod-caneca-personalizada-1600.webp 1600w, /fotos/prod-caneca-personalizada-2400.webp 2400w",
+      "jpg": "/fotos/prod-caneca-personalizada-480.jpg 480w, /fotos/prod-caneca-personalizada-960.jpg 960w, /fotos/prod-caneca-personalizada-1600.jpg 1600w, /fotos/prod-caneca-personalizada-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABwAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JQBadAh3OrZx1kwAA6xfXdxuAuDNdQlAaHUQ/IPxCrjxW52RKKzZipsE5D2U00/ukMmuNWbat2h8YHaKlBEqAmD+YAA==",
+    "cor": "#787858",
+    "foco": {
+      "x": 0.45,
+      "y": 0.35
+    },
+    "alt": "Duas canecas brancas personalizadas com nomes e desenhos de família, ao lado de biscoitos",
+    "placeholderGerado": false,
+    "hash": "f549436a5845bd0d"
+  },
+  {
+    "id": "prod-album",
+    "largura": 3840,
+    "altura": 2552,
+    "proporcao": 1.5047,
+    "src": "/fotos/prod-album-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-album-480.avif 480w, /fotos/prod-album-960.avif 960w, /fotos/prod-album-1600.avif 1600w, /fotos/prod-album-2400.avif 2400w",
+      "webp": "/fotos/prod-album-480.webp 480w, /fotos/prod-album-960.webp 960w, /fotos/prod-album-1600.webp 1600w, /fotos/prod-album-2400.webp 2400w",
+      "jpg": "/fotos/prod-album-480.jpg 480w, /fotos/prod-album-960.jpg 960w, /fotos/prod-album-1600.jpg 1600w, /fotos/prod-album-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwAgCdASoQAAsAA4BaJZQCdAYu52dm7sbH1XJYAP7zRXy7U4TZX8TeFYQIHKgl+He2pwuUwV2WjOZggy2YerMLk4OLR/IHEWzYQmuvwfOugPtGNJWl+gnBAKJVfTp6WAA=",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.4,
+      "y": 0.5
+    },
+    "alt": "Álbum de fotos aberto com retratos em preto e branco",
+    "placeholderGerado": false,
+    "hash": "2070e665af16a76d"
+  },
+  {
+    "id": "prod-polaroids",
+    "largura": 2668,
+    "altura": 3394,
+    "proporcao": 0.7861,
+    "src": "/fotos/prod-polaroids-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-polaroids-480.avif 480w, /fotos/prod-polaroids-960.avif 960w, /fotos/prod-polaroids-1600.avif 1600w, /fotos/prod-polaroids-2400.avif 2400w",
+      "webp": "/fotos/prod-polaroids-480.webp 480w, /fotos/prod-polaroids-960.webp 960w, /fotos/prod-polaroids-1600.webp 1600w, /fotos/prod-polaroids-2400.webp 2400w",
+      "jpg": "/fotos/prod-polaroids-480.jpg 480w, /fotos/prod-polaroids-960.jpg 960w, /fotos/prod-polaroids-1600.jpg 1600w, /fotos/prod-polaroids-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZQAAW4Vnenr7M8URMAD2v6g1LkLujMMcfzIC9hIzZWVsYu+uKNeDjZlyUjl2foVLNWyZXeqYD1pvVoYAwfwM/PsX3qfEudSHBytCxnNP0CwMPAnt9Q87rQAAAA==",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "alt": "Câmera instantânea sobre uma mesa com várias fotos reveladas, sob luz quente",
+    "placeholderGerado": false,
+    "hash": "ee8339d1692fbfd0"
+  },
+  {
+    "id": "prod-porta-retrato",
+    "largura": 2894,
+    "altura": 4500,
+    "proporcao": 0.6431,
+    "src": "/fotos/prod-porta-retrato-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-porta-retrato-480.avif 480w, /fotos/prod-porta-retrato-960.avif 960w, /fotos/prod-porta-retrato-1600.avif 1600w, /fotos/prod-porta-retrato-2400.avif 2400w",
+      "webp": "/fotos/prod-porta-retrato-480.webp 480w, /fotos/prod-porta-retrato-960.webp 960w, /fotos/prod-porta-retrato-1600.webp 1600w, /fotos/prod-porta-retrato-2400.webp 2400w",
+      "jpg": "/fotos/prod-porta-retrato-480.jpg 480w, /fotos/prod-porta-retrato-960.jpg 960w, /fotos/prod-porta-retrato-1600.jpg 1600w, /fotos/prod-porta-retrato-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBACdASoQABkAPu1iqU2ppaQiMAgBMB2JZQDChagBHtRf/amHBuyg9IAA9iVZM1m4dU0B9E/5yJDdbJm+em0ZuplXRucZRLxwTP9onkJkFr94lXejUhQrpnOQVfHeHgxbP/ufqTPkRrxcP7XUEnudUbCVvXa5AFL1ZCxpjc2dYmLvH7mYWFDAAAA=",
+    "cor": "#382818",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "alt": "Porta-retratos preto com passe-partout cinza pendurado na parede",
+    "placeholderGerado": false,
+    "hash": "2fa328bb3f01b12b",
+    "exposicao": {
+      "abertura": "f/11",
+      "velocidade": "4 s",
+      "iso": 100,
+      "focal": "28 mm"
+    }
+  },
+  {
+    "id": "prod-almofada",
+    "largura": 2473,
+    "altura": 1750,
+    "proporcao": 1.4131,
+    "src": "/fotos/prod-almofada-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-almofada-480.avif 480w, /fotos/prod-almofada-960.avif 960w, /fotos/prod-almofada-1600.avif 1600w, /fotos/prod-almofada-2400.avif 2400w",
+      "webp": "/fotos/prod-almofada-480.webp 480w, /fotos/prod-almofada-960.webp 960w, /fotos/prod-almofada-1600.webp 1600w, /fotos/prod-almofada-2400.webp 2400w",
+      "jpg": "/fotos/prod-almofada-480.jpg 480w, /fotos/prod-almofada-960.jpg 960w, /fotos/prod-almofada-1600.jpg 1600w, /fotos/prod-almofada-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAsAA4BaJagCdADOyzGnbAAA/j3JfwJUTtH/AzJIs0P1+WrUfOgvJKnDCeTsBgkJz1R+lRrLR7YupptFQAAA",
+    "cor": "#787878",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "alt": "Almofada em formato de rolo, de tecido vermelho e dourado, sobre um sofá de couro",
+    "placeholderGerado": false,
+    "hash": "216372660b595698",
+    "exposicao": {
+      "abertura": "f/3.5",
+      "velocidade": "1/30",
+      "focal": "13 mm"
+    }
+  },
+  {
+    "id": "prod-quadro",
+    "largura": 3840,
+    "altura": 2802,
+    "proporcao": 1.3704,
+    "src": "/fotos/prod-quadro-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-quadro-480.avif 480w, /fotos/prod-quadro-960.avif 960w, /fotos/prod-quadro-1600.avif 1600w, /fotos/prod-quadro-2400.avif 2400w",
+      "webp": "/fotos/prod-quadro-480.webp 480w, /fotos/prod-quadro-960.webp 960w, /fotos/prod-quadro-1600.webp 1600w, /fotos/prod-quadro-2400.webp 2400w",
+      "jpg": "/fotos/prod-quadro-480.jpg 480w, /fotos/prod-quadro-960.jpg 960w, /fotos/prod-quadro-1600.jpg 1600w, /fotos/prod-quadro-2400.jpg 2400w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoQAAwAA4BaJZwAAuTtDsGAAP7t4MZ0pulwOWwIy9/ZFRzfiDvArzECMNIB0rUA8genAQTPP/rbXBwIGURlG9OsmxNBFB+NhWAAAA==",
+    "cor": "#e8d8d8",
+    "foco": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "alt": "Dois quadros com moldura preta em uma parede clara, um deles com foto de rua em preto e branco",
+    "placeholderGerado": false,
+    "hash": "f075ced27ff660e3"
   }
 ]

@@ -28,7 +28,7 @@ const LARGURAS = [480, 960, 1600, 2400];
 const FORMATOS = ['avif', 'webp', 'jpg'] as const;
 type Formato = (typeof FORMATOS)[number];
 /** Muda quando a receita de encode muda, para invalidar o cache. */
-const VERSAO_RECEITA = 'v1-avif50-webp72-jpg78';
+const VERSAO_RECEITA = 'v2-avif50-webp72-jpg78-pb';
 const EXTENSOES = ['.jpg', '.jpeg', '.png', '.heic'];
 
 const args = new Set(process.argv.slice(2));
@@ -146,10 +146,15 @@ async function gerarSaidas(
   id: string,
   entrada: Buffer,
   exposicao: Exposicao | undefined,
+  tratamento?: FotoMeta['tratamento'],
 ): Promise<Saida> {
   // rotate() aplica a orientação do EXIF; como não usamos withMetadata(), tudo é removido
   // da saída (EXIF, GPS, serial) e a imagem sai em sRGB.
-  const orientada = sharp(entrada, { failOn: 'none' }).rotate();
+  // tratamento "pb": versão em preto e branco da mesma foto de origem (outro id, outros arquivos).
+  const orientada =
+    tratamento === 'pb'
+      ? sharp(entrada, { failOn: 'none' }).rotate().grayscale()
+      : sharp(entrada, { failOn: 'none' }).rotate();
   const { data: bufOrientado, info } = await orientada.toBuffer({ resolveWithObject: true });
   const larguraOriginal = info.width;
   const larguras = LARGURAS.filter((l) => l <= larguraOriginal);
@@ -239,7 +244,7 @@ async function processar(
 
   if (temArquivo) {
     origem = await readFile(caminho);
-    hash = sha1(origem, VERSAO_RECEITA);
+    hash = sha1(origem, VERSAO_RECEITA, meta.tratamento ?? '');
     gerado = false;
   } else {
     const { svg } = svgPlaceholder(meta);
@@ -278,7 +283,7 @@ async function processar(
     exposicao = extrairExposicao(meta0.exif);
   }
 
-  const saida = await gerarSaidas(meta.id, origem, exposicao);
+  const saida = await gerarSaidas(meta.id, origem, exposicao, meta.tratamento);
   return { entrada: montarEntrada(meta, saida, hash, gerado), reaproveitada: false };
 }
 
