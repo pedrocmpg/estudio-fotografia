@@ -1,0 +1,30 @@
+.pular {
+  position: fixed;
+  right: max(var(--gutter), env(safe-area-inset-right, 0px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1.25rem);
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5rem;
+  min-height: var(--alvo-toque);
+  padding: 0 1.1rem;
+  border: 1px solid rgba(246, 241, 233, 0.45);
+  border-radius: 999px;
+  background: rgba(14, 12, 10, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--sobre-foto);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+}
+
+.pular:hover {
+  background: rgba(14, 12, 10, 0.75);
+}
+
+.pular:focus-visible {
+  outline-color: var(--sobre-foto);
+}

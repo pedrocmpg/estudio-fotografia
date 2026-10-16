@@ -1,0 +1,64 @@
+.botao {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 10px 30px -8px rgb(0 0 0 / 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 12px, 0) scale(0.9);
+  transition:
+    opacity var(--t-base) ease,
+    transform var(--t-base) var(--ease-saida),
+    visibility 0s linear var(--t-base);
+}
+
+.botao[data-visivel] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.botao:hover {
+  background: color-mix(in srgb, var(--accent) 94%, var(--hover-alvo));
+}
+
+/* Um único pulso de atenção; nunca em loop */
+.botao::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: pulso 1400ms var(--ease-saida) 400ms 1 both;
+  pointer-events: none;
+}
+
+@keyframes pulso {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao {
+    transition: none;
+  }
+  .botao::after {
+    animation: none;
+  }
+}

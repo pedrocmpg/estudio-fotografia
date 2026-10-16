@@ -1,0 +1,27 @@
+.rodape {
+  padding-block: 2rem 5rem;
+  border-top: 1px solid var(--linha);
+  background: var(--bg);
+}
+
+.interno {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.copia {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  color: var(--text-2);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-toque);
+  color: var(--accent-texto);
+}

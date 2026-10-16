@@ -1,0 +1,16 @@
+.secao {
+  padding-block: clamp(4rem, 10vw, 8rem);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.titulo {
+  max-width: 18ch;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  font-size: var(--fs-h2);
+}
+
+/* Mesma altura da roda, para a página não pular quando o chunk chega */
+.reserva {
+  height: clamp(22rem, 34vw, 31rem);
+}

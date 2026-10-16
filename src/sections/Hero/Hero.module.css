@@ -1,0 +1,341 @@
+/* Abertura em cortinas (SPEC §7.2). Só transform, opacity e clip-path animam. */
+
+.hero {
+  --hero-cor: var(--sobre-foto);
+  --hero-cor-2: var(--sobre-foto-2);
+  --cor-botao-sec: var(--hero-cor);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--hero-cor);
+}
+
+/* Fundo liso: o texto segue o tema em vez de ser claro sobre a foto */
+.hero[data-fundo='cor'] {
+  --hero-cor: var(--text);
+  --hero-cor-2: var(--text-2);
+}
+
+/* ---------- fundo final ---------- */
+
+.fundo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / calc(var(--scrim) * 1.1)) 0%,
+    rgb(0 0 0 / var(--scrim)) 45%,
+    rgb(0 0 0 / calc(var(--scrim) * 1.35)) 100%
+  );
+}
+
+.hero[data-fundo='cor'] .scrim {
+  display: none;
+}
+
+/* ---------- conteúdo central ---------- */
+
+.conteudo {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vh, 1.25rem);
+  padding: calc(var(--altura-header) + 1rem) var(--gutter) 5.5rem;
+  text-align: center;
+}
+
+.nome {
+  font-size: var(--fs-display);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--hero-cor);
+}
+
+.hero:not([data-fundo='cor']) .nome {
+  text-shadow: 0 2px 40px rgb(0 0 0 / 0.28);
+}
+
+.palavra {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Cada letra sobe por trás de uma máscara (clip-path), 30 ms uma da outra. */
+.letra {
+  display: inline-block;
+  clip-path: inset(-0.05em -0.15em -0.12em -0.15em);
+}
+
+.glifo {
+  display: inline-block;
+  transform: translate3d(0, 125%, 0);
+  transition: transform 800ms var(--ease-saida) calc(var(--i) * 30ms);
+}
+
+.destaque {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hero-cor-2);
+}
+
+.subtitulo {
+  max-width: 34ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--hero-cor-2);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  margin-top: clamp(0.5rem, 2vh, 1.5rem);
+}
+
+/* Destaque, subtítulo e CTAs entram em fade depois do nome */
+.revelavel {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    opacity var(--t-lento) var(--ease-saida) 550ms,
+    transform var(--t-lento) var(--ease-saida) 550ms;
+}
+
+.hero:is([data-fase='concluida'], [data-fase='saindo']) .revelavel {
+  opacity: 1;
+  transform: none;
+}
+
+.hero:is([data-fase='concluida'], [data-fase='saindo']) .glifo {
+  transform: none;
+}
+
+/* Pulou: tudo vai ao estado final em 250 ms, sem cascata */
+.hero[data-fase='saindo'] .glifo {
+  transition-duration: 250ms;
+  transition-delay: 0s;
+}
+
+.hero[data-fase='saindo'] .revelavel {
+  transition-duration: 250ms;
+  transition-delay: 0s;
+}
+
+/* Sem intro (reduced motion, já vista, desligada): estado final direto, sem transição */
+.hero[data-final='direto'] .glifo,
+.hero[data-final='direto'] .revelavel {
+  transition: none;
+}
+
+/* ---------- destaque rotativo ---------- */
+
+.rotativo {
+  display: inline-block;
+}
+
+.rotativoPalco {
+  display: inline-grid;
+  overflow: hidden;
+  height: 1.5em;
+  line-height: 1.5;
+  vertical-align: bottom;
+}
+
+.rotativoItem {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translate3d(0, 110%, 0);
+  transition:
+    transform 500ms var(--ease-saida),
+    opacity 500ms var(--ease-saida);
+}
+
+.rotativoItem[data-ativo] {
+  opacity: 1;
+  transform: none;
+}
+
+.rotativoItem[data-saindo] {
+  opacity: 0;
+  transform: translate3d(0, -110%, 0);
+}
+
+/* ---------- cortinas ---------- */
+
+.cortinas {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero[data-fase='saindo'] .cortinas {
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.camada {
+  position: absolute;
+  inset: 0;
+}
+
+/* Fotos que não chegaram a tempo ficam de fora: nunca mostrar painel vazio */
+.camada[data-pulada] {
+  display: none;
+}
+
+.painel {
+  --dir: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  background: var(--surface);
+  /* 0% → ∓100% da própria largura, em etapas guiadas por --p (0 a 1) */
+  transform: translate3d(calc(var(--dir) * var(--p) * 100%), 0, 0);
+  transition:
+    transform var(--dur-etapa) var(--ease-saida),
+    visibility 0s linear var(--dur-etapa);
+}
+
+.painel[data-lado='esquerda'] {
+  --dir: -1;
+  left: 0;
+}
+
+.painel[data-lado='direita'] {
+  --dir: 1;
+  right: 0;
+}
+
+/* Aberta de vez: some de verdade depois que a última transição termina */
+.camada[data-aberta] .painel {
+  visibility: hidden;
+}
+
+.hero[data-fase='rodando'] .painel,
+.hero[data-fase='rodando'] .fotoPainel {
+  will-change: transform;
+}
+
+/*
+ * Profundidade: a foto anda 15% mais devagar que o painel (contra-translação) e sai de
+ * scale(1.08) para scale(1). É mais larga que o painel para não deixar fresta no canto.
+ */
+.fotoPainel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 130%;
+  transform: translate3d(calc(var(--dir) * var(--p) * -15%), 0, 0)
+    scale(calc(1.08 - 0.08 * var(--p)));
+  transition: transform var(--dur-etapa) var(--ease-saida);
+}
+
+.painel[data-lado='esquerda'] .fotoPainel {
+  left: -20%;
+}
+
+.painel[data-lado='direita'] .fotoPainel {
+  right: -20%;
+}
+
+/* Sombra interna na borda de dentro, para dar volume */
+.sombra {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.painel[data-lado='esquerda'] .sombra {
+  background: linear-gradient(to left, rgb(0 0 0 / 0.4), transparent 14%);
+}
+
+.painel[data-lado='direita'] .sombra {
+  background: linear-gradient(to right, rgb(0 0 0 / 0.4), transparent 14%);
+}
+
+/* Linha de luz: a fresta acende a cada etapa (opacidade 0 → 0,8 → 0) */
+.luz {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent) 18%,
+    var(--accent) 82%,
+    transparent
+  );
+  box-shadow: 0 0 14px 1px color-mix(in srgb, var(--accent) 60%, transparent);
+  animation: luz var(--dur-etapa) var(--ease-entrada-saida) both;
+}
+
+.painel[data-lado='esquerda'] .luz {
+  right: 0;
+}
+
+.painel[data-lado='direita'] .luz {
+  left: 0;
+}
+
+@keyframes luz {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- contador "01 / 02" ---------- */
+
+.contador {
+  position: absolute;
+  left: var(--gutter);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 1.6rem);
+  z-index: 6;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgb(14 12 10 / 0.5);
+  color: var(--sobre-foto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glifo,
+  .revelavel,
+  .rotativoItem,
+  .painel,
+  .fotoPainel {
+    transition: none;
+  }
+  .luz {
+    animation: none;
+  }
+}

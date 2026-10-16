@@ -1,0 +1,131 @@
+/* ---------- roda 3D ---------- */
+
+.roda {
+  width: 100%;
+}
+
+.palco {
+  /* --k vem do componente: raio = largura × k, para as fotos formarem um anel sem vãos */
+  --w: clamp(190px, 21vw, 310px);
+  --h: calc(var(--w) * 1.28);
+  --r: calc(var(--w) * var(--k));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--h) + 5rem);
+  perspective: 1400px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.palco:active {
+  cursor: grabbing;
+}
+
+.anel {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--r) * -1)) rotateY(var(--ang, 0deg));
+  will-change: transform;
+}
+
+.item {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--raio);
+  background: var(--surface);
+  box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.55);
+  transform: rotateY(var(--a)) translateZ(var(--r));
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.item:focus-visible {
+  outline-offset: 4px;
+}
+
+.dica {
+  margin: 0.5rem auto 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+/* ---------- carrossel (celular) e grade (movimento reduzido) ---------- */
+
+.itens {
+  padding-inline: var(--gutter);
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--raio);
+  background: var(--surface);
+}
+
+.lista[data-modo='grade'] .itens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: calc(var(--largura-max) + 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.lista[data-modo='carrossel'] .itens {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-inline: max(var(--gutter), calc(50vw - min(31vw, 10rem)));
+  padding-block: 1rem;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.lista[data-modo='carrossel'] .itens::-webkit-scrollbar {
+  display: none;
+}
+
+.lista[data-modo='carrossel'] .celula {
+  flex: none;
+  width: 62vw;
+  max-width: 20rem;
+  scroll-snap-align: center;
+  transform: scale(0.9);
+  transition: transform var(--t-lento) var(--ease-saida);
+}
+
+.lista[data-modo='carrossel'] .celula[data-central] {
+  transform: none;
+}
+
+@media (min-width: 700px) {
+  .lista[data-modo='grade'] .itens {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .lista[data-modo='grade'] .itens {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lista[data-modo='carrossel'] .celula {
+    transition: none;
+  }
+}

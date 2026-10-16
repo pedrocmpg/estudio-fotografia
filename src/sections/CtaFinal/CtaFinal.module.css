@@ -1,0 +1,75 @@
+.cta {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  min-height: 80svh;
+  overflow: hidden;
+  color: var(--sobre-foto);
+  text-align: center;
+}
+
+.foto {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.5);
+}
+
+/* Cortina reversa: painéis de --bg entram pelos lados e param em 12% da largura */
+.cortina {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 12%;
+  background: var(--bg);
+  transition: transform var(--t-lento) var(--ease-saida);
+}
+
+.esquerda {
+  left: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.direita {
+  right: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.cta[data-fechada] .cortina {
+  transform: none;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(4rem, 10vw, 7rem) calc(12% + 1rem);
+}
+
+.titulo {
+  max-width: 14ch;
+  font-size: var(--fs-h2);
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.3);
+}
+
+.texto {
+  color: var(--sobre-foto-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cortina {
+    transition: none;
+  }
+}
