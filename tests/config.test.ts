@@ -66,14 +66,14 @@ describe('validação do config', () => {
     expect(falsa.erros.join('\n')).toContain('não existe');
   });
 
-  it('confere âncoras de CTA e sessaoId dos pacotes', () => {
+  it('confere âncoras de CTA e alvoPedido dos pacotes', () => {
     const ancora = validarConfig(
       variante((c) => (c.hero.ctas.primario = { rotulo: 'x', acao: 'ancora', alvo: 'nada' })),
       manifesto,
     );
     expect(ancora.erros.join('\n')).toContain('nada');
     const pacote = validarConfig(
-      variante((c) => (c.pacotes.itens[0]!.sessaoId = 'zzz')),
+      variante((c) => (c.pacotes.grupos[0]!.itens[0]!.alvoPedido = 'zzz')),
       manifesto,
     );
     expect(pacote.erros.join('\n')).toContain('zzz');

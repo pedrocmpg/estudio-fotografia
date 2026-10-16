@@ -232,25 +232,50 @@ export const siteConfigAlt: SiteConfig = {
     mostrar: true,
     titulo: 'Pacotes de teste',
     nota: 'Nota fictícia sobre valores.',
-    itens: [
+    grupos: [
       {
-        id: 'p1',
-        nome: 'Pacote Um',
-        paraQuem: 'Quem for testar.',
-        inclui: ['Item um', 'Item dois'],
-        entrega: 'Em 10 dias',
-        valor: null,
-        sessaoId: 'alfa',
+        rotulo: 'Sessões',
+        itens: [
+          {
+            id: 'p1',
+            nome: 'Pacote Um',
+            paraQuem: 'Quem for testar.',
+            inclui: ['Item um', 'Item dois'],
+            entrega: 'Em 10 dias',
+            valor: null,
+            alvoPedido: 'alfa',
+          },
+          {
+            id: 'p2',
+            nome: 'Pacote Dois',
+            paraQuem: 'Quem for testar mais.',
+            inclui: ['Item um', '[CONFIRMAR] item pendente'],
+            valor: 1250,
+            prefixoValor: 'a partir de',
+            selo: 'Selo de teste',
+            alvoPedido: 'beta',
+          },
+        ],
       },
       {
-        id: 'p2',
-        nome: 'Pacote Dois',
-        paraQuem: 'Quem for testar mais.',
-        inclui: ['Item um'],
-        valor: 1250,
-        prefixoValor: 'a partir de',
-        selo: 'Selo de teste',
-        sessaoId: 'beta',
+        rotulo: 'Presentes',
+        itens: [
+          {
+            id: 'p3',
+            nome: 'Pacote Três',
+            paraQuem: 'Quem quiser presentear.',
+            inclui: ['Item três'],
+            valor: 80,
+            alvoPedido: 'item-dois',
+          },
+          {
+            id: 'p4',
+            nome: 'Pacote Quatro',
+            paraQuem: 'Quem quiser presentear mais.',
+            inclui: ['Item quatro'],
+            valor: null,
+          },
+        ],
       },
     ],
   },
@@ -276,16 +301,23 @@ export const siteConfigAlt: SiteConfig = {
     abertura: 'Abertura fictícia do FAQ de teste.',
     itens: [
       {
+        grupo: 'Sessões',
         pergunta: 'Pergunta confirmada?',
         resposta: 'Resposta fictícia confirmada.',
         confirmada: true,
       },
       {
+        grupo: 'Loja',
         pergunta: 'Pergunta de exemplo?',
         resposta: 'Resposta fictícia de exemplo.',
         confirmada: false,
       },
     ],
+  },
+
+  contato: {
+    titulo: 'Contato de teste',
+    texto: 'Texto fictício do contato.',
   },
 
   ctaFinal: {

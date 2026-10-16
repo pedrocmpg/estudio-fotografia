@@ -28,9 +28,10 @@ if (!n.redes?.length && !n.instagram)
 if (!n.locais?.length) faltando.push('negocio.locais (estúdio e loja: endereço, mapa, horários)');
 if (!n.email) faltando.push('negocio.email');
 if (!n.horarios?.length) faltando.push('negocio.horarios');
-if (!siteConfig.depoimentos.length) faltando.push('depoimentos (seção some sem eles)');
+if (!siteConfig.depoimentos.some((d) => !d.exemplo))
+  faltando.push('depoimentos reais e autorizados (hoje só exemplos; a seção some sem eles)');
 if (!siteConfig.linkAvaliacoesGoogle) faltando.push('linkAvaliacoesGoogle');
-if (siteConfig.pacotes.itens.some((p) => p.valor === null))
+if (siteConfig.pacotes.grupos.some((g) => g.itens.some((p) => p.valor === null)))
   faltando.push('pacotes[].valor (hoje "[VALOR]")');
 if (siteConfig.presentes.itens.some((p) => p.valor === null))
   faltando.push('presentes.itens[].valor (hoje "[VALOR]")');

@@ -175,16 +175,21 @@ export interface SiteConfig {
     mostrar: boolean;
     titulo: string;
     nota?: string;
-    itens: {
-      id: string;
-      nome: string;
-      paraQuem: string;
-      inclui: string[];
-      entrega?: string;
-      valor: number | null; // null → "[VALOR]" na demo / "Sob consulta" em produção
-      prefixoValor?: string; // "a partir de"
-      selo?: string; // "Mais pedido" — só se for verdade
-      sessaoId?: string; // pré-seleciona o tipo no formulário
+    /** Dois grupos: "Sessões" e "Presentes" (abas no celular, colunas no desktop). */
+    grupos: {
+      rotulo: 'Sessões' | 'Presentes';
+      itens: {
+        id: string;
+        nome: string;
+        paraQuem: string;
+        inclui: string[];
+        entrega?: string;
+        valor: number | null; // null → "[VALOR]" na demo / "Sob consulta" em produção
+        prefixoValor?: string; // "a partir de"
+        selo?: string; // "Mais pedido" — só se for verdade
+        /** id de uma sessão (grupo Sessões) ou de um presente (grupo Presentes): pré-seleciona o formulário. */
+        alvoPedido?: string;
+      }[];
     }[];
   };
 
@@ -210,9 +215,17 @@ export interface SiteConfig {
     itens: {
       pergunta: string;
       resposta: string;
+      /** Para separar as perguntas em dois blocos (estúdio e loja). */
+      grupo?: 'Sessões' | 'Loja';
       /** false = resposta de exemplo: some em produção e fica fora do JSON-LD. */
       confirmada: boolean;
     }[];
+  };
+
+  /** Contato completo: pontos de atendimento (`negocio.locais`), redes, e-mail. */
+  contato: {
+    titulo: string;
+    texto?: string;
   };
 
   ctaFinal: {

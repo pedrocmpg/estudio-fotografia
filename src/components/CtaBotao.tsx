@@ -1,6 +1,6 @@
 import { useSiteConfig } from '../apresentacao/previa.tsx';
 import type { Cta } from '../config/types.ts';
-import { ehExterno, hrefDoCta } from '../lib/cta.ts';
+import { atributoPedido, ehExterno, hrefDoCta } from '../lib/cta.ts';
 import { Botao, type VarianteBotao } from './Botao.tsx';
 
 interface Props {
@@ -19,6 +19,7 @@ export function CtaBotao({ cta, variante, sessaoId, className }: Props) {
       variante={variante}
       className={className}
       href={href}
+      {...(cta.acao === 'pedido' ? atributoPedido(config, { sessaoId }) : null)}
       {...(externo ? { target: '_blank', rel: 'noopener noreferrer' } : null)}
     >
       {cta.rotulo}

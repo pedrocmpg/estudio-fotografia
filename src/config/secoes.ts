@@ -1,6 +1,6 @@
 import type { SecaoId, SiteConfig } from './types.ts';
 
-/** Seções que já têm componente. As demais (Fase 2) são ignoradas mesmo se estiverem em `secoes`. */
+/** Seções que têm componente. Uma seção sem componente é ignorada mesmo se estiver em `secoes`. */
 export const SECOES_IMPLEMENTADAS: readonly SecaoId[] = [
   'intro',
   'faixa',
@@ -8,8 +8,14 @@ export const SECOES_IMPLEMENTADAS: readonly SecaoId[] = [
   'presentes',
   'manifesto',
   'trabalhos',
+  'antesDepois',
+  'processo',
+  'pacotes',
+  'depoimentos',
+  'pedido',
   'faq',
   'ctaFinal',
+  'contato',
 ];
 
 interface InfoSecao {
@@ -28,12 +34,14 @@ export const INFO_SECOES: Partial<Record<SecaoId, InfoSecao>> = {
   presentes: { ancora: 'presentes', rotulo: 'Presentes', navegacao: true },
   manifesto: { ancora: 'manifesto', rotulo: 'Manifesto', navegacao: false },
   trabalhos: { ancora: 'trabalhos', rotulo: 'Trabalhos', navegacao: true },
-  processo: { ancora: 'como-funciona', rotulo: 'Como funciona', navegacao: true },
+  antesDepois: { ancora: 'antes-e-depois', rotulo: 'Antes e depois', navegacao: false },
+  processo: { ancora: 'como-funciona', rotulo: 'Como funciona', navegacao: false },
   pacotes: { ancora: 'pacotes', rotulo: 'Pacotes', navegacao: true },
   depoimentos: { ancora: 'depoimentos', rotulo: 'Depoimentos', navegacao: false },
   pedido: { ancora: 'pedido', rotulo: 'Pedir sessão', navegacao: false },
   faq: { ancora: 'duvidas', rotulo: 'Dúvidas', navegacao: true },
   ctaFinal: { ancora: 'comece', rotulo: 'Comece', navegacao: false },
+  contato: { ancora: 'contato', rotulo: 'Contato', navegacao: false },
 };
 
 /** Seções com título editorial numerado (01 — SESSÕES, 02 — TRABALHOS…). */
@@ -46,11 +54,17 @@ const NUMERADAS: readonly SecaoId[] = [
   'depoimentos',
   'pedido',
   'faq',
+  'contato',
 ];
 
 /** Perguntas que aparecem: respostas de exemplo só na prévia. */
 export function faqVisivel(config: SiteConfig) {
   return config.faq.itens.filter((i) => config.modoDemo || i.confirmada);
+}
+
+/** Depoimentos que aparecem: exemplos só na prévia. */
+export function depoimentosVisiveis(config: SiteConfig) {
+  return config.depoimentos.filter((d) => config.modoDemo || !d.exemplo);
 }
 
 function temConteudo(config: SiteConfig, id: SecaoId): boolean {
@@ -70,6 +84,14 @@ function temConteudo(config: SiteConfig, id: SecaoId): boolean {
       );
     case 'faq':
       return faqVisivel(config).length > 0;
+    case 'antesDepois':
+      return config.antesDepois.length > 0;
+    case 'processo':
+      return config.processo.passos.length > 0;
+    case 'pacotes':
+      return config.pacotes.mostrar && config.pacotes.grupos.some((g) => g.itens.length > 0);
+    case 'depoimentos':
+      return depoimentosVisiveis(config).length > 0;
     default:
       return true;
   }

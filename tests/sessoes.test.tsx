@@ -42,14 +42,12 @@ describe('bloco C — sessões (celular: cartões empilhados)', () => {
     expect(lista.style.getPropertyValue('--p')).not.toBe('');
   });
 
-  it('o link leva o tipo da sessão para a mensagem', async () => {
+  it('o link marca o tipo da sessão para o formulário', async () => {
     definirMidia({ estreito: true });
     await renderApp();
     const cards = document.querySelectorAll('#sessoes article');
     const link = within(cards[1] as HTMLElement).getByRole('link', { name: /Pedir essa sessão/ });
-    expect(decodeURIComponent(link.getAttribute('href')!.split('?text=')[1]!)).toContain(
-      'Sessão Beta',
-    );
+    expect(link).toHaveAttribute('data-pedido-alvo', 'sessao:beta');
   });
 });
 

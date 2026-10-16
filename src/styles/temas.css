@@ -13,6 +13,7 @@ html[data-theme='camara-escura'] {
   --text-2: #a79d8d;
   --accent: #e0a458;
   --accent-texto: #e0a458;
+  --erro: #ff8f7d;
   --on-accent: #0e0c0a;
   --linha: rgba(242, 235, 221, 0.12);
   --escuro: #0e0c0a;
@@ -31,6 +32,7 @@ html[data-theme='luz-natural'] {
   --text-2: #6b6157;
   --accent: #b5532d;
   --accent-texto: #9e4524;
+  --erro: #a32b1f;
   --on-accent: #ffffff;
   --linha: rgba(38, 32, 27, 0.12);
   --escuro: #2a211b;

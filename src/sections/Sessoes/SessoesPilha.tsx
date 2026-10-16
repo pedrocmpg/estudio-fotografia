@@ -1,7 +1,7 @@
 import { useRef, type CSSProperties } from 'react';
 import { Foto } from '../../components/Foto.tsx';
 import type { SiteConfig } from '../../config/types.ts';
-import { ehExterno, hrefPedido } from '../../lib/cta.ts';
+import { atributoPedido, ehExterno, hrefPedido } from '../../lib/cta.ts';
 import { progressoEmCartoes, useVariavelDeRolagem } from '../../motion/useVariavelDeRolagem.ts';
 import css from './SessoesPilha.module.css';
 
@@ -41,6 +41,7 @@ export function SessoesPilha({ config, reduzido }: Props) {
                 <a
                   className={css.link}
                   href={href}
+                  {...atributoPedido(config, { sessaoId: item.id })}
                   {...(ehExterno(href) ? { target: '_blank', rel: 'noopener noreferrer' } : null)}
                 >
                   Pedir essa sessão <span className="sr-only">— {item.nome}</span>

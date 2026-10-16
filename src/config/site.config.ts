@@ -26,8 +26,12 @@ export const siteConfig: SiteConfig = {
     atendimento: ['estudio', 'externo'], // [CONFIRMAR]
     // [CONFIRMAR] as duas contas de Instagram (estúdio e loja); só aparecem quando preenchidas:
     // redes: [{ rotulo: 'Estúdio', usuario: '...' }, { rotulo: 'Loja', usuario: '...' }],
-    // [CONFIRMAR] estúdio e loja (podem ser o mesmo endereço): endereço, mapa, horários, WhatsApp:
-    // locais: [{ id: 'estudio', tipo: 'estudio', rotulo: 'Estúdio' }, { id: 'loja', tipo: 'loja', rotulo: 'Loja no shopping' }],
+    // [CONFIRMAR] estúdio e loja (podem ser o mesmo endereço): endereço, mapa, horários e WhatsApp de cada
+    // um entram aqui quando confirmados (campos: endereco, mapsUrl, horarios, whatsapp).
+    locais: [
+      { id: 'estudio', tipo: 'estudio', rotulo: 'Estúdio' },
+      { id: 'loja', tipo: 'loja', rotulo: 'Loja no shopping' },
+    ],
     // email e horarios: [CONFIRMAR] — só aparecem quando preenchidos
   },
 
@@ -282,20 +286,17 @@ export const siteConfig: SiteConfig = {
       segundosPorVolta: 70,
     },
     folha: {
-      categorias: ['Ensaios', 'Família', 'Eventos'],
+      categorias: ['Ensaios', 'Família'],
+      // fotos que não repetem a colagem nem a roda (a folha fica logo abaixo delas)
       fotos: [
         { id: 'ensaio-1', categoria: 'Ensaios', marcada: true },
-        { id: 'ensaio-2', categoria: 'Ensaios' },
-        { id: 'retrato-1', categoria: 'Ensaios' },
-        { id: 'retrato-2', categoria: 'Ensaios', marcada: true },
-        { id: 'gestante-1', categoria: 'Família' },
+        { id: 'retrato-2', categoria: 'Ensaios' },
+        { id: 'pb-retrato-2', categoria: 'Ensaios' },
         { id: 'gestante-2', categoria: 'Família' },
-        { id: 'familia-1', categoria: 'Família', marcada: true },
-        { id: 'familia-2', categoria: 'Família' },
-        { id: 'casamento-1', categoria: 'Eventos' },
-        { id: 'casamento-2', categoria: 'Eventos', marcada: true },
-        { id: 'formatura-1', categoria: 'Eventos' },
-        { id: 'formatura-2', categoria: 'Eventos' },
+        { id: 'familia-2', categoria: 'Família', marcada: true },
+        { id: 'pb-familia-1', categoria: 'Família' },
+        { id: 'pb-familia-2', categoria: 'Família', marcada: true },
+        { id: 'pb-gestante-1', categoria: 'Família' },
       ],
     },
     mostrarDadosTecnicos: false,
@@ -318,38 +319,95 @@ export const siteConfig: SiteConfig = {
     titulo: 'Pacotes', // [CONFIRMAR]
     nota: 'Valores podem variar conforme data e local.', // [CONFIRMAR]
     // [CONFIRMAR] nomes, o que inclui, prazos e valores (null = "[VALOR]" na prévia)
-    itens: [
+    grupos: [
       {
-        id: 'essencial',
-        nome: 'Essencial',
-        paraQuem: 'Para um ensaio simples e direto.',
-        inclui: ['[CONFIRMAR]'],
-        entrega: '[CONFIRMAR]',
-        valor: null,
-        sessaoId: 'ensaio',
+        rotulo: 'Sessões',
+        itens: [
+          {
+            id: 'essencial',
+            nome: 'Essencial',
+            paraQuem: 'Para um ensaio simples e direto.',
+            inclui: ['[CONFIRMAR]'],
+            entrega: '[CONFIRMAR]',
+            valor: null,
+            alvoPedido: 'ensaio',
+          },
+          {
+            id: 'completo',
+            nome: 'Completo',
+            paraQuem: 'Para quem quer mais tempo e mais fotos.',
+            inclui: ['[CONFIRMAR]'],
+            entrega: '[CONFIRMAR]',
+            valor: null,
+            alvoPedido: 'familia',
+          },
+          {
+            id: 'evento',
+            nome: 'Evento',
+            paraQuem: 'Para formaturas, aniversários e outras datas.',
+            inclui: ['[CONFIRMAR]'],
+            entrega: '[CONFIRMAR]',
+            valor: null,
+            alvoPedido: 'eventos',
+          },
+        ],
       },
       {
-        id: 'completo',
-        nome: 'Completo',
-        paraQuem: 'Para quem quer mais tempo e mais fotos.',
-        inclui: ['[CONFIRMAR]'],
-        entrega: '[CONFIRMAR]',
-        valor: null,
-        sessaoId: 'ensaio',
-      },
-      {
-        id: 'evento',
-        nome: 'Evento',
-        paraQuem: 'Para formaturas, aniversários e outras datas.',
-        inclui: ['[CONFIRMAR]'],
-        entrega: '[CONFIRMAR]',
-        valor: null,
-        sessaoId: 'eventos',
+        rotulo: 'Presentes',
+        itens: [
+          {
+            id: 'lembranca',
+            nome: 'Lembrança na hora',
+            paraQuem: 'Para quem quer levar a foto pra casa no mesmo dia.',
+            inclui: ['[CONFIRMAR]'],
+            entrega: 'Na hora, na loja [CONFIRMAR]',
+            valor: null,
+            alvoPedido: 'polaroids',
+          },
+          {
+            id: 'caneca-album',
+            nome: 'Caneca + álbum',
+            paraQuem: 'Para presentear com a sessão em duas lembranças.',
+            inclui: ['[CONFIRMAR]'],
+            entrega: '[CONFIRMAR]',
+            valor: null,
+            alvoPedido: 'album',
+          },
+          {
+            id: 'quadro-moldura',
+            nome: 'Quadro na parede',
+            paraQuem: 'Para a foto que merece ficar à vista.',
+            inclui: ['[CONFIRMAR]'],
+            entrega: '[CONFIRMAR]',
+            valor: null,
+            alvoPedido: 'quadro',
+          },
+        ],
       },
     ],
   },
 
-  depoimentos: [],
+  // Exemplos só na prévia (selo EXEMPLO); em produção, só depoimentos reais e autorizados.
+  depoimentos: [
+    {
+      texto: 'Cheguei sem saber posar e saí com as fotos mais bonitas da nossa família.',
+      autor: 'Cliente de exemplo',
+      sessao: 'Família',
+      exemplo: true,
+    },
+    {
+      texto: 'Levei uma foto do celular e voltei com ela revelada, num presente pra minha mãe.',
+      autor: 'Cliente de exemplo',
+      sessao: 'Presentes',
+      exemplo: true,
+    },
+    {
+      texto: 'Atendimento calmo, sem pressa. As crianças nem perceberam que estavam posando.',
+      autor: 'Cliente de exemplo',
+      sessao: 'Aniversário',
+      exemplo: true,
+    },
+  ],
 
   pedido: {
     titulo: 'Pedir sessão',
@@ -364,46 +422,59 @@ export const siteConfig: SiteConfig = {
     abertura: 'Imaginei que você ia perguntar. Então respondi antes.', // [CONFIRMAR]
     itens: [
       {
+        grupo: 'Loja',
         pergunta: 'Quanto tempo leva para ficar pronto?',
         resposta: '[CONFIRMAR] Depende do produto. Fala com a gente e combinamos o prazo certinho.',
         confirmada: false,
       },
       {
+        grupo: 'Loja',
         pergunta: 'Dá para levar a foto do celular?',
         resposta: '[CONFIRMAR] A ideia é essa: você traz a foto e a gente cuida do resto.',
         confirmada: false,
       },
       {
+        grupo: 'Loja',
         pergunta: 'Vocês imprimem na hora?',
         resposta: '[CONFIRMAR] Na loja, a revelação é na hora. Confirmamos como funciona.',
         confirmada: false,
       },
       {
+        grupo: 'Loja',
         pergunta: 'Quais formas de pagamento?',
         resposta: '[CONFIRMAR] A gente te conta na conversa.',
         confirmada: false,
       },
       {
+        grupo: 'Sessões',
         pergunta: 'Em quanto tempo recebo as fotos da sessão?',
         resposta: '[CONFIRMAR] O prazo varia conforme o tipo de sessão. Combinamos antes.',
         confirmada: false,
       },
       {
+        grupo: 'Sessões',
         pergunta: 'Vocês fazem sessão fora do estúdio?',
         resposta: '[CONFIRMAR] Conta para a gente o que você imaginou e vemos juntos.',
         confirmada: false,
       },
       {
+        grupo: 'Sessões',
         pergunta: 'Precisa pagar sinal para reservar?',
         resposta: '[CONFIRMAR] Explicamos como funciona a reserva na conversa.',
         confirmada: false,
       },
       {
+        grupo: 'Sessões',
         pergunta: 'E se chover no dia?',
         resposta: '[CONFIRMAR] A gente remarca com você. Fica tranquilo.',
         confirmada: false,
       },
     ],
+  },
+
+  contato: {
+    titulo: 'Onde a gente está', // [CONFIRMAR]
+    texto: 'Passe no estúdio, na loja, ou chame no WhatsApp.', // [CONFIRMAR]
   },
 
   ctaFinal: {

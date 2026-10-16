@@ -28,6 +28,8 @@ export const PARES_CONTRASTE: readonly (readonly [texto: string, fundo: string])
   ['--text-2', '--surface'],
   ['--accent-texto', '--bg'],
   ['--accent-texto', '--surface'],
+  ['--erro', '--bg'],
+  ['--erro', '--surface'],
   ['--on-accent', '--accent'],
 ];
 

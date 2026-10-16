@@ -1,0 +1,184 @@
+.secao {
+  padding-block: var(--espaco-secao);
+  background: var(--surface);
+}
+
+.grade {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.cabeca :global(.titulo-secao) {
+  margin-bottom: 0;
+}
+
+.texto {
+  margin-top: 1.25rem;
+  color: var(--text-2);
+}
+
+.form {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.duas {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.campo {
+  position: relative;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.campo label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--text-2);
+  transition: color var(--t-base) ease;
+}
+
+.campo:focus-within label {
+  color: var(--accent-texto);
+}
+
+.obrigatorio,
+.opcional {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
+  border-radius: var(--raio-botao);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  transition: border-color var(--t-base) ease;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+  border-color: var(--accent);
+}
+
+.campo input[aria-invalid='true'] {
+  border-color: var(--erro);
+}
+
+/* check discreto em campo preenchido */
+.campo[data-ok]::after {
+  content: '✓';
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.85rem;
+  font-size: 0.9rem;
+  color: var(--accent-texto);
+  pointer-events: none;
+}
+
+.campo:has(select)[data-ok]::after {
+  right: 2.2rem;
+}
+
+.erro {
+  color: var(--erro);
+  font-size: 0.9375rem;
+}
+
+.enviar {
+  position: relative;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* clique de obturador: aperta e libera em 300 ms, com um clarão */
+.enviar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enviar[data-obturador] {
+  animation: obturar 300ms var(--ease-entrada-saida);
+}
+
+.enviar[data-obturador]::after {
+  animation: clarao 300ms ease-out;
+}
+
+@keyframes obturar {
+  40% {
+    transform: scale(0.96, 0.88);
+  }
+}
+
+@keyframes clarao {
+  30% {
+    opacity: 0.55;
+  }
+}
+
+.privacidade {
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+
+@media (min-width: 640px) {
+  .duas {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .enviar {
+    width: auto;
+    justify-self: start;
+  }
+}
+
+@media (min-width: 900px) {
+  .grade {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(3rem, 8vw, 7rem);
+  }
+
+  .cabeca {
+    position: sticky;
+    top: calc(var(--altura-header) + 2rem);
+    align-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .campo label,
+  .campo input,
+  .campo select,
+  .campo textarea {
+    transition: none;
+  }
+
+  .enviar[data-obturador],
+  .enviar[data-obturador]::after {
+    animation: none;
+  }
+}

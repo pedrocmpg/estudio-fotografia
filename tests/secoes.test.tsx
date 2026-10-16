@@ -42,8 +42,13 @@ describe('registro de seções', () => {
       'presentes',
       'manifesto',
       'trabalhos',
+      'processo',
+      'pacotes',
+      'depoimentos',
+      'pedido',
       'faq',
       'ctaFinal',
+      'contato',
     ]);
   });
 
@@ -62,14 +67,20 @@ describe('registro de seções', () => {
 });
 
 describe('CTAs', () => {
+  const semFormulario = configCom((c) => (c.secoes = c.secoes.filter((s) => s !== 'pedido')));
+
+  it('pedido, com formulário na página, rola até ele', () => {
+    expect(hrefDoCta(siteConfigAlt, siteConfigAlt.hero.ctas.primario)).toBe('#pedido');
+  });
+
   it('pedido, sem formulário na página, abre o WhatsApp com a mensagem pronta', () => {
-    const href = hrefDoCta(siteConfigAlt, siteConfigAlt.hero.ctas.primario);
+    const href = hrefDoCta(semFormulario, siteConfigAlt.hero.ctas.primario);
     expect(href.startsWith('https://wa.me/5500900000000?text=')).toBe(true);
     expect(decodeURIComponent(href.split('?text=')[1]!)).toBe('Olá, Exemplo!');
   });
 
   it('pedido de uma sessão específica já leva o tipo na mensagem', () => {
-    const href = hrefDoCta(siteConfigAlt, { rotulo: 'x', acao: 'pedido' }, { sessaoId: 'beta' });
+    const href = hrefDoCta(semFormulario, { rotulo: 'x', acao: 'pedido' }, { sessaoId: 'beta' });
     expect(decodeURIComponent(href.split('?text=')[1]!)).toBe(
       'Olá, Exemplo!\nTenho interesse em: Sessão Beta.',
     );
@@ -95,6 +106,7 @@ describe('header', () => {
       '#sessoes',
       '#presentes',
       '#trabalhos',
+      '#pacotes',
       '#duvidas',
     ]);
   });
@@ -119,9 +131,8 @@ describe('sessões', () => {
     const cards = document.querySelectorAll('#sessoes article');
     expect(cards).toHaveLength(siteConfigAlt.sessoes.itens.length);
     const link = within(cards[1] as HTMLElement).getByRole('link', { name: /Pedir essa sessão/ });
-    expect(decodeURIComponent(link.getAttribute('href')!.split('?text=')[1]!)).toContain(
-      'Sessão Beta',
-    );
+    expect(link).toHaveAttribute('href', '#pedido');
+    expect(link).toHaveAttribute('data-pedido-alvo', 'sessao:beta');
   });
 });
 

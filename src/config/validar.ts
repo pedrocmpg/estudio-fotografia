@@ -76,7 +76,11 @@ export function fotosPorSecao(c: SiteConfig): { secao: SecaoId; ids: Set<string>
     sessoes: c.sessoes.itens.flatMap((s) => s.fotos.filter((f): f is string => Boolean(f))),
     presentes: c.presentes.mostrar ? c.presentes.itens.map((p) => p.foto) : [],
     manifesto: c.manifesto.fotos,
-    trabalhos: [...c.trabalhos.colagem, ...c.trabalhos.roda.fotos],
+    trabalhos: [
+      ...c.trabalhos.colagem,
+      ...c.trabalhos.roda.fotos,
+      ...c.trabalhos.folha.fotos.map((f) => f.id),
+    ],
     ctaFinal: [c.ctaFinal.foto],
   };
   return c.secoes
@@ -161,6 +165,17 @@ export function validarConfig(c: SiteConfig, manifesto: FotoNoManifesto[]): Resu
   if (c.trabalhos.colagem.some((id) => rodaSet.has(id))) {
     erro('trabalhos: a colagem e a roda não devem repetir fotos.');
   }
+  const folhaRepetida = c.trabalhos.folha.fotos
+    .map((f) => f.id)
+    .filter((id) => rodaSet.has(id) || c.trabalhos.colagem.includes(id));
+  if (folhaRepetida.length) {
+    erro(`trabalhos.folha: repete fotos da colagem ou da roda (${folhaRepetida.join(', ')}).`);
+  }
+  for (const f of c.trabalhos.folha.fotos) {
+    if (!c.trabalhos.folha.categorias.includes(f.categoria)) {
+      erro(`trabalhos.folha: categoria "${f.categoria}" não está em folha.categorias.`);
+    }
+  }
 
   // presentes
   const idsItem = new Set<string>();
@@ -224,17 +239,34 @@ export function validarConfig(c: SiteConfig, manifesto: FotoNoManifesto[]): Resu
     idsSessao.add(s.id);
   }
   const idsPacote = new Set<string>();
-  for (const p of c.pacotes.itens) {
-    if (idsPacote.has(p.id)) erro(`pacotes: id "${p.id}" repetido.`);
-    idsPacote.add(p.id);
-    if (p.sessaoId && !idsSessao.has(p.sessaoId)) {
-      erro(`pacotes.${p.id}: sessaoId "${p.sessaoId}" não existe em sessoes.`);
+  const total = c.pacotes.grupos.reduce((n, g) => n + g.itens.length, 0);
+  for (const g of c.pacotes.grupos) {
+    const alvos = g.rotulo === 'Sessões' ? idsSessao : idsItem;
+    for (const p of g.itens) {
+      if (idsPacote.has(p.id)) erro(`pacotes: id "${p.id}" repetido.`);
+      idsPacote.add(p.id);
+      if (p.alvoPedido && !alvos.has(p.alvoPedido)) {
+        erro(
+          `pacotes.${p.id}: alvoPedido "${p.alvoPedido}" não existe em ${g.rotulo === 'Sessões' ? 'sessoes' : 'presentes'}.`,
+        );
+      }
+      if (p.valor !== null && p.valor < 0) erro(`pacotes.${p.id}: valor negativo.`);
     }
-    if (p.valor !== null && p.valor < 0) erro(`pacotes.${p.id}: valor negativo.`);
+    if (c.pacotes.mostrar && (g.itens.length < 2 || g.itens.length > 4)) {
+      aviso(`pacotes.${g.rotulo}: o ideal são 2 a 4 pacotes por grupo.`);
+    }
   }
-  if (c.pacotes.mostrar && (c.pacotes.itens.length < 2 || c.pacotes.itens.length > 4)) {
-    aviso('pacotes: o ideal são 2 a 4 pacotes.');
+  if (c.pacotes.mostrar && total === 0) aviso('pacotes: nenhum pacote cadastrado.');
+
+  // depoimentos
+  for (const d of c.depoimentos) {
+    if (!d.texto.trim() || !d.autor.trim()) erro('depoimentos: texto e autor são obrigatórios.');
   }
+
+  // antes e depois
+  c.antesDepois.forEach((p, i) => {
+    if (p.antes === p.depois) erro(`antesDepois[${i}]: antes e depois são a mesma foto.`);
+  });
 
   // galeria
   const roda = c.trabalhos.roda.fotos.length;

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Foto } from '../../components/Foto.tsx';
 import type { SiteConfig } from '../../config/types.ts';
-import { ehExterno, hrefPedido } from '../../lib/cta.ts';
+import { atributoPedido, ehExterno, hrefPedido } from '../../lib/cta.ts';
 import { useRodando } from '../../motion/hooks.ts';
 import css from './SessoesPalco.module.css';
 
@@ -102,6 +102,7 @@ export function SessoesPalco({ config, reduzido }: Props) {
                 <a
                   className={css.nome}
                   href={href}
+                  {...atributoPedido(config, { sessaoId: item.id })}
                   {...(ehExterno(href) ? { target: '_blank', rel: 'noopener noreferrer' } : null)}
                 >
                   <h3>{item.nome}</h3>
