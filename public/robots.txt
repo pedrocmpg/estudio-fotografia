@@ -1,0 +1,4 @@
+# Os robôs podem ler a página (o WhatsApp precisa disso para montar a prévia do link).
+# Enquanto for prévia, a indexação é bloqueada por <meta name="robots" content="noindex">.
+User-agent: *
+Allow: /
