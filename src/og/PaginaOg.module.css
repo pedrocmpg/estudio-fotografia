@@ -40,6 +40,8 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--sobre-foto-2);
+  max-width: 900px;
+  text-wrap: balance;
 }
 
 .linha {

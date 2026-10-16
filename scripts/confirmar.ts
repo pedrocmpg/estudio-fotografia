@@ -23,13 +23,21 @@ const n = siteConfig.negocio;
 const faltando: string[] = [];
 if (!n.endereco) faltando.push('negocio.endereco');
 if (!n.mapsUrl) faltando.push('negocio.mapsUrl');
-if (!n.instagram) faltando.push('negocio.instagram');
+if (!n.redes?.length && !n.instagram)
+  faltando.push('negocio.redes (as duas contas de Instagram: estúdio e loja)');
+if (!n.locais?.length) faltando.push('negocio.locais (estúdio e loja: endereço, mapa, horários)');
 if (!n.email) faltando.push('negocio.email');
 if (!n.horarios?.length) faltando.push('negocio.horarios');
 if (!siteConfig.depoimentos.length) faltando.push('depoimentos (seção some sem eles)');
 if (!siteConfig.linkAvaliacoesGoogle) faltando.push('linkAvaliacoesGoogle');
 if (siteConfig.pacotes.itens.some((p) => p.valor === null))
   faltando.push('pacotes[].valor (hoje "[VALOR]")');
+if (siteConfig.presentes.itens.some((p) => p.valor === null))
+  faltando.push('presentes.itens[].valor (hoje "[VALOR]")');
+if (!siteConfig.manifesto.confirmado)
+  faltando.push('manifesto.confirmado (sem confirmar, a seção some no site final)');
+const semConfirmar = siteConfig.faq.itens.filter((i) => !i.confirmada).length;
+if (semConfirmar > 0) faltando.push(`faq: ${semConfirmar} respostas ainda não confirmadas`);
 if (siteConfig.modoDemo) faltando.push('modoDemo ainda true: prévia com selo e modo apresentação');
 if (!siteConfig.meta.indexar) faltando.push('meta.indexar ainda false (noindex)');
 

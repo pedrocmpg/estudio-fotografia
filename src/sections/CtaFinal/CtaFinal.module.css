@@ -38,13 +38,14 @@
   background: linear-gradient(to top, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.3) 32%, transparent 58%);
 }
 
-/* Cortina reversa: painéis de --bg entram pelos lados, emolduram a foto e ficam (uma vez só) */
+/* Cortina reversa: painéis de --bg entram pelos lados e emolduram a foto (uma vez só).
+   Mais estreitos que os 12% da spec: o CTA continua parecendo tela cheia. */
 .cortina {
   position: absolute;
   top: 0;
   bottom: 0;
   z-index: 1;
-  width: 7%;
+  width: 4%;
   background: var(--bg);
   transition: transform 900ms var(--ease-saida);
 }
@@ -70,7 +71,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  padding: clamp(5rem, 14svh, 8rem) calc(7% + 1rem) clamp(4rem, 10svh, 7rem);
+  padding: clamp(5rem, 14svh, 8rem) calc(4% + 1rem) clamp(4rem, 10svh, 7rem);
 }
 
 .titulo {
@@ -86,10 +87,10 @@
 
 @media (min-width: 900px) {
   .cortina {
-    width: 12%;
+    width: 6%;
   }
   .conteudo {
-    padding-inline: calc(12% + 1rem);
+    padding-inline: calc(6% + 1rem);
   }
 }
 

@@ -3,10 +3,13 @@
 Site de uma página que leva o visitante a **pedir uma sessão pelo WhatsApp**. A especificação completa
 está em [SPEC.md](SPEC.md). Este README é o manual de manutenção, em português simples.
 
-> **Estado atual: Fase 1 (prévia de venda).** Já existem: abertura em cortinas, faixa de sessões, sessões,
-> roda 3D de trabalhos, CTA final, botão do WhatsApp, os dois temas, modo apresentação, SEO e imagem de
-> prévia do link. Faltam (Fase 2): manifesto, folha de contato + lightbox, como funciona, pacotes,
-> depoimentos, formulário, FAQ, contato completo, cursor visor e menu do celular.
+> **Estado atual: Fase 1 elevada (prévia de venda).** Já existem: abertura em cortinas, faixa de sessões,
+> sessões em cartões empilhados (celular) e nomes gigantes (desktop), **presentes da loja**, manifesto com
+> palavras que trocam ao rolar, colagem de fotos com parallax, lightbox, roda 3D (no celular, uma pista que
+> liga a rolagem vertical à horizontal), FAQ, CTA final em tela cheia, rodapé com nome gigante, botão do
+> WhatsApp, os dois temas, modo apresentação, SEO e imagem de prévia do link. Faltam (Fase 2): folha de
+> contato, como funciona, pacotes, depoimentos, formulário, contato completo, cursor visor e menu do
+> celular. O que mudou e por quê está em [DECISOES.md](DECISOES.md).
 
 ## Rodar no seu computador
 
@@ -33,7 +36,13 @@ Nenhum outro arquivo guarda texto, telefone, nome ou preço do estúdio (um test
 | Cor de destaque                   | `tema.coresDestaque` (o build avisa se o contraste ficar fraco)                            |
 | Textos do topo da página          | `hero`                                                                                     |
 | Fotos da abertura                 | `hero.intro.camadas` (um par esquerda/direita por cortina)                                 |
-| Tipos de sessão                   | `sessoes.itens` e `faixa.itens`                                                            |
+| Tipos de sessão                   | `sessoes.itens` (2 fotos cada) e `faixa.itens`                                             |
+| Loja (presentes)                  | `presentes` (itens, categorias, `mensagemWhatsapp`; `valor: null` = `[VALOR]`/"Consulte")  |
+| Manifesto (palavras e citação)    | `manifesto` (`confirmado: true` para aparecer no site final)                               |
+| Colagem de fotos e roda           | `trabalhos.colagem` (6 a 8) e `trabalhos.roda.fotos` (8 a 10)                              |
+| Perguntas e respostas             | `faq` (só respostas com `confirmada: true` vão ao site final e ao Google)                  |
+| Instagram do estúdio e da loja    | `negocio.redes`; endereços em `negocio.locais`                                             |
+| Nome gigante no topo              | `hero.nomeGigante` (teste no painel de apresentação)                                       |
 | Fotos da roda                     | `trabalhos.roda.fotos` (de 8 a 10)                                                         |
 | Preços                            | `pacotes.itens[].valor` (`null` mostra `[VALOR]` na prévia e "Sob consulta" no site final) |
 | Ordem das seções                  | `secoes` (seção fora da lista não aparece)                                                 |
@@ -61,6 +70,9 @@ Para ver o que falta confirmar com o estúdio: `npm run confirmar`.
 Sem `arquivo` (ou com o arquivo ausente), a foto vira um retângulo em degradê com o rótulo
 `[FOTO — categoria]`, e o site continua funcionando. `tsx scripts/fotos.ts --estrito` falha se sobrar
 alguma assim (use antes de publicar a versão final). Arquivos HEIC precisam ser convertidos para JPG antes.
+
+**Preto e branco:** coloque `"tratamento": "pb"` no meta de uma foto (com outro `id`) e o pipeline gera a
+versão em preto e branco do mesmo arquivo. **Nenhuma foto pode repetir em seções vizinhas** (o build avisa).
 
 **Autorização de imagem:** fotos de clientes do estúdio só entram com autorização do estúdio, e a
 autorização das pessoas fotografadas é responsabilidade dele. As fotos atuais são exemplos do Unsplash
@@ -119,5 +131,9 @@ Regras que valem para qualquer mudança: acessibilidade > desempenho no celular 
   precisar dele nesta fase.
 - As fontes de contingência (`src/styles/fontes-fallback.css`) usam métricas aproximadas; dá para refinar
   com a ferramenta capsize na Fase 3.
-- O HTML inicial só tem o `<h1>`; o resto nasce no navegador. Se o LCP precisar baixar mais, o caminho é
-  pré-renderizar a abertura no build.
+- O HTML inicial só tem o `<h1>`; o resto nasce no navegador. O LCP medido no Lighthouse simulado
+  (celular, 4G lento, CPU 4× mais lenta) ficou em ~3,0 s; para chegar abaixo de 2,5 s o caminho é
+  pré-renderizar a primeira cortina no build.
+- Efeitos presos à rolagem (sessões empilhadas, manifesto, pista da roda) usam uma variável CSS `--p`
+  escrita uma vez por quadro (`src/motion/useVariavelDeRolagem.ts`); o parallax da colagem é CSS puro com
+  `animation-timeline: view()` (sem suporte, a foto fica no lugar).
