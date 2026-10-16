@@ -7,7 +7,9 @@ import css from './Colagem.module.css';
 interface Props {
   fotos: string[];
   rotulo: string;
-  aoAbrir: (indice: number) => void;
+  /** Sem isto as fotos não são interativas (ex.: fotos do manifesto). */
+  aoAbrir?: (indice: number) => void;
+  layout?: 'mesa' | 'trio';
 }
 
 /** Meia-amplitude do parallax por foto (total = 2×): de 4% a 14% de deslocamento vertical. */
@@ -19,20 +21,25 @@ const VELOCIDADES = [3, 6, 2, 7, 4, 5, 2.5, 6.5];
  * (`animation-timeline: view()`, só com suporte); sem ele a foto fica no lugar. Algumas entram com
  * clip-path. Tocar numa foto abre a lightbox.
  */
-export function Colagem({ fotos, rotulo, aoAbrir }: Props) {
+export function Colagem({ fotos, rotulo, aoAbrir, layout = 'mesa' }: Props) {
   return (
-    <ul className={css.mesa} role="list" aria-label={rotulo}>
+    <ul className={css.mesa} data-layout={layout} role="list" aria-label={rotulo}>
       {fotos.map((id, i) => {
         const foto = obterFoto(id);
-        const botao = (
+        const sizes = '(min-width: 900px) 40vw, 90vw';
+        const botao = aoAbrir ? (
           <button
             type="button"
             className={css.botao}
             aria-label={foto?.alt}
             onClick={() => aoAbrir(i)}
           >
-            <Foto id={id} modo="natural" sizes="(min-width: 900px) 40vw, 90vw" alt="" />
+            <Foto id={id} modo="natural" sizes={sizes} alt="" />
           </button>
+        ) : (
+          <figure className={css.botao}>
+            <Foto id={id} modo="natural" sizes={sizes} />
+          </figure>
         );
         return (
           <li

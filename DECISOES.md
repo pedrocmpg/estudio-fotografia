@@ -33,3 +33,10 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 - **Pista no celular:** seção de `100svh + n × 18svh` (≈ 280svh com 10 fotos) com palco `sticky`; fotos a 85% da largura, vizinhas em `scale(0,84)` e `opacity` 0,5, contador `03 / 10`. O progresso vem da mesma variável `--p` do bloco C. Teclado: focar uma foto fora da tela leva a rolagem até ela. Só as fotos vizinhas ao centro mudam de escala, e só `transform`/`opacity` → bem abaixo do limite de 8 fotos animadas.
 - Fallbacks mantidos: `snap` (rolagem horizontal com scroll-snap a 85%) se não houver `position: sticky`; grade com movimento reduzido ou sem preserve-3d.
 - Roda 3D no desktop com fotos de `28vw` (máx. 440 px). Anotação: não foi possível medir jank em Android intermediário real (sem aparelho); a técnica evita layout/paint na rolagem.
+
+## Bloco E
+
+- Manifesto entra na ordem: sessões → presentes → manifesto → trabalhos. Palco `sticky` de 300svh; cada palavra é uma máscara (`overflow: clip`) com `translateY` + `opacity` calculados em CSS a partir de `--p` (progresso da rolagem), sem timers. A primeira palavra já está visível ao chegar e a última fica até a citação, para nunca haver tela escura vazia.
+- A frase completa existe como texto único no `<h2 class="sr-only">`; o palco animado é `aria-hidden`.
+- Citação: `Reveal` (fade + subida), em itálico; fotos em tamanhos bem diferentes reutilizam a mecânica de parallax da colagem (`layout="trio"`), sem interação (figuras com alt).
+- Texto de exemplo `[CONFIRMAR]` em `manifesto.confirmado: false`: com `modoDemo: false` a seção some até alguém marcar `confirmado: true`. Palavras (adendo I.7): "Momentos. / Memórias. / Presentes que contam a sua história."; citação original: "Foto boa merece sair da galeria do celular."

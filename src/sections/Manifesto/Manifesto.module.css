@@ -1,0 +1,105 @@
+/* Tela escura: no tema escuro, o próprio fundo; no claro, a faixa escura do tema */
+.secao {
+  background: var(--escuro);
+  color: var(--sobre-foto);
+  overflow-x: clip;
+}
+
+/* ---------- pista com palco sticky: --p (0 a 1) vem do progresso da rolagem ---------- */
+
+.pista {
+  --p: 0;
+  height: 300vh;
+  height: 300svh;
+}
+
+.palco {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  height: 100svh;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.palavra {
+  /* posição desta palavra na rolagem, de -0,5 (ainda não chegou) a 0,5 (já saiu) */
+  --o: calc(var(--p) * var(--n) - var(--i) - 0.5);
+  --e: clamp(0, calc((-0.25 - var(--o)) * 4), 1);
+  --s: clamp(0, calc((var(--o) - 0.25) * 4), 1);
+  grid-area: 1 / 1;
+  /* a máscara: o texto sobe de baixo e sai por cima */
+  overflow: clip;
+  padding: 0.12em 0.1em 0.2em;
+  max-width: 100%;
+}
+
+/* A primeira já está lá quando o palco chega; a última fica até a citação */
+.palavra[data-primeira] {
+  --o: max(calc(var(--p) * var(--n) - var(--i) - 0.5), -0.25);
+}
+
+.palavra[data-ultima] {
+  --o: min(calc(var(--p) * var(--n) - var(--i) - 0.5), 0.25);
+}
+
+.palavra[data-primeira][data-ultima] {
+  --o: 0;
+}
+
+.texto {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--peso-display);
+  font-size: clamp(3.5rem, 16vw, 10rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  transform: translate3d(0, calc((var(--e) - var(--s)) * 105%), 0);
+  opacity: calc(1 - max(var(--e), var(--s)));
+}
+
+/* Sem pin (movimento reduzido): a frase inteira, uma palavra por linha, tudo visível */
+.pista[data-estatico] {
+  height: auto;
+}
+
+.pista[data-estatico] .palco {
+  position: static;
+  height: auto;
+  padding-block: var(--espaco-secao);
+  grid-template-columns: 1fr;
+  row-gap: 0.25em;
+}
+
+.pista[data-estatico] .palavra {
+  grid-area: auto;
+  --e: 0;
+  --s: 0;
+}
+
+/* ---------- citação ---------- */
+
+.citacao {
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+  min-height: 80svh;
+  padding: var(--espaco-secao) var(--gutter);
+  text-align: center;
+}
+
+.citacao blockquote p {
+  max-width: 20ch;
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-weight: var(--peso-display);
+  font-style: italic;
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--sobre-foto-2);
+}

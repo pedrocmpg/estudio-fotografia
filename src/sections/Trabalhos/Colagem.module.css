@@ -115,3 +115,38 @@
     margin-top: 5rem;
   }
 }
+
+/* ---------- trio do manifesto: 2 a 3 fotos em tamanhos bem diferentes ---------- */
+
+.mesa[data-layout='trio'] {
+  margin-bottom: 0;
+  padding-bottom: var(--espaco-secao);
+}
+
+.mesa[data-layout='trio'] .botao {
+  background: transparent;
+}
+
+.mesa[data-layout='trio'] .item[data-i='0'] {
+  grid-column: 1 / span 8;
+}
+.mesa[data-layout='trio'] .item[data-i='1'] {
+  grid-column: 6 / span 7;
+}
+.mesa[data-layout='trio'] .item[data-i='2'] {
+  grid-column: 2 / span 9;
+}
+
+@media (min-width: 900px) {
+  .mesa[data-layout='trio'] .item[data-i='0'] {
+    grid-column: 2 / span 3;
+  }
+  .mesa[data-layout='trio'] .item[data-i='1'] {
+    grid-column: 6 / span 4;
+    margin-top: 9rem;
+  }
+  .mesa[data-layout='trio'] .item[data-i='2'] {
+    grid-column: 10 / span 2;
+    margin-top: 2rem;
+  }
+}

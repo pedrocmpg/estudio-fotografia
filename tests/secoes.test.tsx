@@ -39,6 +39,7 @@ describe('registro de seções', () => {
       'intro',
       'faixa',
       'sessoes',
+      'manifesto',
       'trabalhos',
       'ctaFinal',
     ]);

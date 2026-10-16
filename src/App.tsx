@@ -12,6 +12,7 @@ import { IntroProvider } from './motion/intro.tsx';
 import { CtaFinal } from './sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from './sections/Faixa/Faixa.tsx';
 import { Header } from './sections/Header/Header.tsx';
+import { Manifesto } from './sections/Manifesto/Manifesto.tsx';
 import { BotaoPularIntro } from './sections/Hero/BotaoPularIntro.tsx';
 import { Hero } from './sections/Hero/Hero.tsx';
 import { Rodape } from './sections/Rodape/Rodape.tsx';
@@ -30,6 +31,8 @@ function Secao({ id }: { id: SecaoId }) {
       return <Faixa />;
     case 'sessoes':
       return <Sessoes />;
+    case 'manifesto':
+      return <Manifesto />;
     case 'trabalhos':
       return <Trabalhos />;
     case 'ctaFinal':
