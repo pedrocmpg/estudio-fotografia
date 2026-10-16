@@ -1,15 +1,16 @@
 # Landing page do estúdio (fotografia)
 
 Site de uma página que leva o visitante a **pedir uma sessão pelo WhatsApp**. A especificação completa
-está em [SPEC.md](SPEC.md). Este README é o manual de manutenção, em português simples.
+está em [docs/SPEC.md](docs/SPEC.md). Este README é o manual de manutenção, em português simples.
 
-> **Estado atual: Fase 1 elevada (prévia de venda).** Já existem: abertura em cortinas, faixa de sessões,
-> sessões em cartões empilhados (celular) e nomes gigantes (desktop), **presentes da loja**, manifesto com
-> palavras que trocam ao rolar, colagem de fotos com parallax, lightbox, roda 3D (no celular, uma pista que
-> liga a rolagem vertical à horizontal), FAQ, CTA final em tela cheia, rodapé com nome gigante, botão do
-> WhatsApp, os dois temas, modo apresentação, SEO e imagem de prévia do link. Faltam (Fase 2): folha de
-> contato, como funciona, pacotes, depoimentos, formulário, contato completo, cursor visor e menu do
-> celular. O que mudou e por quê está em [DECISOES.md](DECISOES.md).
+> **Estado atual: Fase 2 (prévia de venda completa).** A página tem todas as seções: abertura em cortinas,
+> faixa, sessões (cartões empilhados no celular, nomes gigantes no desktop), **presentes da loja**,
+> manifesto, trabalhos (colagem com parallax, roda 3D, **folha de contato** com lápis vermelho e lightbox),
+> **como funciona**, **pacotes** (sessões e presentes), **depoimentos**, **formulário que abre o WhatsApp**,
+> FAQ em dois blocos, CTA final, **contato** com dois pontos e duas redes, rodapé com nome gigante, menu do
+> celular em tela cheia, cursor visor (só com mouse), botão do WhatsApp, os dois temas, modo apresentação, SEO
+> e imagem de prévia do link. Antes/depois existe, mas fica desligado. Falta a Fase 3 (conteúdo real do
+> estúdio, polimento, metas finais). O que mudou e por quê está em [DECISOES.md](DECISOES.md).
 
 ## Rodar no seu computador
 
@@ -21,6 +22,7 @@ npm run dev          # abre o site para editar (http://localhost:5173)
 npm test             # roda os testes
 npm run build        # gera a pasta dist/ para publicar
 npm run preview      # vê o resultado do build
+npm run prints:fase2 # prints de toda a página (360, 390, 768, 1440; dois temas) em docs/prints/fase2/
 ```
 
 ## Onde mudar as coisas
@@ -28,24 +30,30 @@ npm run preview      # vê o resultado do build
 **Tudo do estúdio fica em um arquivo só: [src/config/site.config.ts](src/config/site.config.ts).**
 Nenhum outro arquivo guarda texto, telefone, nome ou preço do estúdio (um teste confere isso).
 
-| Quero mudar…                      | Onde                                                                                       |
-| --------------------------------- | ------------------------------------------------------------------------------------------ |
-| Nome, cidade, WhatsApp, Instagram | `negocio`                                                                                  |
-| Título e descrição do link        | `meta` (título até 60 letras, descrição até 155)                                           |
-| Tema (escuro ou claro)            | `tema.ativo` (`camara-escura` ou `luz-natural`)                                            |
-| Cor de destaque                   | `tema.coresDestaque` (o build avisa se o contraste ficar fraco)                            |
-| Textos do topo da página          | `hero`                                                                                     |
-| Fotos da abertura                 | `hero.intro.camadas` (um par esquerda/direita por cortina)                                 |
-| Tipos de sessão                   | `sessoes.itens` (2 fotos cada) e `faixa.itens`                                             |
-| Loja (presentes)                  | `presentes` (itens, categorias, `mensagemWhatsapp`; `valor: null` = `[VALOR]`/"Consulte")  |
-| Manifesto (palavras e citação)    | `manifesto` (`confirmado: true` para aparecer no site final)                               |
-| Colagem de fotos e roda           | `trabalhos.colagem` (6 a 8) e `trabalhos.roda.fotos` (8 a 10)                              |
-| Perguntas e respostas             | `faq` (só respostas com `confirmada: true` vão ao site final e ao Google)                  |
-| Instagram do estúdio e da loja    | `negocio.redes`; endereços em `negocio.locais`                                             |
-| Nome gigante no topo              | `hero.nomeGigante` (teste no painel de apresentação)                                       |
-| Fotos da roda                     | `trabalhos.roda.fotos` (de 8 a 10)                                                         |
-| Preços                            | `pacotes.itens[].valor` (`null` mostra `[VALOR]` na prévia e "Sob consulta" no site final) |
-| Ordem das seções                  | `secoes` (seção fora da lista não aparece)                                                 |
+| Quero mudar…                      | Onde                                                                                                                                            |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome, cidade, WhatsApp, Instagram | `negocio`                                                                                                                                       |
+| Título e descrição do link        | `meta` (título até 60 letras, descrição até 155)                                                                                                |
+| Tema (escuro ou claro)            | `tema.ativo` (`camara-escura` ou `luz-natural`)                                                                                                 |
+| Cor de destaque                   | `tema.coresDestaque` (o build avisa se o contraste ficar fraco)                                                                                 |
+| Textos do topo da página          | `hero`                                                                                                                                          |
+| Fotos da abertura                 | `hero.intro.camadas` (um par esquerda/direita por cortina)                                                                                      |
+| Tipos de sessão                   | `sessoes.itens` (2 fotos cada) e `faixa.itens`                                                                                                  |
+| Loja (presentes)                  | `presentes` (itens, categorias, `mensagemWhatsapp`; `valor: null` = `[VALOR]`/"Consulte")                                                       |
+| Manifesto (palavras e citação)    | `manifesto` (`confirmado: true` para aparecer no site final)                                                                                    |
+| Colagem de fotos e roda           | `trabalhos.colagem` (6 a 8) e `trabalhos.roda.fotos` (8 a 10)                                                                                   |
+| Perguntas e respostas             | `faq` (`grupo`: Sessões ou Loja; só `confirmada: true` vai ao site final e ao Google)                                                           |
+| Instagram do estúdio e da loja    | `negocio.redes`; endereços em `negocio.locais`                                                                                                  |
+| Nome gigante no topo              | `hero.nomeGigante` (teste no painel de apresentação)                                                                                            |
+| Fotos da roda                     | `trabalhos.roda.fotos` (de 8 a 10)                                                                                                              |
+| Pacotes e preços                  | `pacotes.grupos` (Sessões e Presentes; `valor: null` = `[VALOR]` na prévia, "Sob consulta" no final; `alvoPedido` escolhe o tipo no formulário) |
+| Como funciona                     | `processo.passos` (4 passos)                                                                                                                    |
+| Depoimentos                       | `depoimentos` (`exemplo: true` só aparece na prévia, com selo EXEMPLO) e `linkAvaliacoesGoogle`                                                 |
+| Antes e depois (desligado)        | `antesDepois` (lista de pares `antes`/`depois`; vazio = a seção some)                                                                           |
+| Folha de contato                  | `trabalhos.folha` (categorias e fotos; `marcada: true` ganha o lápis vermelho)                                                                  |
+| Formulário (mensagem do WhatsApp) | `pedido.modeloMensagem`; as opções vêm de `sessoes` e `presentes`                                                                               |
+| Endereços, horários, WhatsApp     | `negocio.locais` (estúdio e loja) e `contato` (título e texto da seção)                                                                         |
+| Ordem das seções                  | `secoes` (seção fora da lista não aparece)                                                                                                      |
 
 Para ver o que falta confirmar com o estúdio: `npm run confirmar`.
 

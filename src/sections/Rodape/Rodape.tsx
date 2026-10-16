@@ -28,7 +28,10 @@ export function Rodape() {
     .map((id) => INFO_SECOES[id])
     .filter((info) => info?.navegacao);
   const redes = redesDoNegocio(negocio);
-  const locais = negocio.locais ?? [];
+  // ponto sem nenhum dado (ainda não confirmado) não ganha coluna vazia: a seção Contato cobre
+  const locais = (negocio.locais ?? []).filter(
+    (l) => l.endereco || l.horarios?.length || l.mapsUrl,
+  );
 
   return (
     <footer className={css.rodape} {...atributos}>

@@ -1,10 +1,10 @@
-# Decisões — elevação da Fase 1
+# Decisões — Fase 1 elevada e Fase 2
 
 Registro das decisões tomadas sem perguntar (execução sem supervisão). Formato: data · o que decidiu · por quê.
 
 ## Geral
 
-- **2026-10-16 · Cofre Obsidian não encontrado.** O caminho `C:\Users\User\Documents\Projetos\segundo-cerebro` não existe nesta máquina (o usuário é `Pedro`; nenhuma pasta `segundo-cerebro` achada). As notas "Log de Mudanças" e "Decisões" foram escritas em `docs/obsidian/` (Markdown pronto para copiar para a pasta **Estúdio Ivy** do cofre). **Pendente:** copiar para o cofre.
+- **2026-10-16 · Cofre Obsidian.** Na Fase 1.5 o cofre não foi achado e as notas ficaram em `docs/obsidian/`. Na Fase 2 ele existe em `C:\Users\User\Documents\Projetos\segundo-cerebro\Projetos\Estúdio Ivy` e as duas notas (Log de Mudanças e Decisões) foram atualizadas lá; `docs/obsidian/` segue como espelho.
 - **2026-10-16 · Fotos de produto.** O Unsplash não tem acesso sem chave de API; os produtos (canecas, álbum, polaroids, porta-retratos, quadro, almofada) vêm do Wikimedia Commons, só com licença livre (CC0, CC BY, domínio público), com autor, licença e página em `fotos.meta.json`. Entram como "fotos ilustrativas". Nenhuma imagem do Instagram deles foi usada.
 - **2026-10-16 · Preto e branco por pipeline.** Novo campo `tratamento: 'pb'` no `fotos.meta.json`: o pipeline gera a versão P&B de uma foto de origem com outro id. Assim o banco ganha variedade sem baixar mais arquivos. O banco não tem fotos de smash, tema gaúcho nem fundo liso colorido; as categorias usam fotos ilustrativas parecidas até o estúdio mandar as dele.
 - **2026-10-16 · Foto repetida.** Regra automática em `validarConfig` (e em `tests/bloco-a.test.tsx`): seções vizinhas que mostram foto (hero, sessões, presentes, manifesto, trabalhos, CTA) não repetem o mesmo id; colagem e roda também não.
@@ -89,3 +89,64 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 - **Bug achado nos prints:** a lista de fotos do manifesto compacto colapsava a largura 0 (margem automática numa coluna flex); corrigido com `width: 100%`.
 - **Medidas:** Lighthouse celular 94 / 100 / 100 / 69 (SEO por causa do `noindex` da prévia); LCP 2,9 s (antes 3,0–3,1), CLS 0,001, TBT 50 ms. 199 de 200 testes verdes: `tests/apresentacao.test.tsx` ("mostra o painel") estoura o tempo na suíte inteira e passa isolado; falha igual sem estas mudanças (já existia).
 - **Sem aparelho real:** validação em Chrome emulando celular (toque, DPR 2).
+
+## Fase 2 (16/10/2026)
+
+Execução sem supervisão do §18 (aceite em §18.2). Um commit por bloco (J a O), com lint, typecheck e testes verdes em cada um.
+
+### Antes de construir: celular em 360 e 390
+
+- **Conferido:** `npm run prints:celular` (20 prints por largura, um por tela) e leitura visual de todos. Nenhum print só de fundo. Dois pontos fracos: a pista da roda (foto de 4:5 num palco de 80svh deixava ~40% de vazio em volta da foto) e um teste instável.
+- **Correção:** pista da roda com palco de 68svh (preso a `top: 16svh`) e foto 3:4 (até 58svh de altura): 118svh no total (antes 130svh; limite de §11: 150svh). Testes de `celular.test.tsx` atualizados.
+- **Teste instável de antes:** `apresentacao.test.tsx` estourava o tempo do `findByRole` (1 s) no primeiro `import()` do painel com a suíte inteira rodando. `asyncUtilTimeout` global de 8 s em `tests/setup.ts` e `testTimeout` de 20 s. Suíte verde, sem falha conhecida.
+
+### Config (tipos)
+
+- **Pacotes em dois grupos** (`pacotes.grupos`: "Sessões" e "Presentes", como em §6), no lugar da lista única. `alvoPedido` é o id de uma sessão (grupo Sessões) ou de um presente (grupo Presentes); o validador confere. Valor `null`: `[VALOR]` na prévia e "Sob consulta" no site final (a loja continua com "Consulte").
+- **`pedido.tipos` não existe**: as opções do select vêm de `sessoes` e `presentes` (nada é digitado duas vezes). Valores `sessao:<id>`, `presente:<id>` e `outro`.
+- **`faq.itens[].grupo`** ("Sessões" ou "Loja") e **`contato`** (título e texto) entram no config. Dados do estúdio continuam só em `site.config.ts`; o alt tem tudo fictício (o teste de varredura confirma que "Ivy" só existe lá).
+- **`[CONFIRMAR]` visível só na prévia:** `inclui` e `entrega` dos pacotes, texto dos passos e dados de contato que faltam somem com `modoDemo: false` (`visivel()` em `lib/preco.ts`).
+
+### Bloco J — formulário (Pedido)
+
+- Mensagem pelo `modeloMensagem`, omitindo linhas vazias. O tipo vai como "Sessão: Newborn" ou "Presente: Caneca branca" (`outro` vira "outro assunto"); a data do campo `type="date"` sai como `05/12/2026`.
+- **Número de destino:** pedido de sessão usa o WhatsApp do local `estudio`, pedido de presente o do local `loja`; sem número próprio, o `negocio.whatsapp` (hoje todos iguais e provisórios).
+- **Pré-seleção:** os links "Pedir essa sessão" e "Pedir este pacote" continuam com `href="#pedido"` (funciona sem JS e rola nativamente) e levam `data-pedido-alvo`; o formulário escuta o clique no documento e escolhe o tipo. Antes o href era `#pedido?sessao=…`, que o navegador não resolvia.
+- **Validação só do nome**, em texto (`role="alert"`, `aria-invalid`), com o foco voltando ao campo; `noValidate` para a mensagem ser nossa. Obturador de 300 ms (aperta, clarão), sem animação com movimento reduzido. Check ✓ discreto em campo preenchido. A "label que sobe no foco" (§12) ficou de fora: labels visíveis acima do campo já cumprem §10.12 e evitam o truque do placeholder.
+- Token novo `--erro` nos dois temas (entra na checagem de contraste do build). As seções `pedido` e `contato` escondem o botão flutuante do WhatsApp enquanto estão na tela.
+
+### Bloco K — Como funciona e Pacotes
+
+- **Linha de luz:** variável `--p` por rAF (mesmo hook das sessões); a linha cresce por `scaleY` e cada passo acende com um ponto cheio (opacidade e escala). Não usei opacidade no texto: texto a 35% reprovaria no contraste do axe e do Lighthouse. Movimento reduzido: linha cheia e pontos acesos.
+- **Pacotes:** abas no celular (setas, Home e End), colunas lado a lado a partir de 900 px. O `h3` do grupo fica só para leitor de tela no celular (a aba já mostra o nome) para não pular de h2 para h4. O brilho do selo passa uma vez ao entrar; `selo` só aparece se vier no config (nenhum "Mais pedido" inventado).
+
+### Bloco L — Depoimentos e Antes/depois
+
+- **Depoimentos:** uma citação por vez, `aria-live="polite"`, sem autoplay, contador `01 / 03`. Na prévia há 3 exemplos genéricos com selo **EXEMPLO** (§5 permite; autor "Cliente de exemplo"); em produção só os `exemplo: false`, e a seção some sem eles. Título fixo "O que dizem" (palavra estrutural, não dado do estúdio).
+- **Antes/depois:** `<input type="range">` por cima da foto (invisível, com anel de foco na caixa) e `clip-path` no "antes". Desligado no config real (`[]`); testado com um par de fotos de teste. O "antes" é decorativo (alt vazio) para o leitor de tela ouvir uma descrição só.
+
+### Bloco M — Folha de contato e lightbox
+
+- **Folha:** 8 fotos (as 12 da Fase 1.5 repetiam a colagem e a roda, que ficam logo acima na mesma seção). Abas "Todas", "Ensaios" e "Família"; o banco não tem fotos de evento sobrando. Numeração `01A ▸`, tira escura com furos, lápis vermelho (SVG, `stroke-dashoffset`, cor fixa por ser desenho) nas fotos `marcada`, com ✓. O validador passou a incluir a folha nas fotos da seção `trabalhos` (não repete colagem nem roda) e a conferir a categoria.
+- **Dados técnicos** (`f/11 · 4 s · ISO 100`) só com `mostrarDadosTecnicos` e quando a foto tem exposição no manifest (hoje só 2 produtos têm; as fotos de banco vêm sem EXIF).
+- **Lightbox:** abrir, fechar e trocar passam por `document.startViewTransition` (cruzamento suave), com fallback no fade em CSS que já existia e sem a API quando há movimento reduzido. **Não fiz o "voo" da miniatura até a tela cheia** (exigiria `view-transition-name` único dos dois lados e mexer no foco): fica como polimento da Fase 3.
+
+### Bloco N — FAQ e Contato
+
+- **FAQ** em dois blocos com `h3` (Sessões primeiro, Loja depois; sem `grupo` não há subtítulo). Em produção, grupo sem resposta confirmada some junto.
+- **Contato:** um cartão por local (`negocio.locais`), com endereço, "Abrir no mapa" (link, sem iframe), horários (do local, ou os do negócio) e WhatsApp do local; abaixo, as redes com rótulo e o e-mail. No config real os dois locais existem só com rótulo (estúdio e loja no shopping); endereço, horários e redes aparecem como `[CONFIRMAR]` na prévia.
+- **Rodapé:** local sem nenhum dado não ganha coluna vazia (antes mostrava só "ESTÚDIO" e "LOJA NO SHOPPING"). O rodapé continua repetindo endereços e redes quando existirem (decisão da Fase 1.5; é onde se espera achá-los).
+
+### Bloco O — Menu do celular e cursor visor
+
+- **Menu:** botão de 44×44 no header (só abaixo de 900 px); tela cheia em portal no `<body>` (o `backdrop-filter` do header prenderia um `position: fixed` dentro dele), links na fonte de título com cascata de 40 ms, foco preso, `Esc` fecha, rolagem travada, foco volta ao botão. Os links são os mesmos do desktop (Sessões, Presentes, Trabalhos, Pacotes, Dúvidas) mais o botão "Pedir sessão". "Como funciona" saiu da navegação (§10.1 lista cinco links).
+- **Cursor visor:** só com `(hover: hover) and (pointer: fine)` e sem movimento reduzido; chunk à parte. O círculo de 28 px e o visor `[ ]` de 64 px são o mesmo elemento mudando de `scale` (a regra "só transform e opacity" do bloco H barrou transição de largura e altura). `mix-blend-mode: difference` para aparecer sobre foto clara e escura. Fotos clicáveis (colagem, roda, folha) levam `data-visor`.
+
+### Medidas e aceite (§18.2)
+
+- **Seções:** todas as de §9 funcionam nos dois temas (teste `fase2-aceite`, `vitest-axe` em cada seção nos dois temas, mais a página inteira). Antes/depois fica desligado por padrão (§9).
+- **Prints:** `npm run prints:fase2`, 4 larguras (360, 390, 768, 1440) × 2 temas, um print por tela, em `docs/prints/fase2/<tema>/<largura>/`, mais `extras/` (menu aberto, aba Presentes dos pacotes, erro do formulário). Celular (360 e 390): nenhum print abaixo de 40% de conteúdo. Em 768 e 1440 a regra não vale (o manifesto em pin tem telas de uma palavra por desenho), mas o relatório mostra a medida. 768 px usa a composição de desktop (a troca é por largura < 768 ou ponteiro de toque).
+- **Rolagem no celular:** 25,4 telas em 390 px (meta ≥ ~10).
+- **Lighthouse (celular, simulado):** desempenho 94, acessibilidade 100, boas práticas 100, SEO 69 (por causa do `noindex` da prévia, esperado). LCP 3,0 s, CLS 0,001, TBT 60 ms. JS inicial 92 KB gzip (meta ≤ 150). Relatório em `docs/prints/lighthouse-fase2.html`.
+- **Testes:** 277 verdes (eram 200).
+- **Pendente:** (1) **deploy da prévia não foi feito**: o `wrangler` não está autenticado nesta máquina e o login do Cloudflare é interativo (`npx wrangler login`, depois `npx wrangler pages deploy dist --project-name ivystudio --branch production`); (2) LCP abaixo de 2,5 s pede pré-renderizar a primeira cortina (Fase 3); (3) sem aparelho Android real; (4) "voo" da miniatura na lightbox e label que sobe no foco (polimento, Fase 3).

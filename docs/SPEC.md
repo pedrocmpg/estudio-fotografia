@@ -558,7 +558,7 @@ Padrão `nenhum`. Opcional: Cloudflare Web Analytics (sem cookies, sem banner), 
 |---|---|---|---|
 | **1** | Fundação, temas, pipeline, header, cortinas, faixa, sessões, roda, CTA final, flutuante, modo apresentação, SEO, deploy | ✅ feita (reprovada visualmente pelo Pedro: curta e simples) | — |
 | **1.5 Elevação** | Bugs e acabamento; escala; sessões empilhadas; colagem + roda; manifesto; nome gigante; FAQ com tom humano; **presentes**; tema `luz-natural`; dois pontos/duas redes; banco de fotos novo | ⏳ executada sem supervisão em 16/10 — **conferir** relatório, `DECISOES.md`, git log e o site no celular | Sonnet |
-| **2** | O que faltar da 1.5 + folha de contato e lightbox; antes/depois (off); como funciona; pacotes (sessões + presentes); depoimentos; formulário → WhatsApp; FAQ completo (sessões + loja); contato completo; cursor visor; menu mobile | pendente | Sonnet |
+| **2** | O que faltar da 1.5 + folha de contato e lightbox; antes/depois (off); como funciona; pacotes (sessões + presentes); depoimentos; formulário → WhatsApp; FAQ completo (sessões + loja); contato completo; cursor visor; menu mobile | ⏳ executada sem supervisão em 16/10 — **conferir** `DECISOES.md` (Fase 2), git log e `docs/prints/fase2/`; **deploy da prévia pendente** (Cloudflare sem login na máquina) | Sonnet |
 | **3** | Polimento (easing, tempos), auditoria a11y (axe + teclado + leitor de tela), metas de §15, testes completos, README, **troca das fotos de exemplo pelas autorizadas**, textos confirmados, `modoDemo: false`, `indexar: true`, domínio do cliente, deploy final | pendente — **depende do conteúdo real do estúdio** | Opus |
 
 ### 18.1 Antes da Fase 2
