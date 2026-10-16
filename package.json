@@ -11,6 +11,7 @@
     "fotos": "tsx scripts/fotos.ts",
     "fotos:forcar": "tsx scripts/fotos.ts --forcar",
     "og": "tsx scripts/og.ts",
+    "prints:celular": "tsx scripts/prints-celular.ts",
     "confirmar": "tsx scripts/confirmar.ts",
     "prebuild": "tsx scripts/fotos.ts",
     "build": "tsc --noEmit && vite build",

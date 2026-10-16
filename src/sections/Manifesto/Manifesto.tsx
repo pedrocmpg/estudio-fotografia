@@ -1,13 +1,18 @@
 import { useRef, type CSSProperties } from 'react';
 import { useSiteConfig } from '../../apresentacao/previa.tsx';
 import { Reveal } from '../../components/Reveal.tsx';
-import { useReducedMotion } from '../../motion/hooks.ts';
+import { MEDIA_CELULAR } from '../../lib/constantes.ts';
+import { useInView, useMediaQuery, useReducedMotion } from '../../motion/hooks.ts';
 import { progressoDaPista, useVariavelDeRolagem } from '../../motion/useVariavelDeRolagem.ts';
 import { Colagem } from '../Trabalhos/Colagem.tsx';
 import css from './Manifesto.module.css';
 
 /**
- * Manifesto (bloco E): tela escura com palco `sticky` de ~300svh. Ao rolar, uma frase central muda
+ * Manifesto (bloco E): tela escura com palco `sticky` de ~200svh no desktop (a palavra seguinte entra
+ * antes de a anterior sair, para nunca haver quadro vazio).
+ * Celular (SPEC §10.5): versão compacta de ~100svh, sem pin. As palavras ficam empilhadas e revelam em
+ * sequência (120 ms) ao entrar na tela; logo abaixo vêm a citação e 2 fotos pequenas sobrepostas.
+ * Descrição original do desktop: tela escura com palco `sticky`. Ao rolar, uma frase central muda
  * palavra por palavra (cada uma entra e sai por máscara, ligada ao PROGRESSO da rolagem, não a
  * timers). Depois, uma citação aparece sozinha e entram 2 a 3 fotos soltas com parallax.
  *
@@ -18,12 +23,20 @@ import css from './Manifesto.module.css';
 export function Manifesto() {
   const { manifesto } = useSiteConfig();
   const reduzido = useReducedMotion();
+  const compacto = useMediaQuery(MEDIA_CELULAR);
+  const modo = reduzido ? 'estatico' : compacto ? 'compacto' : 'pin';
   const pista = useRef<HTMLDivElement>(null);
   const n = manifesto.palavras.length;
-  useVariavelDeRolagem(pista, progressoDaPista, { ativo: !reduzido });
+  useVariavelDeRolagem(pista, progressoDaPista, { ativo: modo === 'pin' });
+  const visivel = useInView(pista, { uma: true, limiar: 0.25 });
 
   return (
-    <section id="manifesto" className={css.secao} aria-labelledby="manifesto-titulo">
+    <section
+      id="manifesto"
+      className={css.secao}
+      data-modo={modo}
+      aria-labelledby="manifesto-titulo"
+    >
       <h2 id="manifesto-titulo" className="sr-only">
         {manifesto.palavras.join(' ')}
       </h2>
@@ -31,7 +44,7 @@ export function Manifesto() {
       <div
         ref={pista}
         className={css.pista}
-        data-estatico={reduzido || undefined}
+        data-visivel={visivel || undefined}
         style={{ '--n': n } as CSSProperties}
       >
         <div className={css.palco} data-palco aria-hidden="true">
@@ -60,7 +73,11 @@ export function Manifesto() {
       </div>
 
       {manifesto.fotos.length > 0 && (
-        <Colagem fotos={manifesto.fotos.slice(0, 3)} rotulo="Fotos do manifesto" layout="trio" />
+        <Colagem
+          fotos={manifesto.fotos.slice(0, modo === 'compacto' ? 2 : 3)}
+          rotulo="Fotos do manifesto"
+          layout={modo === 'compacto' ? 'par' : 'trio'}
+        />
       )}
     </section>
   );

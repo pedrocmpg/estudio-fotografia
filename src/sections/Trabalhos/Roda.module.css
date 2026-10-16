@@ -133,22 +133,23 @@
 /* ---------- pista (celular): rolagem vertical ligada à horizontal ---------- */
 
 .pista {
-  /* ~280svh para 10 fotos: rolar a página desloca as fotos para o lado */
+  /* palco de 80svh + até 50svh de rolagem = 130svh (limite de SPEC §11: 150svh) */
   --p: 0;
   --w: 85vw;
   --gap: 1rem;
-  height: calc(100svh + var(--n) * 18svh);
+  height: calc(80svh + min(var(--n) * 18svh, 50svh));
 }
 
 .palcoPista {
   position: sticky;
-  top: 0;
+  top: 10vh;
+  top: 10svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1.25rem;
-  height: 100vh;
-  height: 100svh;
+  height: 80vh;
+  height: 80svh;
   overflow: clip;
 }
 

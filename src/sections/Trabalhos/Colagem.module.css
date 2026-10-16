@@ -150,3 +150,35 @@
     margin-top: 2rem;
   }
 }
+
+/* ---------- par do manifesto no celular: 2 fotos pequenas sobrepostas, uma inclinada ---------- */
+
+.mesa[data-layout='par'] {
+  /* o manifesto compacto é uma coluna flex: sem isto a margem automática encolhe a lista a 0 */
+  width: 100%;
+  margin-bottom: 0;
+  padding-block: clamp(1.25rem, 3svh, 2rem) var(--espaco-secao);
+  row-gap: 0;
+}
+
+.mesa[data-layout='par'] .par {
+  animation: none;
+}
+
+.mesa[data-layout='par'] .botao {
+  background: transparent;
+}
+
+.mesa[data-layout='par'] .item {
+  grid-row: 1;
+}
+.mesa[data-layout='par'] .item[data-i='0'] {
+  grid-column: 3 / span 4;
+  transform: rotate(-3deg);
+}
+.mesa[data-layout='par'] .item[data-i='1'] {
+  grid-column: 6 / span 4;
+  margin-top: 1.75rem;
+  transform: rotate(2deg);
+  z-index: 1;
+}

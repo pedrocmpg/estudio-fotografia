@@ -304,7 +304,7 @@ Tokens por `data-theme` no `<html>`. Componentes **só** usam tokens.
 - **Contraste obrigatório ≥ 4.5:1** para texto normal. O build checa todos os pares de tokens (inclusive `coresDestaque`) e avisa no terminal.
 - Se `--accent` não passar em texto pequeno, usar `--accent-texto`; o accent puro fica para botões, ícones e títulos grandes.
 - **Escala tipográfica:** nome do hero `clamp(5rem, 22vw, 14rem)` no celular (até 16rem no desktop); H2 `clamp(3rem, 9vw, 6rem)`; texto `clamp(1rem, 1.1vw, 1.125rem)` com `line-height 1.6` e ≤ 65 caracteres por linha; mono `0.75rem`, maiúsculas, `letter-spacing 0.08em`. Rótulo mono numerado acima de cada H2 (`02 — TRABALHOS`).
-- Ritmo: `--espaco-secao: clamp(5rem, 12vh, 9rem)`. Nenhum vazio fora desse token.
+- Ritmo: `--espaco-secao: clamp(5rem, 12vh, 9rem)` (no celular, `clamp(3.5rem, 10vh, 5rem)`). Nenhum vazio fora desse token.
 - Fontes: só as do tema ativo; `preload` só da display; `font-display: swap` com fallback de métricas ajustadas.
 - **Botões:** primário em `--accent` com `--on-accent`, raio 2–4 px, altura mínima 52 px no celular. Secundário com borda 1 px em `--text` a ~45%, legível sobre foto.
 
@@ -401,7 +401,7 @@ Tokens por `data-theme` no `<html>`. Componentes **só** usam tokens.
 ### 10.6 Trabalhos
 **a) Colagem com parallax:** 6–8 fotos de tamanhos e proporções diferentes em posições irregulares; cada uma com velocidade própria ao rolar (4–14%, só `transform`); algumas revelam com `clip-path`. Clique abre o lightbox. No celular, no máximo 8 animadas ao mesmo tempo.
 
-**b) Roda 3D (protagonista):** anel de 8–10 fotos (`perspective: 1400px`, `rotateY(i·360/n) translateZ(r)`); desktop com fotos de ~28vw e título gigante atrás; gira sozinha (~60 s/volta), arrasta com inércia, pausa no hover/foco/fora da tela; setas giram, `Enter` abre. Celular: rolagem horizontal ligada à vertical (seção `sticky` de ~250–300svh, central em destaque, contador `03 / 10`). Fallback: `scroll-snap` com fotos a 85% da largura; sem `preserve-3d`/reduced motion: grade.
+**b) Roda 3D (protagonista):** anel de 8–10 fotos (`perspective: 1400px`, `rotateY(i·360/n) translateZ(r)`); desktop com fotos de ~28vw e título gigante atrás; gira sozinha (~60 s/volta), arrasta com inércia, pausa no hover/foco/fora da tela; setas giram, `Enter` abre. Celular: rolagem horizontal ligada à vertical (seção `sticky` de no máximo 150svh — na prática 130svh —, central em destaque, contador `03 / 10`). Fallback: `scroll-snap` com fotos a 85% da largura; sem `preserve-3d`/reduced motion: grade.
 
 **c) Folha de contato (Fase 2):** visual de negativo, numeração mono (`14A ▸`), abas por categoria; ao entrar, um **lápis vermelho** (SVG, `stroke-dashoffset`) circula as fotos `marcada` (só círculos e "✓"). Com `mostrarDadosTecnicos`, `f/1.8 · 1/250 · ISO 200` sob o quadro.
 

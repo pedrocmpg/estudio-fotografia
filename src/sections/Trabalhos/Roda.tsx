@@ -9,6 +9,7 @@ import {
 } from 'react';
 import { Foto } from '../../components/Foto.tsx';
 import { obterFoto } from '../../data/fotos.ts';
+import { MEDIA_CELULAR } from '../../lib/constantes.ts';
 import { suportaPreserve3d, suportaSticky } from '../../lib/ambiente.ts';
 import { useMediaQuery, useReducedMotion, useRodando } from '../../motion/hooks.ts';
 import { useIndiceCentral } from '../../motion/useCentro.ts';
@@ -47,9 +48,7 @@ function rotulo(id: string): string {
  */
 export default function Roda({ fotos, segundosPorVolta, titulo, aoAbrir }: Props) {
   const reduzido = useReducedMotion();
-  const ponteiroGrosso = useMediaQuery('(pointer: coarse)');
-  const estreito = useMediaQuery('(max-width: 640px)');
-  const celular = ponteiroGrosso || estreito;
+  const celular = useMediaQuery(MEDIA_CELULAR);
   const modo: Modo =
     reduzido || !suportaPreserve3d()
       ? 'grade'

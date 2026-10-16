@@ -12,6 +12,8 @@ const original = typeof window !== 'undefined' ? window.matchMedia : undefined;
 export function definirMidia(m: Midia): void {
   const ligadas = (consulta: string): boolean => {
     if (consulta.includes('prefers-reduced-motion: reduce')) return Boolean(m.reduzido);
+    if (consulta.includes('max-width: 767px') && consulta.includes('pointer: coarse'))
+      return Boolean(m.ponteiroGrosso || m.estreito);
     if (consulta.includes('pointer: coarse')) return Boolean(m.ponteiroGrosso);
     if (consulta.includes('max-width: 640px')) return Boolean(m.estreito);
     if (consulta.includes('min-width: 900px')) return Boolean(m.largo);

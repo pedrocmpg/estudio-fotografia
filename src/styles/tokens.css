@@ -42,3 +42,10 @@
   /* Fonte mono é a mesma nos dois temas */
   --font-mono: 'IBM Plex Mono', 'Mono Fallback', ui-monospace, monospace;
 }
+
+/* Celular é outra composição (SPEC §11): menos espaço entre seções */
+@media (max-width: 767px), (pointer: coarse) {
+  :root {
+    --espaco-secao: clamp(3.5rem, 10vh, 5rem);
+  }
+}

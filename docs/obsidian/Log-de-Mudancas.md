@@ -15,3 +15,10 @@
 - **H — movimento:** títulos por máscara, fotos revelando, hover só com mouse.
 - **I — adendo:** tema padrão `luz-natural` (marrom `#8A5A3B`), seção Presentes com WhatsApp por item, dois Instagram e dois pontos no rodapé, JSON-LD estúdio + loja.
 - **Medidas:** Lighthouse celular 93 / 100 / 100 / 69 (SEO baixo por causa do `noindex` da prévia); LCP 3,0 s (simulado) e CLS 0; 193 testes verdes; ~25 telas de rolagem no celular.
+
+## 2026-10-16 — Ajuste do celular
+
+- Manifesto compacto no celular (~100svh, sem pin, palavras empilhadas, citação + 2 fotos) e palco de 200svh com sobreposição de ~30% no desktop.
+- Roda 3D do celular: 130svh (limite 150svh). Espaço entre seções menor no celular.
+- Troca de layout só por largura/ponteiro (`MEDIA_CELULAR`); teste impede user-agent.
+- `npm run prints:celular`: 20 prints por largura (360/390), todos com conteúdo. Lighthouse 94 / 100 / 100 / 69; LCP 2,9 s.

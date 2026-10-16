@@ -12,10 +12,10 @@
 
 /* Mesma altura da roda, para a página não pular quando o chunk chega */
 .reserva {
-  height: calc(100svh + 10 * 18svh);
+  height: 130svh;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) and (pointer: fine) {
   .reserva {
     height: clamp(30rem, 44vw, 42rem);
   }

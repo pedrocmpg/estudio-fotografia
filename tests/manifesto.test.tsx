@@ -33,7 +33,7 @@ describe('bloco E — manifesto', () => {
     const fonte = lerArquivo('src/sections/Manifesto/Manifesto.tsx');
     expect(fonte).not.toMatch(/setInterval|setTimeout/);
     const css = lerArquivo('src/sections/Manifesto/Manifesto.module.css');
-    expect(css).toContain('300svh');
+    expect(css).toContain('200svh');
     expect(css).toMatch(/translate3d\(0, calc\(\(var\(--e\) - var\(--s\)\)/);
   });
 
@@ -52,7 +52,7 @@ describe('bloco E — manifesto', () => {
     definirMidia({ reduzido: true });
     await renderApp();
     const pista = document.querySelector('#manifesto [data-palco]')!.parentElement as HTMLElement;
-    expect(pista).toHaveAttribute('data-estatico');
+    expect(pista.closest('#manifesto')).toHaveAttribute('data-modo', 'estatico');
   });
 
   it('com modoDemo desligado, texto não confirmado faz a seção sumir', async () => {

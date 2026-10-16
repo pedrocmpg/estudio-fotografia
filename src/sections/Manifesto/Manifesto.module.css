@@ -9,8 +9,8 @@
 
 .pista {
   --p: 0;
-  height: 300vh;
-  height: 300svh;
+  height: 200vh;
+  height: 200svh;
 }
 
 .palco {
@@ -27,8 +27,12 @@
 .palavra {
   /* posição desta palavra na rolagem, de -0,5 (ainda não chegou) a 0,5 (já saiu) */
   --o: calc(var(--p) * var(--n) - var(--i) - 0.5);
-  --e: clamp(0, calc((-0.25 - var(--o)) * 4), 1);
-  --s: clamp(0, calc((var(--o) - 0.25) * 4), 1);
+  /* patamar de metade da largura --h e transição de largura --t; a seguinte começa a entrar quando a
+     anterior está a 70% da saída (sobreposição de ~30%): 2h + 1,7t = 1, nunca um quadro vazio */
+  --h: 0.15;
+  --t: 0.41;
+  --e: clamp(0, calc((-1 * var(--h) - var(--o)) / var(--t)), 1);
+  --s: clamp(0, calc((var(--o) - var(--h)) / var(--t)), 1);
   grid-area: 1 / 1;
   /* a máscara: o texto sobe de baixo e sai por cima */
   overflow: clip;
@@ -38,11 +42,11 @@
 
 /* A primeira já está lá quando o palco chega; a última fica até a citação */
 .palavra[data-primeira] {
-  --o: max(calc(var(--p) * var(--n) - var(--i) - 0.5), -0.25);
+  --o: max(calc(var(--p) * var(--n) - var(--i) - 0.5), calc(-1 * var(--h)));
 }
 
 .palavra[data-ultima] {
-  --o: min(calc(var(--p) * var(--n) - var(--i) - 0.5), 0.25);
+  --o: min(calc(var(--p) * var(--n) - var(--i) - 0.5), var(--h));
 }
 
 .palavra[data-primeira][data-ultima] {
@@ -62,11 +66,11 @@
 }
 
 /* Sem pin (movimento reduzido): a frase inteira, uma palavra por linha, tudo visível */
-.pista[data-estatico] {
+.secao[data-modo='estatico'] .pista {
   height: auto;
 }
 
-.pista[data-estatico] .palco {
+.secao[data-modo='estatico'] .pista .palco {
   position: static;
   height: auto;
   padding-block: var(--espaco-secao);
@@ -74,7 +78,7 @@
   row-gap: 0.25em;
 }
 
-.pista[data-estatico] .palavra {
+.secao[data-modo='estatico'] .pista .palavra {
   grid-area: auto;
   --e: 0;
   --s: 0;
@@ -102,4 +106,59 @@
   letter-spacing: -0.02em;
   text-wrap: balance;
   color: var(--sobre-foto-2);
+}
+
+/* ---------- celular (SPEC §10.5): ~100svh, sem pin, palavras empilhadas, citação e 2 fotos juntas ---------- */
+
+@media (max-width: 767px), (pointer: coarse) {
+  .secao[data-modo='compacto'] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: var(--espaco-secao) 0;
+  }
+
+  .secao[data-modo='compacto'] .pista {
+    height: auto;
+  }
+
+  .secao[data-modo='compacto'] .palco {
+    position: static;
+    grid-template-columns: 1fr;
+    row-gap: 0.1em;
+    height: auto;
+  }
+
+  .secao[data-modo='compacto'] .palavra {
+    grid-area: auto;
+    --e: 1;
+    --s: 0;
+  }
+
+  .secao[data-modo='compacto'] .texto {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    transition: transform var(--t-lento) var(--ease-saida) calc(var(--i) * 120ms);
+  }
+
+  .secao[data-modo='compacto'] .pista[data-visivel] .palavra {
+    --e: 0;
+  }
+
+  .secao[data-modo='compacto'] .citacao {
+    min-height: 0;
+    padding: clamp(1.25rem, 3svh, 2rem) var(--gutter) 0;
+  }
+
+  .secao[data-modo='compacto'] .citacao blockquote p {
+    max-width: 24ch;
+    font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texto {
+    transition: none;
+  }
 }

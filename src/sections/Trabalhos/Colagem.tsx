@@ -9,7 +9,7 @@ interface Props {
   rotulo: string;
   /** Sem isto as fotos não são interativas (ex.: fotos do manifesto). */
   aoAbrir?: (indice: number) => void;
-  layout?: 'mesa' | 'trio';
+  layout?: 'mesa' | 'trio' | 'par';
 }
 
 /** Meia-amplitude do parallax por foto (total = 2×): de 4% a 14% de deslocamento vertical. */
