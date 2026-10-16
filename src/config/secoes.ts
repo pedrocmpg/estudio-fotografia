@@ -49,6 +49,7 @@ const NUMERADAS: readonly SecaoId[] = [
   'sessoes',
   'presentes',
   'trabalhos',
+  'antesDepois',
   'processo',
   'pacotes',
   'depoimentos',

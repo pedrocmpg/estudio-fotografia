@@ -1,0 +1,121 @@
+.secao {
+  padding-block: var(--espaco-secao);
+}
+
+.palco {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.figura {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  margin: 0;
+}
+
+.foto {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.citacao {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-weight: var(--peso-display);
+  font-size: clamp(2rem, 6vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  animation: entra var(--t-lento) var(--ease-saida) both;
+}
+
+.citacao p {
+  max-width: none;
+}
+
+.autor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.exemplo {
+  padding: 0.15rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--accent-texto);
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.seta {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid color-mix(in srgb, var(--text) 45%, transparent);
+  border-radius: 50%;
+  background: none;
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition:
+    background-color var(--t-base) ease,
+    transform var(--t-rapido) ease;
+}
+
+.seta:active {
+  transform: scale(0.96);
+}
+
+.contador {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  color: var(--text-2);
+}
+
+.google {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--accent-texto);
+  text-underline-offset: 0.25em;
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .seta:hover {
+    background: color-mix(in srgb, var(--text) 8%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .citacao {
+    animation: none;
+  }
+
+  .seta {
+    transition: none;
+  }
+}

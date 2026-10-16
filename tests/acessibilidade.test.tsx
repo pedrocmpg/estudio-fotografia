@@ -12,6 +12,7 @@ import { CtaFinal } from '../src/sections/CtaFinal/CtaFinal.tsx';
 import { Faixa } from '../src/sections/Faixa/Faixa.tsx';
 import { Faq } from '../src/sections/Faq/Faq.tsx';
 import { Manifesto } from '../src/sections/Manifesto/Manifesto.tsx';
+import { Depoimentos } from '../src/sections/Depoimentos/Depoimentos.tsx';
 import { Pacotes } from '../src/sections/Pacotes/Pacotes.tsx';
 import { Pedido } from '../src/sections/Pedido/Pedido.tsx';
 import { Presentes } from '../src/sections/Presentes/Presentes.tsx';
@@ -64,6 +65,7 @@ const SECOES: [string, () => ReactNode][] = [
   ['Manifesto', () => <Manifesto />],
   ['Trabalhos (colagem e roda)', () => <Trabalhos />],
   ['Como funciona', () => <Processo />],
+  ['Depoimentos', () => <Depoimentos />],
   ['Pacotes', () => <Pacotes />],
   ['Pedido', () => <Pedido />],
   ['FAQ', () => <Faq />],

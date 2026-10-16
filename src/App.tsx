@@ -9,7 +9,9 @@ import { siteConfig } from './config/site.config.ts';
 import type { SecaoId, SiteConfig } from './config/types.ts';
 import { parametrosDaUrl } from './lib/ambiente.ts';
 import { IntroProvider } from './motion/intro.tsx';
+import { AntesDepois } from './sections/AntesDepois/AntesDepois.tsx';
 import { CtaFinal } from './sections/CtaFinal/CtaFinal.tsx';
+import { Depoimentos } from './sections/Depoimentos/Depoimentos.tsx';
 import { Faixa } from './sections/Faixa/Faixa.tsx';
 import { Faq } from './sections/Faq/Faq.tsx';
 import { Header } from './sections/Header/Header.tsx';
@@ -45,6 +47,10 @@ function Secao({ id }: { id: SecaoId }) {
       return <Manifesto />;
     case 'trabalhos':
       return <Trabalhos />;
+    case 'antesDepois':
+      return <AntesDepois />;
+    case 'depoimentos':
+      return <Depoimentos />;
     case 'processo':
       return <Processo />;
     case 'pacotes':
