@@ -35,3 +35,7 @@
 - **Medidas:** Lighthouse celular 94 / 100 / 100 / 69 (SEO por causa do `noindex`); LCP 3,0 s, CLS 0,001, TBT 60 ms; JS inicial 92 KB gzip; 25 telas de rolagem no celular; 277 testes verdes.
 - **Prints:** `npm run prints:fase2` (360, 390, 768 e 1440, nos dois temas) em `docs/prints/fase2/`.
 - **Pendente:** deploy da prévia (o `wrangler` não está autenticado: `npx wrangler login` e depois o deploy do README); tudo `[CONFIRMAR]` segue com o Vitor; LCP < 2,5 s e polimento ficam para a Fase 3.
+
+## 2026-10-28 — Refino final antes do cliente
+
+- Header no celular mostra o nome curto; WhatsApp de demonstração documentado (aguarda número); auditoria completa em 360/390/768/1440 nos dois temas; Lighthouse 96/100/100, LCP 2,8 s. Deploy pendente de login no wrangler. Detalhes em DECISOES.md ("Refino final").
