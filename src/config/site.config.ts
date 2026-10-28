@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = {
     assinatura: 'Foto e Presente', // [CONFIRMAR]
     cidade: 'Bento Gonçalves', // [CONFIRMAR] visto no perfil público do Instagram
     uf: 'RS', // [CONFIRMAR]
-    whatsapp: '5500000000000', // [NÚMERO DE TESTE] aguardando o número de demonstração do Pedro (só dígitos, DDI+DDD); trocar pelo do estúdio na Fase 3.
+    whatsapp: '5554996997644', // [NÚMERO DE TESTE] número de demonstração (só dígitos, DDI+DDD); trocar pelo do estúdio na Fase 3.
     atendimento: ['estudio', 'externo'], // [CONFIRMAR]
     // [CONFIRMAR] as duas contas de Instagram (estúdio e loja); só aparecem quando preenchidas:
     // redes: [{ rotulo: 'Estúdio', usuario: '...' }, { rotulo: 'Loja', usuario: '...' }],

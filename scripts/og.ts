@@ -57,10 +57,10 @@ try {
   const png = await pagina.screenshot({ type: 'png' });
 
   let qualidade = 84;
-  let jpg = await sharp(png).jpeg({ quality: qualidade, mozjpeg: true }).toBuffer();
+  let jpg = await sharp(png).jpeg({ quality: qualidade, progressive: false }).toBuffer();
   while (jpg.length > LIMITE_BYTES && qualidade > 40) {
     qualidade -= 6;
-    jpg = await sharp(png).jpeg({ quality: qualidade, mozjpeg: true }).toBuffer();
+    jpg = await sharp(png).jpeg({ quality: qualidade, progressive: false }).toBuffer();
   }
   await writeFile(SAIDA, jpg);
   console.log(
