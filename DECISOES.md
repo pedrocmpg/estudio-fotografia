@@ -73,7 +73,7 @@ Registro das decisões tomadas sem perguntar (execução sem supervisão). Forma
 ## Revisão visual (prints) e desempenho
 
 - **Cortina reversa do CTA:** painéis em 4% (celular) e 6% (desktop) de cada lado, em vez dos 12% da spec: com 12% no tema claro (painéis na cor do fundo) o CTA parecia uma foto emoldurada com margens, contra o pedido "tela cheia, sem caixa". O efeito (fecham uma vez, emolduram a foto) continua.
-- **Cabeçalho:** o nome de marca ficou mais longo ("Ivy · Foto e Presente"); passa a cortar com reticências antes de espremer o botão "Pedir sessão", que nunca quebra linha.
+- **Cabeçalho:** o nome de marca ficou mais longo; em larguras de desktop corta com reticências antes de espremer o botão "Pedir sessão", que nunca quebra linha. No celular (`MEDIA_CELULAR`) o header mostra `negocio.nomeCurto` (o nome completo fica no `aria-label`); ver "Refino final".
 - **LCP:** o Lighthouse simulado (mobile, 4G lento, CPU 4×) deu 3,0–3,1 s (antes da elevação: 3,4 s). O elemento é a primeira foto da cortina, e o atraso é o JS montar a abertura (HTML inicial só tem o `<h1>`); sem estrangulamento, a renderização leva ~440 ms. Fizemos: foto prioritária sem fade/espera do React, recursos do `motion` em chunk à parte (JS inicial de 103 → 86 KB gzip). **Pendente:** para ficar abaixo de 2,5 s é preciso pré-renderizar a primeira cortina no build (README, "Notas técnicas").
 - **Intro em celular:** sem aparelho Android real; teste com CPU 4× mais lenta (Chrome emulando celular): começa em ~0,8 s, dura 4,5 s (spec: ~4,2 s), uma única tarefa longa (400 ms, a montagem inicial do JS), nenhuma durante a animação; "Pular" termina em 0,3 s. Não foi preciso simplificar.
 
@@ -148,8 +148,8 @@ Execução sem supervisão do §18 (aceite em §18.2). Um commit por bloco (J a 
 - **Prints:** `npm run prints:fase2`, 4 larguras (360, 390, 768, 1440) × 2 temas, um print por tela, em `docs/prints/fase2/<tema>/<largura>/`, mais `extras/` (menu aberto, aba Presentes dos pacotes, erro do formulário). Celular (360 e 390): nenhum print abaixo de 40% de conteúdo. Em 768 e 1440 a regra não vale (o manifesto em pin tem telas de uma palavra por desenho), mas o relatório mostra a medida. 768 px usa a composição de desktop (a troca é por largura < 768 ou ponteiro de toque).
 - **Rolagem no celular:** 25,4 telas em 390 px (meta ≥ ~10).
 - **Lighthouse (celular, simulado):** desempenho 94, acessibilidade 100, boas práticas 100, SEO 69 (por causa do `noindex` da prévia, esperado). LCP 3,0 s, CLS 0,001, TBT 60 ms. JS inicial 92 KB gzip (meta ≤ 150). Relatório em `docs/prints/lighthouse-fase2.html`.
-- **Testes:** 277 verdes (eram 200).
-- **Pendente:** (1) **deploy da prévia não foi feito**: o `wrangler` não está autenticado nesta máquina e o login do Cloudflare é interativo (`npx wrangler login`, depois `npx wrangler pages deploy dist --project-name ivystudio --branch production`); (2) LCP abaixo de 2,5 s pede pré-renderizar a primeira cortina (Fase 3); (3) sem aparelho Android real; (4) "voo" da miniatura na lightbox e label que sobe no foco (polimento, Fase 3).
+- **Testes:** 277 verdes na época (eram 200); hoje 279 (ver "Refino final").
+- **Pendente:** (1) ~~deploy da prévia não foi feito~~ — **já foi feito** depois, a partir de outra máquina (https://ivystudio-b3x.pages.dev; ver "Refino final" para o redeploy); (2) LCP abaixo de 2,5 s pede pré-renderizar a primeira cortina (Fase 3); (3) sem aparelho Android real; (4) "voo" da miniatura na lightbox e label que sobe no foco (polimento, Fase 3).
 
 ## Rodapé no celular (SPEC §10.17)
 
@@ -160,3 +160,11 @@ Execução sem supervisão do §18 (aceite em §18.2). Um commit por bloco (J a 
 ## Rodapé sem o nome gigante
 
 - A pedido do Pedro, o "Ivy" gigante do rodapé foi removido (desktop e celular). O componente `NomeGigante` foi apagado; `useAjusteLargura` continua no hero (opção `nomeGigante`). O texto do §10.17 e do bloco F sobre o nome gigante no rodapé está superado por esta decisão.
+
+## Refino final antes do cliente (2026-10-28)
+
+- **WhatsApp de demonstração.** O prompt pedia `[NÚMERO DE TESTE]`, mas isso é um espaço vazio do modelo (o Pedro ainda não passou o número), e `wa.me` só aceita dígitos; o validador (`/^\d{12,13}$/`) também barra texto. Inventar um número plausível poderia chamar uma pessoa real. Ficou `5500000000000` (DDD 00 não existe: não chega a ninguém; o validador e o JSON-LD já tratam como provisório), com o comentário `[NÚMERO DE TESTE]` no config. **Trocar pelo do estúdio na Fase 3**; para a demo, basta colar o número de teste em `negocio.whatsapp` (uma linha, `site.config.ts`), rebuildar e redeployar. Formulário, botão flutuante, cards de presente, "Pedir essa sessão" e contato resolvem todos para `negocio.whatsapp` (os `locais` ainda não têm número próprio); testes já cobrem as URLs `wa.me` e a mensagem.
+- **Header no celular:** `MEDIA_CELULAR` mostra `negocio.nomeCurto`; `aria-label` leva o nome completo (contém o texto visível). Desktop não muda. Teste em `tests/header-celular.test.tsx`.
+- **`RELATORIO-ESTADO.md` não existe** no repositório nem no histórico; a referência foi ignorada (as fontes foram SPEC, DECISOES e os relatórios em `docs/prints/`).
+- **Cofre Obsidian:** `C:\Users\User\...` não existe nesta máquina (Linux); notas em `docs/obsidian/`.
+- **Deploy:** o `wrangler` não está autenticado nesta máquina (ver relatório do refino).

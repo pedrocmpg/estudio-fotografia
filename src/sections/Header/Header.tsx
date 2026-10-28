@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useSiteConfig } from '../../apresentacao/previa.tsx';
 import { CtaBotao } from '../../components/CtaBotao.tsx';
 import { INFO_SECOES, secoesAtivas } from '../../config/secoes.ts';
+import { MEDIA_CELULAR } from '../../lib/constantes.ts';
+import { useMediaQuery } from '../../motion/hooks.ts';
 import { useIntro } from '../../motion/intro.tsx';
 import { MenuCelular } from './MenuCelular.tsx';
 import css from './Header.module.css';
@@ -18,6 +20,7 @@ export function Header() {
   const [solido, setSolido] = useState(false);
   const [oculto, setOculto] = useState(false);
   const [menuAberto, setMenuAberto] = useState(false);
+  const celular = useMediaQuery(MEDIA_CELULAR);
   const botaoMenu = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -69,8 +72,13 @@ export function Header() {
       data-visivel={visivel || undefined}
     >
       <div className={css.interno}>
-        <a className={css.marca} href="#topo">
-          {config.negocio.nome}
+        {/* no celular o nome completo cortaria com reticências: mostra o nome curto */}
+        <a
+          className={css.marca}
+          href="#topo"
+          aria-label={celular ? config.negocio.nome : undefined}
+        >
+          {celular ? config.negocio.nomeCurto : config.negocio.nome}
         </a>
 
         {links.length > 0 && (
