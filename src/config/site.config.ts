@@ -181,7 +181,7 @@ export const siteConfig: SiteConfig = {
       titulo: 'Revelação na hora', // [CONFIRMAR] diferencial da loja física no shopping
       texto: 'Traga a foto do celular e leve para casa na hora.',
     },
-    categorias: ['Canecas', 'Álbuns e porta-retratos', 'Quadros', 'Para vestir', 'Lembranças'],
+    categorias: ['Canecas', 'Álbuns e porta-retratos', 'Quadros', 'Impressões', 'Lembranças'],
     // [CONFIRMAR] itens, textos e valores (null = "[VALOR]" na prévia, "Consulte" no site final)
     itens: [
       {
@@ -230,14 +230,13 @@ export const siteConfig: SiteConfig = {
         mensagemWhatsapp: 'Oi! Quero transformar uma foto em quadro. Como funciona?',
       },
       {
-        id: 'almofada',
-        nome: 'Almofada',
-        categoria: 'Para vestir',
-        frase: 'Para abraçar a lembrança no sofá de casa.',
-        foto: 'prod-almofada',
+        id: 'impressoes',
+        nome: 'Fotos impressas',
+        categoria: 'Impressões',
+        frase: 'Suas fotos reveladas em papel, do tamanho que você quiser.',
+        foto: 'prod-impressoes',
         valor: null,
-        mensagemWhatsapp:
-          'Oi! Quero uma almofada personalizada com foto. Pode me passar as opções?',
+        mensagemWhatsapp: 'Oi! Quero imprimir minhas fotos. Quais tamanhos e papéis vocês têm?',
       },
       {
         id: 'polaroids',

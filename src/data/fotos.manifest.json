@@ -849,5 +849,26 @@
     "alt": "Dois quadros com moldura preta em uma parede clara, um deles com foto de rua em preto e branco",
     "placeholderGerado": false,
     "hash": "f075ced27ff660e3"
+  },
+  {
+    "id": "prod-impressoes",
+    "largura": 1920,
+    "altura": 1446,
+    "proporcao": 1.3278,
+    "src": "/fotos/prod-impressoes-960.jpg",
+    "srcset": {
+      "avif": "/fotos/prod-impressoes-480.avif 480w, /fotos/prod-impressoes-960.avif 960w, /fotos/prod-impressoes-1600.avif 1600w",
+      "webp": "/fotos/prod-impressoes-480.webp 480w, /fotos/prod-impressoes-960.webp 960w, /fotos/prod-impressoes-1600.webp 1600w",
+      "jpg": "/fotos/prod-impressoes-480.jpg 480w, /fotos/prod-impressoes-960.jpg 960w, /fotos/prod-impressoes-1600.jpg 1600w"
+    },
+    "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAgCdASoQAAwAA4BaJQBdgBuxUZAXOOIAAP72lSj6e1XBPl//Np4nqzhArlhvd2VWMN/zXecKJBuYg1ve/HikhAYuppqD72g/B/BfRhkQ8EiK6cqJ+hJqEkYgwhJX9ATWY6QAwL+IMAAA",
+    "cor": "#080808",
+    "foco": {
+      "x": 0.6,
+      "y": 0.7
+    },
+    "alt": "Fotografias impressas em papel fosco espalhadas sobre uma mesa de madeira, junto a uma janela",
+    "placeholderGerado": false,
+    "hash": "fee955810257d31c"
   }
 ]

@@ -524,5 +524,18 @@
     "credito": "Foto de exemplo — Crew crew, Wikimedia Commons (commons.wikimedia.org/wiki/File:Framed_wall_art_(Unsplash).jpg)",
     "licenca": "CC0",
     "ilustrativa": true
+  },
+  {
+    "id": "prod-impressoes",
+    "arquivo": "prod-impressoes.jpg",
+    "alt": "Fotografias impressas em papel fosco espalhadas sobre uma mesa de madeira, junto a uma janela",
+    "categoria": "Presentes",
+    "foco": {
+      "x": 0.6,
+      "y": 0.7
+    },
+    "credito": "Foto de exemplo — Lombres, Wikimedia Commons (commons.wikimedia.org/wiki/File:WLM_Tuscany_2025_table_with_prints_1.jpg)",
+    "licenca": "CC BY 4.0",
+    "ilustrativa": true
   }
 ]

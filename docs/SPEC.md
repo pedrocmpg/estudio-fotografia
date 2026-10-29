@@ -47,7 +47,7 @@ Fonte: perfis públicos de Instagram trazidos pelo Pedro. **Tudo `[CONFIRMAR]` c
 
 **Tese do site:** "Tire a foto com a gente e leve a memória pra casa num presente." O site vende os dois lados e liga um ao outro.
 
-**Confirmar:** nome de marca a usar no site (§10.1), se estúdio e loja ficam no mesmo endereço, quais produtos são carro-chefe, se a idade de "20 anos" pode ser citada.
+**Confirmar:** nome de marca a usar no site (§10.1), se estúdio e loja ficam no mesmo endereço, quais produtos são carro-chefe.
 
 ---
 
@@ -621,7 +621,7 @@ Padrão `nenhum`. Opcional: Cloudflare Web Analytics (sem cookies, sem banner), 
 **Para o Vitor levantar com o estúdio — `[CONFIRMAR]`:**
 - Nome de marca no site (Ivy / Ivy Fotografia / Ivy Foto e Presente) e se há logo em boa resolução.
 - Estúdio e loja: mesmo endereço? Endereços, horários (inclusive do shopping), WhatsApp de cada um.
-- Sessões que realmente fazem; produtos carro-chefe; se "revelação na hora" e "20 anos" podem aparecer.
+- Sessões que realmente fazem; produtos carro-chefe; se "revelação na hora" pode aparecer.
 - Pacotes e valores (ou "sob consulta"); prazos de entrega das fotos e dos presentes; formas de pagamento.
 - Fotos autorizadas para o site (pessoas e produtos) e autorização dos clientes retratados.
 - Depoimentos reais autorizados e link das avaliações no Google.
