@@ -231,7 +231,7 @@ export const siteConfig: SiteConfig = {
       },
       {
         id: 'impressoes',
-        nome: 'Fotos impressas',
+        nome: 'Impressões',
         categoria: 'Impressões',
         frase: 'Suas fotos reveladas em papel, do tamanho que você quiser.',
         foto: 'prod-impressoes',
